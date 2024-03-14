@@ -48,10 +48,11 @@
     font-size: 14px;
     border-radius: 2px;
 
-}
+} 
 .select-dropdown .search-result li a:hover{
   background-color: #3bb77e;
   color: #fff;
+ 
 }
 
 .select-dropdown .search-result li a.active{

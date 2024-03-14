@@ -1,0 +1,124 @@
+
+.navbar-header{
+  padding: 10px 0px;
+  border-top: 1px solid #e4e4e4 ;
+  border-bottom: 1px solid #e4e4e4 ;
+}
+
+.navbar-header .part1 .browse-button{
+   display: flex;
+   align-items: center;
+}
+
+.navbar-header .part1 .browse-button button {
+  background-color: var(--nest-primary);
+  padding: 10px 15px;
+  border: none;
+  width: 70%;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.navbar-header .part1 .browse-button button .grid-box{
+  margin-right: 5px; 
+  margin-top: -4px;
+}
+.navbar-header .part1 .browse-button button .down-arrow-btn{
+  margin-left: 5px; 
+  font-size: 14px;
+}
+
+/****** part 2 css  ********/
+.part2{
+  display: flex;
+  align-items: center;
+}
+.navbar-menu .menu-item .list-item-single {
+   position: relative;
+}
+
+.navbar-menu .menu-item .list-item-single .nested-list {
+  position: absolute;
+  top: 55px;
+  left: 0px;
+  width: 140px;
+  background-color: #ffffff;
+  z-index: 999;
+  padding: 12px 0px;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+}
+
+
+.navbar-menu .menu-item .list-item-single .nested-list li{
+  padding: 5px 0px;
+  transition: all 0.3s ease-in-out;
+
+}
+.navbar-menu .menu-item .list-item-single .nested-list li:hover{
+  color: var(--nest-primary);
+  background-color: #dcdcdc;
+
+}
+.navbar-menu .menu-item .list-item-single .nested-list li a{
+  font-size: 15px;
+  color: #253D4E !important;
+  font-weight: 500;
+
+  
+}
+
+
+.navbar-menu .menu-item .list-item-single a{
+   padding: 0px 15px;
+   display: block;
+   color: #253D4E !important;
+   font-size: 16px; 
+   font-weight: 700;
+} 
+.navbar-menu .menu-item .list-item-single a .down-arrow-item{
+   color: #cccccc !important;
+   font-size: 13px;
+
+} 
+
+
+
+
+
+/*********** part3 ************/
+.part3 .contact-section{
+  display: flex;
+  gap: 10px;
+}
+.part3 .contact-section .headphone{
+   font-size: 32px;
+}
+.part3 .contact-section .support  p {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--nest-primary);
+  margin-bottom: 0px;
+  line-height: 19px;
+  margin-top: 10px;
+
+}
+.part3 .contact-section .support .center{
+   color: #7E7E7E;
+   font-weight: 500;
+   font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

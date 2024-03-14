@@ -13,6 +13,9 @@ const SelectDrop = ({ data }) => {
   const [selectIndex, setSelectIndex ] = useState(0); 
   const [selectItem, setSelectItem ] = useState("All Categories"); 
 
+  const [listdata, setListData ] = useState(data);
+  const [listdata2, setListData2 ] = useState(data);
+
  // handleClickOpen
  const handleClickOpen =() => {
     setIsOpenDrop(() => !isOpenDrop); 
@@ -25,23 +28,35 @@ const SelectDrop = ({ data }) => {
     setSelectItem(item)
  }
 
+// filterList
+const filterList = (e) => {
+     const keyward = e.target.value.toLowerCase();
 
+     const list = listdata2.filter((item) => {
+      return item.toLowerCase().includes(keyward); 
+     })
+
+     const list2 = list.filter((item, index) => list.indexOf(item) === index)
+
+     setListData(list2);  
+    
+}
 
 
   return (
     <>
        <ClickAwayListener onClickAway={() => setIsOpenDrop(false) }>
-          <div className="select-drop">
-              <p className="select-drop-category" onClick={handleClickOpen}> { selectItem }   <FaAngleDown /> </p> 
+          <div className="select-drop ">
+              <p className="select-drop-category" onClick={handleClickOpen}> { selectItem.length > 14 ? selectItem.substring(0, 14)+ "...." :  selectItem }   <FaAngleDown /> </p> 
                 
               {
               isOpenDrop &&   <div className="select-dropdown">       
-              <div className="search-field">
-                <input type="text" placeholder="Search here ...."/>
+              <div className="search-field ">
+                <input type="text" placeholder="Search here ...." onChange={filterList}/>
               </div>
-              <ul className="search-result">
+              <ul className="search-result ">
                 {
-                  data.map((item, index) => {
+                  listdata.map((item, index) => {
                     return  <li key={index} >
                     <Link to="" onClick={() => handleClose(index, item)} className={`${selectIndex === index ? "active" : ""}`} >{item} </Link>
                   </li>

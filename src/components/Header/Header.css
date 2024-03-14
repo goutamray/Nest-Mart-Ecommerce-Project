@@ -14,6 +14,7 @@
 .middle-bar {
   display: flex;
   align-items: center;
+ 
 }
 
 .header-middle .header-search{
@@ -69,50 +70,73 @@
 
 /********** Cart-wishlist-account css **************/
 
-.cart-wish{
-  position: relative;
-}
-
-.header-middle .header-cart-wishlist{
-  padding-left: 20px;
-  display: flex ;
-  margin-top: 30px;
+.header-middle .cart-wish-account {
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
-
 }
 
-.header-middle .header-cart-wishlist .compare-log{
-   display: flex;
-   margin: 0px 16px;
-}
-
-.header-middle .header-cart-wishlist .compare-log p {
-  font-size: 16px;
+.header-middle .cart-wish-account .header-cart-wishlist .header-action-icon-2 {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
   position: relative;
-  top: 5px;
-  margin-left: 2px;
-  color: #7E7E7E;
-}
 
-.header-middle .header-cart-wishlist .compare-log .compare-icon{
-  font-size: 16px;
-  color: #7E7E7E !important;
-  position: relative;
-}
 
- .header-middle .header-cart-wishlist .compare-log span.badge {
+}
+.header-middle .cart-wish-account .header-cart-wishlist .dropdown-menu-abc {
   position: absolute;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
+  right: 22px;
+  top: 76px;
+  padding: 10px 0px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  z-index: 9999;
+  background-color: #fff !important;
+}
+
+ .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover {
+  padding: 2px 13px;
+  width: 160px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover:hover{
+  color: var(--nest-primary);
+  background-color: #dcdcdc;
+}
+
+ .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button {
+    border: none !important;
+    background: transparent !important;
+    padding: 8px 8px;
+    font-size: 14px;
+
+}
+
+ .cart-wish-account .header-cart-wishlist .header-action-icon-2 .compare-box{
+  position: relative;
+}
+
+.cart-wish-account .header-cart-wishlist .header-action-icon-2 .compare-box .pro-count {
   background-color: var(--nest-primary);
-  color: #fff !important;
-  line-height: 17px;
-  left: 11px;
-  top: -14px;
-} 
+  display: block;
+  height: 20px !important;
+  width: 20px !important;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px !important;
+  line-height: 20px;
+  position: absolute;
+  left: 14px;
+  top: -8px;
+  text-align: center;
+}
 
-
-
+.cart-wish-account .header-cart-wishlist .header-action-icon-2 a.compare-text{
+  margin-top: 11px;
+  margin-left: 2px;
+  color: #636262;
+}
 
 
