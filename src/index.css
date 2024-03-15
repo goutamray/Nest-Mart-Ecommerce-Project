@@ -42,7 +42,11 @@ input:focus{
 }
 
 
-
+ .heading{
+  font-size: 32px;
+  font-weight: 700;
+  color: #253D4E;
+ }
 
 
 

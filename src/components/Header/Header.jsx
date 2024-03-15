@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <>
-       <header className="header-middle">
+        <header className="header-middle">
           <div className="container-fluid">
             <div className="row">
 
@@ -135,7 +135,9 @@ const Header = () => {
           </div>
         </header>
 
-        <Navbar />     
+        <Navbar /> 
+        
+            
     </>      
   )
 }

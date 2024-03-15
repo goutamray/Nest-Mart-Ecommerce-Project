@@ -1,9 +1,17 @@
 
+import HomeSlider from "../../components/Slider/HomeSlider"
+import CategorySlider from "../../components/catSlider/CategorySlider"
+
+
+import "./Home.css"
 
 const Home = () => {
   return (
     <>
-      <h2 className="mt-5"> home </h2>
+    
+      <HomeSlider /> 
+      <CategorySlider /> 
+      
     </>
   )
 }
