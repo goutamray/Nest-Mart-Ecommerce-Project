@@ -60,54 +60,7 @@ const CategorySlider = () => {
                 </div>
                  })
                 }
-                
-
-                {/* <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                <div className="category-item">
-                  <div className="info"> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 26 items </span>
-                   </div>
-                </div>
-                 */}
-         
-                      
-             
+                         
             </Slider>
          </div>
       </div>
