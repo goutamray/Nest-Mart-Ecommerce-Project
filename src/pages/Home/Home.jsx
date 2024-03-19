@@ -6,11 +6,28 @@ import { FaArrowRight } from "react-icons/fa";
 import banner1 from "../../assets/img/banner/banner-1.png"
 import banner2 from "../../assets/img/banner/banner-2.png"
 import banner3 from "../../assets/img/banner/banner-3.png"
-
-import "./Home.css"
+import banner4 from "../../assets/img/banner/banner-4.png"
+import { IoIosSend } from "react-icons/io";
 import Product from "../../components/product/Product";
 
+import slider1 from "../../../src/assets/img/slider/slider-1.png"
+import Slider from "react-slick"; 
+
+import "./Home.css"
+
 const Home = () => {
+
+
+  let settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    fade : false,
+    arrows : true, 
+  }
+
   return (
     <>
     
@@ -88,33 +105,80 @@ const Home = () => {
 
           <div className="row product-row my-4">
              <div className="item">
-                 <Product /> 
+                 <Product tag="new"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="hot"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="best"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="new"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="best"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="hot"/> 
              </div>
              <div className="item">
-                 <Product /> 
+                 <Product tag="sale"/> 
+             </div>
+             <div className="item">
+                 <Product tag="hot"/> 
+             </div>
+             <div className="item">
+                 <Product tag="best"/> 
+             </div>
+             <div className="item">
+                 <Product tag="new"/> 
              </div>
           </div>
 
         </div>
       </div>
        
-       {/* Products */}
-      
+       {/* Daily Best Products */}
+       <div className="popular-products my-5">
+        <div className="container-fluid">
+          <div className="tab-header d-flex align-items-center justify-content-between">
+            <h3> Daily Best Sells </h3>
+            <ul className="list list-inline custom-ul">        
+              <li  className="list-inline-item"> 
+                <a href=""> Featured </a>
+              </li>
+              <li className="list-inline-item"> 
+                <a href=""> Popular </a>
+              </li>
+              <li className="list-inline-item"> 
+                <a href=""> New added </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="row my-4">
+            <div className="col-md-3">
+               <div className="banner-image">
+                   <img src={banner4} alt="" className="w-100" style={{borderRadius: "20px"}}/>
+                   <h2> Bring nature into your home </h2>   
+                   <a href="#" className="button-shop-primary"> Shop Now <FaArrowRight /></a>    
+               </div>
+            </div>
+
+            <div className="col-md-9">
+            <Slider {...settings} className="product-slider-main">
+                    <Product tag="new"/>  
+                    <Product tag="hot"/> 
+                    <Product tag="sale"/> 
+                    <Product tag="new"/> 
+                    <Product tag="best"/> 
+                </Slider>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
 
     </>

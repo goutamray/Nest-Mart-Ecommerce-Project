@@ -22,9 +22,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="nav navbar-header ">
+      <div className="nav navbar-header my-custom-header shadow">
         <div className="container-fluid">
-          <div className="row">
+          <div className="row d-flex align-items-center my-3">
             <div className="col-sm-3 part1">
                <div className="browse-button ">
                 <button> <IoGrid className="grid-box" />  Browse All Categories <FaChevronDown className="down-arrow-btn"/> </button>

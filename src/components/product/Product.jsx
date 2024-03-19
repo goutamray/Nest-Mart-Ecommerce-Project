@@ -1,18 +1,45 @@
-import { FaStar } from "react-icons/fa"; 
-import { FaStarHalfAlt } from "react-icons/fa";
+
+import { FaStar, FaStarHalfAlt } from "react-icons/fa"; 
 import { IoCartOutline } from "react-icons/io5";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { CiHeart, CiShuffle } from "react-icons/ci";
 
 
 import "./Product.css"
 import { Link } from "react-router-dom";
 
-const Product = () => {
+
+const Product = (props) => {
+
   return (
-    <>
+          <>
+
       <div className="productThumb my-2">
+        {
+          props.tag !== null && props.tag !== undefined &&  
+           <span className={`badge ${props.tag}`}> {props.tag} </span>
+        }
+      
         <Link > 
           <div className="product-image">      
-             <img style={{width: "100%"}} src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/product-10-2.jpg" alt="" />
+             <img style={{width: "100%"}} src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/product-2-2.jpg" alt="" />
+
+             <div className="overlay">
+                <ul className="list list-inline">
+                    <li className="list-inline-item">
+                      <a href="#"> <MdOutlineRemoveRedEye /> </a>
+                     
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="#" > <CiHeart /> </a>
+                     
+                    </li>
+                    <li className="list-inline-item" >
+                      <a href="#" > <CiShuffle /> </a>
+                     
+                    </li>
+                </ul>
+             </div>
          </div>
          </Link>
          

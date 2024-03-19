@@ -73,5 +73,44 @@
   width: 20%;
 
 } 
-
+.popular-products .banner-image{
+  position: relative;
+}
+.popular-products .banner-image h2{
+  font-size: 40px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 80%;
  
+}
+.popular-products .banner-image .button-shop-primary {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  background: var(--nest-primary);
+  border-radius: 4px;
+  padding: 5px 8px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.popular-products .banner-image .button-shop-primary:hover {
+  background-color: #FDC040;
+}
+
+.popular-products .product-slider-main .slick-slide{
+  padding: 0px 15px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
