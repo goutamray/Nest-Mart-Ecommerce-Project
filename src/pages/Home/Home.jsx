@@ -2,18 +2,26 @@
 import HomeSlider from "../../components/Slider/HomeSlider"
 import CategorySlider from "../../components/catSlider/CategorySlider"
 import { FaArrowRight } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 
 import banner1 from "../../assets/img/banner/banner-1.png"
 import banner2 from "../../assets/img/banner/banner-2.png"
 import banner3 from "../../assets/img/banner/banner-3.png"
 import banner4 from "../../assets/img/banner/banner-4.png"
-import { IoIosSend } from "react-icons/io";
+import banner9 from "../../assets/img/banner/banner-9.png"
+
+import icon1  from "../../assets/img/icons/icon-1.svg"
+import icon2  from "../../assets/img/icons/icon-2.svg"
+import icon3  from "../../assets/img/icons/icon-3.svg"
+import icon4  from "../../assets/img/icons/icon-4.svg"
+import icon5  from "../../assets/img/icons/icon-5.svg"
+
 import Product from "../../components/product/Product";
 
-import slider1 from "../../../src/assets/img/slider/slider-1.png"
 import Slider from "react-slick"; 
 
 import "./Home.css"
+import TopProduct from "../../components/TopProducts/TopProduct";
 
 const Home = () => {
 
@@ -26,6 +34,8 @@ const Home = () => {
     slidesToScroll: 1,
     fade : false,
     arrows : true, 
+    autoPlay : 3000,
+
   }
 
   return (
@@ -165,23 +175,139 @@ const Home = () => {
                    <a href="#" className="button-shop-primary"> Shop Now <FaArrowRight /></a>    
                </div>
             </div>
-
             <div className="col-md-9">
             <Slider {...settings} className="product-slider-main">
-                    <Product tag="new"/>  
-                    <Product tag="hot"/> 
-                    <Product tag="sale"/> 
-                    <Product tag="new"/> 
-                    <Product tag="best"/> 
-                </Slider>
+              <div className="item">
+                 <Product tag="new"/>  
+              </div>
+              <div className="item">
+                 <Product tag="hot"/>  
+              </div>
+              <div className="item">
+                 <Product tag="best"/>  
+              </div>
+              <div className="item">
+                 <Product tag="sale"/>  
+              </div>
+              <div className="item">
+                 <Product tag="hot"/>  
+              </div>                
+             </Slider>
             </div>
           </div>
-
         </div>
       </div>
 
+      {/* top products */}
+      <div className="topProducts my-3">
+        <div className="container-fluid">
+           <div className="row">
+             <div className="col-md-3">
+                 <TopProduct title="Top Selling" />
+             </div>
+             <div className="col-md-3">
+                <TopProduct title="Trending Products"  />
+             </div>
+             <div className="col-md-3">
+                 <TopProduct title="Recently added" />
+             </div>
+             <div className="col-md-3">
+                 <TopProduct title="Top Rated" />
+             </div>
+           </div>
+        </div>
+      </div>
+
+     {/* newsletter banner  */}
+      <div className="news-letter">
+        <div className="container-fluid">
+             <div className="row">
+               <div className="item">              
+                    <div className="info">
+                         <h2> Stay home & get your daily <br/>  grocery deals </h2>
+                         <p> Start Your Daily Shopping with <a href="#"> Nest Mart </a>  </p>
+                         <form className="subscribe-form">
+                           <IoIosSend className="send" />
+                           <input type="email" placeholder="Your emaill address" />
+                           <button type="submit"> Subscribe </button>
+                         </form>
+                    </div>
+                    </div>  
+             
+                 <div className="photo-box">
+                    <img src={banner9} alt="" />
+                  </div>
+             </div>
+          </div>
+        </div>
+
+
+
+        {/* Top footer section  */}
+
+        <div className="top-footer">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="collumPartAll">
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon1} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Best prices & offers </h4>
+                          <p> Orders $50 or more </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon2} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Free delivery </h4>
+                          <p> 24/7 amazing services </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon3} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Great daily deal </h4>
+                          <p> When you sign up </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon4} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4>  Wide assortment </h4>
+                          <p> Mega Discounts </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon5} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Easy returns </h4>
+                          <p> Within 30 days </p>
+                      </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
 
     </>
+
   )
 }
 

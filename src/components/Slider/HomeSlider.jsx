@@ -11,6 +11,8 @@ import slider2 from "../../../src/assets/img/slider/slider-2.png"
 
 
 
+
+
 import "./Slider.css" 
 
 

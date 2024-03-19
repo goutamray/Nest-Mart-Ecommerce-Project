@@ -41,6 +41,9 @@ input:focus{
   outline: none;
 }
 
+h6{
+  margin-bottom: 0px;
+}
 
  .heading{
   font-size: 32px;
