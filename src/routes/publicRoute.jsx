@@ -1,7 +1,9 @@
 import Layout from "../components/Layout/Layout";
 import About from "../pages/About/About";
 import Home from "../pages/Home/Home";
+import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/contact/Contact";
+
 
 
 // create public router 
@@ -19,7 +21,7 @@ const publicRouter = [
       },
       {
         path : "/shop",
-        element : <About /> 
+        element : <Shop /> 
       },
       {
         path : "/contact",

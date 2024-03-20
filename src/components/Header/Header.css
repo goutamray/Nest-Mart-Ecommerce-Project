@@ -91,7 +91,7 @@
   padding: 10px 0px;
   border: 1px solid #dcdcdc;
   border-radius: 10px;
-  z-index: 9999;
+  z-index: 999999999999;
   background-color: #fff !important;
 }
 
@@ -109,7 +109,7 @@
  .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button {
     border: none !important;
     background: transparent !important;
-    padding: 8px 8px;
+    padding: 8px 5px;
     font-size: 14px;
 
 }

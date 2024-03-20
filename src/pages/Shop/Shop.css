@@ -1,0 +1,46 @@
+
+/****** Shop page css  *********/
+.listingProduct {
+  background-image: url(../../assets/img/banner/header-bg.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px 20px;
+  border-radius: 20px;
+
+}
+
+.listingProduct .breadCrumb{
+   padding: 50px 0px;
+}
+
+.listingProduct .breadCrumb h2{
+    font-size: 48px;
+    color: #253D4E;
+    font-weight: 700;
+}
+
+.listingProduct .breadCrumb ul li a{
+  color: #7E7E7E;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+/*sidebar  */
+.left-sidebar{
+   max-width: 20%;
+   padding: 0px;
+}
+
+.right-sidebar{
+  max-width: 80%;
+}
+
+
+
+
+
+
+
+
