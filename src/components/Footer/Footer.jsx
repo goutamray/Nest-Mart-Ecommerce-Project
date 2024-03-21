@@ -5,19 +5,110 @@ import { CiClock2 } from "react-icons/ci";
 import { FiPhoneCall, FiTwitter } from "react-icons/fi";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineSkype } from "react-icons/ai"; 
+import { IoIosSend } from "react-icons/io";
 
 import logo from "../../assets/img/logo.svg"
 import payment1 from "../../assets/img/pay/google-play.jpg"
 import payment2 from "../../assets/img/pay/app-store.jpg"
 import payment3 from "../../assets/img/pay/payment-method.png"
-
-
+import banner9 from "../../assets/img/banner/banner-9.png"
+import icon1  from "../../assets/img/icons/icon-1.svg"
+import icon2  from "../../assets/img/icons/icon-2.svg"
+import icon3  from "../../assets/img/icons/icon-3.svg"
+import icon4  from "../../assets/img/icons/icon-4.svg"
+import icon5  from "../../assets/img/icons/icon-5.svg"
 
 
 import "./Footer.css"
 const Footer = () => {
   return (
     <>
+     {/* newsletter banner  */}
+     <div className="news-letter">
+        <div className="container-fluid">
+             <div className="row">
+               <div className="item">              
+                    <div className="info">
+                         <h2> Stay home & get your daily <br/>  grocery deals </h2>
+                         <p> Start Your Daily Shopping with <a href="#"> Nest Mart </a>  </p>
+                         <form className="subscribe-form">
+                           <IoIosSend className="send" />
+                           <input type="email" placeholder="Your emaill address" />
+                           <button type="submit"> Subscribe </button>
+                         </form>
+                    </div>
+                    </div>  
+             
+                 <div className="photo-box">
+                    <img src={banner9} alt="" />
+                  </div>
+             </div>
+          </div>
+        </div>
+
+    {/* Top footer section  */}
+     <div className="top-footer">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="collumPartAll">
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon1} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Best prices & offers </h4>
+                          <p> Orders $50 or more </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon2} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Free delivery </h4>
+                          <p> 24/7 amazing services </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon3} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Great daily deal </h4>
+                          <p> When you sign up </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon4} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4>  Wide assortment </h4>
+                          <p> Mega Discounts </p>
+                      </div>
+                    </div>
+
+                    <div className="item-box-icon">
+                      <div className="single-img">
+                         <img src={icon5} alt="" />
+                      </div>
+                      <div className="single-text">
+                          <h4> Easy returns </h4>
+                          <p> Within 30 days </p>
+                      </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+    {/* bottom footer */}
       <div className="footer-section my-4">
         <div className="container-fluid">
           <div className="row ">

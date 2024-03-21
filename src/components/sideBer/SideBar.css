@@ -1,5 +1,8 @@
 
 /******* sideber css ***********/
+
+
+
 .sidebar-left .card-box {
   padding: 20px;
   border: 1px solid rgb(239 239 239);
@@ -91,6 +94,65 @@ color: var(--nest-primary);
 }
 
 
+/* filter section css */
+.customer-checkbox h6{
+  font-size: 16px;
+  font-weight: 700;
+  color:  #212529;
+  margin-bottom: 3px;
+}
+.customer-checkbox ul li{
+  color: #687188;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.customer-checkbox ul li input{ 
+   font-size: 20px;
+}
+.customer-checkbox ul li label{
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+.customer-checkbox .color-count{
+  padding-left: 6px;
+}
+
+/* filter btn css */
+
+.card-box .btn-default-filter{
+  background-color: var(--nest-primary);
+  padding: 8px 20px;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;  
+}
+
+
+.card-box .btn-default-filter:hover{
+  background-color: #f5ba3e;
+ 
+}
+
+.card-box .btn-default-filter .filter{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+
+.sidebar-left .card-box-img {
+  border: 1px solid rgb(239 239 239);
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
 
 
 

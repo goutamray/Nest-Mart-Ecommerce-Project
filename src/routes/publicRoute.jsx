@@ -1,6 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import About from "../pages/About/About";
 import Home from "../pages/Home/Home";
+import NotFound from "../pages/NotFound/NotFound";
 import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/contact/Contact";
 
@@ -26,7 +27,11 @@ const publicRouter = [
       {
         path : "/contact",
         element : <Contact /> 
-      }
+      },
+      {
+        path : "*",
+        element : <NotFound />  
+      },
     ] 
   }
 ]

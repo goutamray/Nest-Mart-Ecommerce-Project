@@ -81,8 +81,8 @@
 }
 
 .home-slider-main .item .info h2{
-  font-size: 72px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 600;
   color: #253D4E;
   margin-bottom: 30px;
 }
@@ -91,6 +91,7 @@
   font-weight: 400;
   color: #7E7E7E;
   line-height: 24px;
+  margin-bottom: 30px;
 }
 
 /* form css */

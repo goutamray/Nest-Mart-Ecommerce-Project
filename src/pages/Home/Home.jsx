@@ -2,19 +2,15 @@
 import HomeSlider from "../../components/Slider/HomeSlider"
 import CategorySlider from "../../components/catSlider/CategorySlider"
 import { FaArrowRight } from "react-icons/fa";
-import { IoIosSend } from "react-icons/io";
+
 
 import banner1 from "../../assets/img/banner/banner-1.png"
 import banner2 from "../../assets/img/banner/banner-2.png"
 import banner3 from "../../assets/img/banner/banner-3.png"
 import banner4 from "../../assets/img/banner/banner-4.png"
-import banner9 from "../../assets/img/banner/banner-9.png"
 
-import icon1  from "../../assets/img/icons/icon-1.svg"
-import icon2  from "../../assets/img/icons/icon-2.svg"
-import icon3  from "../../assets/img/icons/icon-3.svg"
-import icon4  from "../../assets/img/icons/icon-4.svg"
-import icon5  from "../../assets/img/icons/icon-5.svg"
+
+
 
 import Product from "../../components/product/Product";
 
@@ -39,7 +35,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <> 
     
       <HomeSlider /> 
       <CategorySlider /> 
@@ -217,94 +213,6 @@ const Home = () => {
            </div>
         </div>
       </div>
-
-     {/* newsletter banner  */}
-      <div className="news-letter">
-        <div className="container-fluid">
-             <div className="row">
-               <div className="item">              
-                    <div className="info">
-                         <h2> Stay home & get your daily <br/>  grocery deals </h2>
-                         <p> Start Your Daily Shopping with <a href="#"> Nest Mart </a>  </p>
-                         <form className="subscribe-form">
-                           <IoIosSend className="send" />
-                           <input type="email" placeholder="Your emaill address" />
-                           <button type="submit"> Subscribe </button>
-                         </form>
-                    </div>
-                    </div>  
-             
-                 <div className="photo-box">
-                    <img src={banner9} alt="" />
-                  </div>
-             </div>
-          </div>
-        </div>
-
-
-
-        {/* Top footer section  */}
-
-        <div className="top-footer">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="collumPartAll">
-
-                    <div className="item-box-icon">
-                      <div className="single-img">
-                         <img src={icon1} alt="" />
-                      </div>
-                      <div className="single-text">
-                          <h4> Best prices & offers </h4>
-                          <p> Orders $50 or more </p>
-                      </div>
-                    </div>
-
-                    <div className="item-box-icon">
-                      <div className="single-img">
-                         <img src={icon2} alt="" />
-                      </div>
-                      <div className="single-text">
-                          <h4> Free delivery </h4>
-                          <p> 24/7 amazing services </p>
-                      </div>
-                    </div>
-
-                    <div className="item-box-icon">
-                      <div className="single-img">
-                         <img src={icon3} alt="" />
-                      </div>
-                      <div className="single-text">
-                          <h4> Great daily deal </h4>
-                          <p> When you sign up </p>
-                      </div>
-                    </div>
-
-                    <div className="item-box-icon">
-                      <div className="single-img">
-                         <img src={icon4} alt="" />
-                      </div>
-                      <div className="single-text">
-                          <h4>  Wide assortment </h4>
-                          <p> Mega Discounts </p>
-                      </div>
-                    </div>
-
-                    <div className="item-box-icon">
-                      <div className="single-img">
-                         <img src={icon5} alt="" />
-                      </div>
-                      <div className="single-text">
-                          <h4> Easy returns </h4>
-                          <p> Within 30 days </p>
-                      </div>
-                    </div>
-
-                </div>
-              </div>
-            </div>
-        </div>
-
 
     </>
 
