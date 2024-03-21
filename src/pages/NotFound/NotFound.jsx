@@ -7,7 +7,7 @@ import "./NotFound.css"
 const NotFound = () => {
   return (
     <>
-      <div className="not-found my-5">
+      <div className="not-found ">
         <div className="container-fluid">
           <div className="row">
             <div className="not-show text-center">

@@ -54,17 +54,12 @@ const Shop = () => {
       {/* listing data  */}
         <div className="productListingData">
           <div className="container-fluid">
-    
-
-        
             <div className="row">
-
                <div className="col-lg-9 col-md-3  left-sidebar">
                    <SideBar /> 
                </div>
 
                <div className="col-lg-9 col-md-9 right-sidebar popular-products ">
-
                <div className="top-strip d-flex align-items-center justify-content-between">
                   <p> We found <span style={{color: "#3BB77E"}}> 29 </span> items for you! </p>
                   <div className="ml-auto  d-flex align-items-center ">
@@ -101,46 +96,46 @@ const Shop = () => {
                           <Product tag="new"/> 
                       </div>
                       <div className="item">
-                          <Product tag="new"/> 
+                          <Product tag="best"/> 
+                      </div>
+                      <div className="item">
+                          <Product tag="sale"/> 
+                      </div>
+                      <div className="item">
+                          <Product tag="hot"/> 
                       </div>
                       <div className="item">
                           <Product tag="new"/> 
                       </div>
                       <div className="item">
-                          <Product tag="new"/> 
+                          <Product tag="hot"/> 
                       </div>
                       <div className="item">
                           <Product tag="new"/> 
                       </div>
                       <div className="item">
-                          <Product tag="new"/> 
+                          <Product tag="best"/> 
+                      </div>
+                      <div className="item">
+                          <Product tag="sale"/> 
                       </div>
                       <div className="item">
                           <Product tag="new"/> 
                       </div>
                       <div className="item">
-                          <Product tag="new"/> 
+                          <Product tag="hot"/> 
+                      </div>
+                      <div className="item">
+                          <Product tag="sale"/> 
+                      </div>
+                      <div className="item">
+                          <Product tag="hot"/> 
                       </div>
                       <div className="item">
                           <Product tag="new"/> 
                       </div>
                       <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
+                          <Product tag="sale"/> 
                       </div>
                    </div>
                </div>

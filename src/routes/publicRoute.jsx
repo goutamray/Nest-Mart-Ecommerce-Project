@@ -3,6 +3,7 @@ import About from "../pages/About/About";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Shop from "../pages/Shop/Shop";
+import SingleProduct from "../pages/SinglePage/SingleProduct";
 import Contact from "../pages/contact/Contact";
 
 
@@ -27,6 +28,10 @@ const publicRouter = [
       {
         path : "/contact",
         element : <Contact /> 
+      },
+      {
+        path : "/product/details",
+        element : <SingleProduct /> 
       },
       {
         path : "*",
