@@ -28,11 +28,6 @@
 
 /* galary css */
 
-/* .product-galary-slider-big{
-   width: 100%;
-}
- */
-
 .product-galary-slider {
    padding-top: 20px !important;
 }
@@ -252,9 +247,217 @@ color: #B6B6B6;
   color: var(--nest-primary);
 }
 
-/*prouct details tab css   */
+/************  prouct details tab css   ***************/
+.productDetailsTab {
+  border-radius: 20px;
+  margin-right: 20px !important;
+  margin-top: 50px;
+}
+.productDetailsTab .custom-tabs .all-small-font{
+  font-size: 15px;
+  color: #7E7E7E;
+  margin-top: 5px;
+}
+.productDetailsTab .custom-tabs .meduim-text{
+  font-size: 24px;
+  color: #253D4E;
+  font-weight: 600;
+  padding: 15px 0px;
+}
+
+.productDetailsTab .custom-tabs ul li button {
+  border: 1px solid #ececec;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 7px 16px;
+  display: block;
+  background: transparent;
+  border-radius: 25px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #6f6e6e;
+}
+
+.productDetailsTab .custom-tabs ul li button.active{
+  color: var(--nest-primary);
+}
+
+
+/* review all details css */
+.review-customer h4{
+   color: #2A2A2A;
+   font-size: 18px;
+   font-weight: 600;
+   margin-bottom: 20px;
+}
+
+.review-card{
+   display: flex;
+   gap: 8px;
+   flex-direction: row;
+   transition: all 0.3s ease-in-out;
+}
+
+.review-card:hover{
+   transform: translateY(-5px);
+}
+
+.review-card .image-item .rounded-circle {
+  width: 110px !important;
+
+}
+.review-card .image-item .rounded-circle img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-card .image-item p{
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 15px;
+    color: var(--nest-primary);
+    margin-top: 4px;
+}
+
+.card-info .review-date{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-info .review-date .now-date{
+   color: #B6B6B6;
+   font-style: 13px;
+   font-weight: 400;
+}
+.card-info .review-date .review-star span{
+      margin-right: 5px;
+}
+.card-info .message{
+   font-size: 15px;
+   color: #7E7E7E;
+   font-weight: 400;
+   margin-top: 7px;
+}
+
+
+/****** right side ber  ******/
+.review-details{
+  padding-left: 20px;
+}
+.review-details h4{
+  color: #2A2A2A;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.review-details .review-count{
+  font-size: 16px;
+  color: #253D4E;
+  font-weight: 600;
+}
+.review-details .review-count p .total {
+  top: 2px;
+  position: relative;
+  margin-left: 4px;
+}
+
+.small-last .small-text{
+  font-size: 12px;
+  color: #7E7E7E;
+  margin-top: 40px;
+}
+
+
+/***** review-form  *****/
+.review-form{
+  margin-top: 50px;
+}
+
+.review-form h3{
+   font-size: 23px;
+   font-weight: 600;
+   color: #253D4E;
+}
+
+.review-form .form {
+  margin-top: 20px !important;
+}
+
+.review-form .form-control:focus {
+   outline: none !important;
+  
+}
+
+.review-form .submit-btn{
+   background-color: var(--nest-primary);
+   font-size: 16px;
+  font-weight: 500;
+  padding: 15px 40px;
+  color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid var(--nest-primary);
+  margin-top: 20px;
+}
 
 
 
+/***** single-progress bar *******/
+ .progress-bar-item .single-progress{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+} 
 
+
+ .progress-bar-item .single-progress span{
+   font-size: 12px;
+   color: #7E7E7E;
+   font-weight: 400;
+   width: 42px;
+} 
+
+ .progress-bar-item .single-progress .progress .progress-bar{
+   background-color: var(--nest-primary);
+   height: 15px;
+} 
+
+
+
+/* related product  */
+.related-product{
+padding: 30px 0px;
+}
+
+.related-product h5{
+  font-size: 22px;
+  color: #253D4E;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 30px;
+}
+.related-product h5::after {
+  content: "";
+  height: 2px;
+  width: 13%;
+  top: 39px;
+  left: 0px;
+  position: absolute;
+  background-color: var(--nest-primary);
+}
+.related-product h5::before {
+  content: "";
+  height: 2px;
+  width: 98%;
+  top: 39px;
+  left: 0px;
+  position: absolute;
+  background-color: #ececec;
+}
+
+.product-slider-main .item{
+  padding: 5px 10px;
+
+}
 
