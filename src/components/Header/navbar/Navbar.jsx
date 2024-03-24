@@ -8,7 +8,7 @@ import axios from "axios";
 
 import sreen from "../../../assets/img/thumbnail/screen.png"
 
-import "./Navbar.css"
+import "./Navbar.css"   
 
 const Navbar = () => {
   const [productData, setProductData ] = useState([]);
@@ -148,22 +148,22 @@ const Navbar = () => {
                           <Link to="/"> Home </Link>
                         </li>
                         <li> 
-                          <a href=""> About </a>
+                          <Link href="/about"> About </Link>
                         </li>
                         <li> 
-                          <a href=""> Blog </a>
+                          <Link href="/blog"> Blog </Link>
                         </li>
                         <li> 
-                          <a href=""> Contact </a>
+                          <Link href="/contact"> Contact </Link>
                         </li>
                         <li> 
-                          <a href=""> Login </a>
+                          <Link href="/login"> Login </Link>
                         </li>
                         <li> 
-                          <a href=""> Register </a>
+                          <Link href="/register"> Register </Link>
                         </li>
                         <li> 
-                          <a href=""> Privacy Policy </a>
+                          <Link href="/privacy-police"> Privacy Policy </Link>
                         </li>
                        </ul>
                     </li>

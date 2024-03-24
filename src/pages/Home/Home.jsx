@@ -1,25 +1,81 @@
 
-import HomeSlider from "../../components/Slider/HomeSlider"
-import CategorySlider from "../../components/catSlider/CategorySlider"
 import { FaArrowRight } from "react-icons/fa";
-
-
-import banner1 from "../../assets/img/banner/banner-1.png"
-import banner2 from "../../assets/img/banner/banner-2.png"
-import banner3 from "../../assets/img/banner/banner-3.png"
-import banner4 from "../../assets/img/banner/banner-4.png"
-
-
-
-
+import HomeSlider from "../../components/Slider/HomeSlider";
+import TopProduct from "../../components/TopProducts/TopProduct";
+import CategorySlider from "../../components/catSlider/CategorySlider";
 import Product from "../../components/product/Product";
 
-import Slider from "react-slick"; 
 
-import "./Home.css"
-import TopProduct from "../../components/TopProducts/TopProduct";
+import banner1 from "../../assets/img/banner/banner-1.png";
+import banner2 from "../../assets/img/banner/banner-2.png";
+import banner3 from "../../assets/img/banner/banner-3.png";
+import banner4 from "../../assets/img/banner/banner-4.png";
 
+
+
+
+import Slider from "react-slick";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+import "./Home.css";
 const Home = () => {
+  const [prodData, setprodData] = useState([])
+  const [catArray, setcatArray] = useState([]);
+  const [activeTab, setactiveTab] = useState();
+  const [activeTabIndex, setactiveTabIndex] = useState(0);
+  const [activeTabData, setActiveTabData] = useState([]); 
+
+  // get all data
+  useEffect(() => {
+    getData(`http://localhost:5050/productData`);
+ }, []);
+
+ const getData = async(url) => {
+   try {
+      await axios.get(url).then((response) => {
+        setprodData(response.data);
+      })
+   } catch (error) {
+     console.log(error.message);
+   }
+ };
+
+ const catArr = []; 
+
+ // all category
+ useEffect(() => {
+  prodData?.length !== 0 && 
+   prodData?.map((item) => {
+     item.items?.length !== 0 && 
+       item.items?.map((item_) => {
+          catArr.push(item_.cat_name); 
+     })
+   }) 
+ 
+   const list2 = catArr.filter((item, index) => catArr.indexOf(item) === index);
+   setcatArray(list2);
+   setactiveTab(list2[0])
+ 
+ }, [ prodData, catArr ]);
+
+
+ // get all product 
+ useEffect(() => {
+   
+     let arr = [];
+     setActiveTabData(arr); 
+
+     prodData?.length !== 0 && 
+       prodData?.map((item, index) => {
+          item.items?.map((item_, index_) => {
+             if (item_.cat_name === activeTab ) {
+              setActiveTabData(item_.products)
+             }
+          })
+       })
+ }, [prodData, activeTab, activeTabData]);
 
 
   let settings = {
@@ -32,13 +88,13 @@ const Home = () => {
     arrows : true, 
     autoPlay : 3000,
 
-  }
+  }  
 
   return (
     <> 
     
       <HomeSlider /> 
-      <CategorySlider /> 
+      <CategorySlider />  
 
       {/* Banner section  */}
       <div className="banner-section my-3">
@@ -84,63 +140,39 @@ const Home = () => {
         <div className="container-fluid">
           <div className="tab-header d-flex align-items-center justify-content-between">
             <h3> Popular Products </h3>
-            <ul className="list list-inline custom-ul"> 
-              <li  className="list-inline-item"> 
-                <a href=""> All </a>
-              </li>
-              <li className="list-inline-item"> 
-                <a href=""> Milks & Dairies </a>
-              </li>
-              <li  className="list-inline-item"> 
-                <a href=""> Coffes & Teas </a>
-              </li>
-              <li  className="list-inline-item"> 
-                <a href=""> Pet Foods </a>
-              </li>
-              <li  className="list-inline-item"> 
-                <a href=""> Meats </a>
-              </li>
-              <li className="list-inline-item"> 
-                <a href=""> Vegetables </a>
-              </li>
-              <li className="list-inline-item"> 
-                <a href=""> Fruits </a>
-              </li>
+            <ul className="list list-inline custom-ul">   
+
+
+             { 
+              catArray?.length !== 0 && 
+              catArray?.map((item, index) => {
+               return <li  className="list-inline-item" key={index}> 
+                         <a className={`${activeTabIndex === index && "active"}`} onClick={() => {             
+                          setactiveTab(item)
+                          setactiveTabIndex(index)
+
+                        }}> {item} 
+
+                         </a>
+                     </li>
+              }) 
+             } 
+
             </ul>
           </div>
 
           <div className="row product-row my-4">
-             <div className="item">
-                 <Product tag="new"/> 
-             </div>
-             <div className="item">
-                 <Product tag="hot"/> 
-             </div>
-             <div className="item">
-                 <Product tag="best"/> 
-             </div>
-             <div className="item">
-                 <Product tag="new"/> 
-             </div>
-             <div className="item">
-                 <Product tag="best"/> 
-             </div>
-             <div className="item">
-                 <Product tag="hot"/> 
-             </div>
-             <div className="item">
-                 <Product tag="sale"/> 
-             </div>
-             <div className="item">
-                 <Product tag="hot"/> 
-             </div>
-             <div className="item">
-                 <Product tag="best"/> 
-             </div>
-             <div className="item">
-                 <Product tag="new"/> 
-             </div>
-          </div>
+                {
+                  activeTabData?.length !== 0 && 
+                     activeTabData?.map((item, index) => {
+                        return <div className="item" key={index}>
+                                   <Product tag={item.type} item={item}/> 
+                               </div>
+                     })
+                }   
+ 
+         
+          </div> 
 
         </div>
       </div>

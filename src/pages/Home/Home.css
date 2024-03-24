@@ -54,13 +54,16 @@
 
 /********** popular products  ***********/
 .popular-products .custom-ul li a{
-  font-size: 16px;
+  font-size: 15px;
   color: #333;
   font-weight: 600;
   padding-right:10px ;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
-
+.popular-products .custom-ul li a.active{
+  color: var(--nest-primary);
+}
 .popular-products .custom-ul li a:hover{
   color: var(--nest-primary) !important;
 }
