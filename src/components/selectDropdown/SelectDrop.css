@@ -1,6 +1,7 @@
 
 .select-drop .select-drop-category svg{
     margin-left: 18px;
+ 
     font-size: 18px;
   
 }
@@ -9,7 +10,7 @@
   width: 208px;
   height: auto;
   background-color: #fff;
-  z-index: 999;
+  z-index: 9999999999999;
   position: absolute;
   left: -10px;
   top: 46px;

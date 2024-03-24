@@ -24,13 +24,15 @@ import ClickAwayListener from 'react-click-away-listener';
 import "./Header.css";  
 import Navbar from "./navbar/Navbar";
 
-const Header = () => {
+const Header = ( ) => {
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
      
    // handle close
    const handleCloseDrop = () => {
     setDropDownOpen(() => !dropDownOpen)
    }
+
+
 
    const [categories, setCategories ] = useState([ 
           "All Categories",

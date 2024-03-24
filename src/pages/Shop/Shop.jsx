@@ -89,7 +89,7 @@ const Shop = () => {
                          }
                       </div>
                   </div>
-               </div>
+               </div>   
 
                    <div className="row product-row ms-3">
                       <div className="item">

@@ -22,16 +22,20 @@ const publicRouter = [
         element : <About /> 
       },
       {
-        path : "/shop",
-        element : <Shop /> 
-      },
-      {
         path : "/contact",
         element : <Contact /> 
       },
       {
         path : "/product/details",
         element : <SingleProduct /> 
+      },
+      {
+        path : "/cat/:id",
+        element : <Shop />
+      },
+      {
+        path : "/cat/:id/:id",
+        element : <Shop />
       },
       {
         path : "*",

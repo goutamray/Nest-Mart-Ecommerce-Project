@@ -47,7 +47,7 @@ const filterList = (e) => {
     <>
        <ClickAwayListener onClickAway={() => setIsOpenDrop(false) }>
           <div className="select-drop ">
-              <p className="select-drop-category" onClick={handleClickOpen}> { selectItem.length > 14 ? selectItem.substring(0, 14)+ "...." :  selectItem }   <FaAngleDown /> </p> 
+              <p className="select-drop-category" onClick={handleClickOpen}> { selectItem.length > 14 ? selectItem.substring(0, 12)+ "...." :  selectItem }   <FaAngleDown /> </p> 
                 
               {
               isOpenDrop &&   <div className="select-dropdown">       
