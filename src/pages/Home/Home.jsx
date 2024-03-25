@@ -11,9 +11,6 @@ import banner2 from "../../assets/img/banner/banner-2.png";
 import banner3 from "../../assets/img/banner/banner-3.png";
 import banner4 from "../../assets/img/banner/banner-4.png";
 
-
-
-
 import Slider from "react-slick";
 
 import axios from "axios";
@@ -58,7 +55,7 @@ const Home = () => {
    setcatArray(list2);
    setactiveTab(list2[0])
  
- }, [ prodData, catArr ]);
+ }, [ prodData]);
 
 
  // get all product 
@@ -89,6 +86,7 @@ const Home = () => {
     autoPlay : 3000,
 
   }  
+
 
   return (
     <> 
