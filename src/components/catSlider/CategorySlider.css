@@ -62,7 +62,7 @@
   transition: all 0.3s ease-in-out !important;
 }
 
-.category-slider-main .category-item .info h6 a{
+.category-slider-main .category-item .info h6{
   font-family: 16px;
   font-weight: 700;
   color: #253D4E;

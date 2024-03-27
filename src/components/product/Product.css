@@ -49,7 +49,27 @@
 }
 .productThumb .product-image{
    position: relative;
+   height: 245px !important;
+   overflow: hidden;
 }
+
+.productThumb .product-image .discount {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 55px;
+  height: 30px;
+  padding: 5px; 
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px !important;
+  border-radius: 4px;
+  display: block;
+  color: #fff;
+
+  background-color: var(--nest-primary);
+}
+
 .productThumb .product-image .overlay {
   position: absolute;
   left: 65px;
@@ -127,6 +147,7 @@
   .productThumb .info .author{
     font-size: 14px;
     color: #B6B6B6 !important;
+    padding: 3px 0px;
   }
 
   .productThumb .info .author p a{
@@ -150,22 +171,24 @@
     text-decoration: line-through;
   }
 
-  .productThumb .info .product-card-bottom .product-cart a {
+  .productThumb .info  .product-cart a {
     position: relative;
-    display: inline-block;
+    display:block;
+    text-align: center;
+    margin-top: 5px;
     padding: 8px 12px 6px 6px;
     border-radius: 4px;
     background-color: #DEF9EC;
     color: var(--nest-primary);
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     transition: all 0.3s ease-in-out;
 }
-  .productThumb .info .product-card-bottom .product-cart a .cart{
+  .productThumb .info .product-cart a .cart{
     font-size: 20px;
   }
 
-  .productThumb .info .product-card-bottom .product-cart a:hover{
+  .productThumb .info .product-cart a:hover{
     background-color: var(--nest-primary);
     color: #fff !important;
    

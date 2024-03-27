@@ -24,6 +24,9 @@ const Home = () => {
   const [activeTabIndex, setactiveTabIndex] = useState(0);
   const [activeTabData, setActiveTabData] = useState([]); 
 
+
+  const [bestSells, setBestSells] = useState([]); 
+
   // get all data
   useEffect(() => {
     getData(`http://localhost:5050/productData`);
@@ -60,7 +63,6 @@ const Home = () => {
 
  // get all product 
  useEffect(() => {
-   
      let arr = [];
      setActiveTabData(arr); 
 
@@ -74,18 +76,41 @@ const Home = () => {
        })
  }, [prodData, activeTab, activeTabData]);
 
+ 
+ let bestArr = []; 
 
+ // best sell get all product 
+  useEffect(() => {
+    prodData?.length !== 0 && 
+     prodData.map((item) => {
+       if (item.cat_name == "Electronics") {
+         item.items.length !== 0 && 
+            item.items.map((item_) => {
+               item_.products.length !== 0 && 
+                 item_.products.map((item)=> {
+                  bestArr.push(item)
+                 })
+            })        
+      } 
+    })
+   
+    setBestSells(bestArr); 
+
+  }, [ prodData]);
+
+
+      
   let settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     fade : false,
     arrows : true, 
     autoPlay : 3000,
 
-  }  
+  };  
 
 
   return (
@@ -180,17 +205,6 @@ const Home = () => {
         <div className="container-fluid">
           <div className="tab-header d-flex align-items-center justify-content-between">
             <h3> Daily Best Sells </h3>
-            <ul className="list list-inline custom-ul">        
-              <li  className="list-inline-item"> 
-                <a href=""> Featured </a>
-              </li>
-              <li className="list-inline-item"> 
-                <a href=""> Popular </a>
-              </li>
-              <li className="list-inline-item"> 
-                <a href=""> New added </a>
-              </li>
-            </ul>
           </div>
           
           <div className="row my-4">
@@ -198,26 +212,22 @@ const Home = () => {
                <div className="banner-image">
                    <img src={banner4} alt="" className="w-100" style={{borderRadius: "20px"}}/>
                    <h2> Bring nature into your home </h2>   
-                   <a href="#" className="button-shop-primary"> Shop Now <FaArrowRight /></a>    
+                   <a href="#" className="button-shop-primary"> Shop Now <FaArrowRight /></a>        
                </div>
             </div>
             <div className="col-md-9">
             <Slider {...settings} className="product-slider-main">
-              <div className="item">
-                 <Product tag="new"/>  
-              </div>
-              <div className="item">
-                 <Product tag="hot"/>  
-              </div>
-              <div className="item">
-                 <Product tag="best"/>  
-              </div>
-              <div className="item">
-                 <Product tag="sale"/>  
-              </div>
-              <div className="item">
-                 <Product tag="hot"/>  
-              </div>                
+
+            {
+              bestSells.length !== 0 && 
+                 bestSells?.map((item, index) => {
+                    return <div className="item" key={index}>
+                    <Product tag={item.type} item={item} />    
+                 </div>
+                 })
+            }
+
+
              </Slider>
             </div>
           </div>

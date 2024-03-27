@@ -18,7 +18,6 @@ const Product = (props) => {
     setProductData(props.item)
   }, [props.item])
 
-  console.log(productData);
 
   return (   
           <>  
@@ -29,12 +28,14 @@ const Product = (props) => {
            <span className={`badge ${props.tag}`}> {props.tag} </span>
         } 
 
+
     {
       productData !== undefined && 
       <> 
         <Link > 
           <div className="product-image">      
              <img style={{width: "100%"}} src={productData.catImg} alt="" />
+             <span className="discount"> {productData.discount} % </span>
 
              <div className="overlay">
                 <ul className="list list-inline">
@@ -57,7 +58,7 @@ const Product = (props) => {
          
          <div className="info">     
            <h4 className="category">  {productData.brand}</h4>
-           <div className="title"> <h3> {productData.productName}</h3></div>
+           <div className="title"> <h3> { productData.productName?.length > 25 ? productData.productName.substring(0, 22)+ "...." :  productData.productName }  </h3></div>
            <div className="review">
             <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt /></span>
            </div>
@@ -65,13 +66,13 @@ const Product = (props) => {
               <p> By <a href="#"> {productData.brand} </a></p> 
            </div>
            <div className="product-card-bottom">
-            <div className="product-price">
+              <div className="product-price">
                 <span> TK {productData.price} </span> <span className="old-price"> TK {productData.oldPrice} </span>
-            </div>
-            <div className="product-cart">
+              </div>      
+           </div>
+           <div className="product-cart">
                <a href="#"> <IoCartOutline className="cart" /> Add </a>
             </div>
-           </div>
          </div>
      
       </>

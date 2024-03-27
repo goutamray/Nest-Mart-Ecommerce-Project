@@ -1,13 +1,10 @@
-
-
-
 /********** banner css  ***************/
 
 .banner-section .banner-part .banner-img {
   position: relative;
 }
 
-.banner-section .banner-part .banner-img img{
+.banner-section .banner-part .banner-img img {
   border-radius: 10px;
 }
 
@@ -37,58 +34,65 @@
   margin-top: 5px;
   transition: all 0.3s ease-in-out;
 }
-.banner-section .banner-part .banner-img .banner-text .button-shop svg{
+
+.banner-section .banner-part .banner-img .banner-text .button-shop svg {
   margin-left: 10px;
 }
 
-.banner-section .banner-part .banner-img .banner-text:hover .banner-title{
+.banner-section .banner-part .banner-img .banner-text:hover .banner-title {
   transition: all 0.3s ease-in-out;
   transform: translateY(-5%);
 
 }
 
-.banner-section .banner-part .banner-img .banner-text .button-shop:hover{
+.banner-section .banner-part .banner-img .banner-text .button-shop:hover {
   background-color: #FDC040;
 }
 
 
 /********** popular products  ***********/
-.popular-products .custom-ul li a{
+.popular-products .custom-ul li a {
   font-size: 15px;
   color: #333;
   font-weight: 600;
-  padding-right:10px ;
+  padding-right: 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-.popular-products .custom-ul li a.active{
+
+.popular-products .custom-ul li a.active {
   color: var(--nest-primary);
 }
-.popular-products .custom-ul li a:hover{
+
+.popular-products .custom-ul li a:hover {
   color: var(--nest-primary) !important;
 }
 
 /****** single product item css *************/
 
-.popular-products .product-row{
+.popular-products .product-row {
   display: flex;
-  
-} 
-.popular-products .product-row .item{
+
+}
+
+.popular-products .product-row .item {
   width: 20%;
 
-} 
-.popular-products .banner-image{
+}
+
+.popular-products .banner-image {
   position: relative;
 }
-.popular-products .banner-image h2{
+
+.popular-products .banner-image h2 {
   font-size: 40px;
   position: absolute;
   left: 10%;
   top: 10%;
   width: 80%;
- 
+
 }
+
 .popular-products .banner-image .button-shop-primary {
   position: absolute;
   left: 10%;
@@ -99,19 +103,11 @@
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
+
 .popular-products .banner-image .button-shop-primary:hover {
   background-color: #FDC040;
 }
 
-.popular-products .product-slider-main .slick-slide{
-  padding: 0px 15px !important;
+.popular-products .product-slider-main .slick-slide {
+  padding: 0px 2px !important;
 }
-
-
-
-
-
-
-
-
-
