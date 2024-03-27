@@ -1,0 +1,22 @@
+
+
+.icon-style {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon-style .icon {
+    font-size: 1rem;
+    color: orange !important;
+  }
+
+
+
+
+
+
+
+
+

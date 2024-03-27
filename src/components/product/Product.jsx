@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Product.css";
+import StarRating from "../star-rate/StarRating";
 
 
 const Product = (props) => {
@@ -32,8 +33,10 @@ const Product = (props) => {
 
     {
       productData !== undefined && 
+     
       <> 
         <Link > 
+   
           <div className="product-image">      
              <img style={{width: "100%"}} src={productData.catImg} alt="" />
              <span className="discount"> {productData.discount} % </span>
@@ -61,8 +64,7 @@ const Product = (props) => {
            <h4 className="category">  {productData.brand}</h4>
            <div className="title"> <h3> { productData.productName?.length > 25 ? productData.productName.substring(0, 22)+ "...." :  productData.productName }  </h3></div>
            <div className="review">
-            <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt /></span>
-         
+               <StarRating stars ={productData.rating} /> 
            </div>
            <div className="author">
               <p> By <a href="#"> {productData.brand} </a></p> 

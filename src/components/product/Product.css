@@ -48,25 +48,26 @@
   transition: all 0.3s ease-in-out; 
 }
 .productThumb .product-image{
-   position: relative;
+
    height: 245px !important;
    overflow: hidden;
 }
 
 .productThumb .product-image .discount {
   position: absolute;
-  top: 0px;
   left: 0px;
-  width: 55px;
-  height: 30px;
-  padding: 5px; 
-  text-align: center;
-  line-height: 20px;
-  font-size: 18px !important;
-  border-radius: 4px;
-  display: block;
+  top: 0px;
+  width: 69px;
+  height: 31px;
+  z-index: 999999;
+  display: inline-block;
+  border-radius: 15px 0 20px 0;
   color: #fff;
-
+  display: inline-block;
+  font-size: 13px;
+  padding: 9px 20px 10px;
+  font-weight: 400;
+  text-transform: capitalize;
   background-color: var(--nest-primary);
 }
 

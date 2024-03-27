@@ -36,6 +36,8 @@ const CategorySlider = () => {
  var catLength = 0;
  var lengthArr = [];
 
+
+ // get length 
  useEffect(() => {
      allData?.length !== 0 &&
          allData?.map((item, index) => {
@@ -50,9 +52,9 @@ const CategorySlider = () => {
      const list = lengthArr.filter((item, index) => lengthArr.indexOf(item) === index);
      setTotalLength(list)
 
-
  }, [allData]);
 
+ // background 
   const [itemBg, setItemBg ] = useState([
     "#f2fce4",
     "#fffceb",
