@@ -9,28 +9,29 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
 import "./CategorySlider.css";
+import { Link } from "react-router-dom";
 
 const CategorySlider = () => {
    
   const [allData, setAllData] = useState([]);
   const [totalLength, setTotalLength] = useState([]);
 
+   // get all data 
+   const getData = async(url) => {
+    try {
+       await axios.get(url).then((response) => {
+         setAllData(response.data);
+       })
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+
    // get all data
    useEffect(() => {
     getData(`http://localhost:5050/productData`);
    }, []);
-
-   // get all data 
- const getData = async(url) => {
-   try {
-      await axios.get(url).then((response) => {
-        setAllData(response.data);
-      })
-   } catch (error) {
-     console.log(error.message);
-   }
- };
-
 
  var catLength = 0;
  var lengthArr = [];
@@ -50,10 +51,7 @@ const CategorySlider = () => {
      setTotalLength(list)
 
 
- }, []);
-
-
-
+ }, [allData]);
 
   const [itemBg, setItemBg ] = useState([
     "#f2fce4",
@@ -76,11 +74,11 @@ const CategorySlider = () => {
 
 
 
-  let settings = {
+  let setting = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 10,
+    slidesToShow: 3,
     slidesToScroll: 1,
     fade : false,
     arrows : true, 
@@ -91,44 +89,25 @@ const CategorySlider = () => {
       <div className="category-slider">
          <div className="container-fluid">
             <h2 className="heading mb-5"> Featured Categories</h2>
-            <Slider {...settings} className="category-slider-main">
+
+            <Slider {...setting} className="category-slider-main">
  
-                 
-         
-               {/* {   allData.length !== 0 &&  
-                      allData.map((item, index) => {
-     
-                    return  <div className='category-item' key={index} >
-                     <Link to={`/cat/${item.cat_name.toLowerCase()}`}>
-                     <div className='info' style={{ background: itemBg[index] }}>
-                        <img src={item.image} width="80" />
-                         <h6>  {item.cat_name}  </h6> 
-                         <span> {totalLength[index]} items </span>
-                      </div>
-                     </Link>
-                   </div>
-                 }) 
-                 
-                 } */}
-
-               
-             
-
-
-
-                        
-        {
-                 itemBg.length > 0 && itemBg.map((item, index) => {
-
-                  return <div className="category-item" key={index} >
-                  <div className="info" style={{backgroundColor : item }}> 
-                   <img src="https://nest-frontend-v6.netlify.app/assets/imgs/shop/cat-13.png" alt="" />  
-                   <h6> <a href="#"> Cake & Milk </a>  </h6> 
-                   <span> 45 items </span>
-                   </div>
-                </div>
-                 })
-                }   
+                    {
+                        allData?.length !== 0 &&
+                            allData.map((item, index) => {
+                                return (
+                                    <div className='category-item' key={index} >
+                                        <Link to={`/cat/${item.cat_name.toLowerCase()}`}>
+                                            <div className='info ' style={{ background: itemBg[index] }}>
+                                                <img className="my-3" src={item.image} width="80" />
+                                                <h5 className='text-capitalize mt-3'>{item.cat_name}</h5>
+                                             <p className="mb-3">{totalLength[index]} items</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                        }        
                          
             </Slider>
          </div>

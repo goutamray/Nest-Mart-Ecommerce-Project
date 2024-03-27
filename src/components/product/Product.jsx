@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 import "./Product.css";
 
+
 const Product = (props) => {
     const [productData, setProductData] = useState([]); 
 
@@ -61,6 +62,7 @@ const Product = (props) => {
            <div className="title"> <h3> { productData.productName?.length > 25 ? productData.productName.substring(0, 22)+ "...." :  productData.productName }  </h3></div>
            <div className="review">
             <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt /></span>
+         
            </div>
            <div className="author">
               <p> By <a href="#"> {productData.brand} </a></p> 

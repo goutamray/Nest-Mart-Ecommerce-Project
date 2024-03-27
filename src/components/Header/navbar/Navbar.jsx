@@ -87,7 +87,7 @@ const Navbar = () => {
                                   {
                                     item.items?.map((item_, index_) => {
                                       return <li key={index_}> 
-                                                <Link to={`/cat/${item.cat_name}/${item_.cat_name.replace(/\s/g,"-").toLowerCase()}`}> {item_.cat_name} </Link>
+                                              <Link to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g,"-").toLowerCase()}`}> {item_.cat_name} </Link>
                                             </li>
                                  
                                     })
