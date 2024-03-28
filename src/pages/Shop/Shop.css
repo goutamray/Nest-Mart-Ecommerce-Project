@@ -92,7 +92,9 @@
 
 
 
-
+.product-row .item.width-big {
+  width: 25% !important;
+}
 
 
 

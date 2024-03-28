@@ -151,6 +151,7 @@
    color: #253D4E !important;
    font-size: 16px; 
    font-weight: 700;
+   text-transform: capitalize;
 } 
 
 .navbar-menu .menu-item .list-item-single a .down-arrow-item{

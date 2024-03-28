@@ -1,19 +1,87 @@
 
-import { Link } from "react-router-dom";
-import SideBar from "../../components/sideBer/SideBar";
-import Product from "../../components/product/Product";
-import { IoGrid } from "react-icons/io5";
 import { FaSortAmountDown } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6";
+import { IoGrid } from "react-icons/io5";
+import { Link, useParams } from "react-router-dom";
+import Product from "../../components/product/Product";
+import SideBar from "../../components/sideBer/SideBar";
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import axios from "axios";
 import "./Shop.css";
-const Shop = () => {
+const Shop = ( props  ) => {
 
   const [dropDownOpen, setDropDownOpen ] = useState(false); 
   const [dropDownOpen2, setDropDownOpen2 ] = useState(false); 
+
+  const [allProduct, SetAllProduct] = useState([])
+  const [data, setData] = useState([]);
+
+  // get all data
+  useEffect(() => {
+    getData(`http://localhost:5050/productData`);
+ }, []);
+
+ const getData = async(url) => {
+   try {
+      await axios.get(url).then((response) => {
+        SetAllProduct(response.data);
+      })
+   } catch (error) {
+     console.log(error.message);
+   }
+ };
+
+ let id = useParams();   
+ let singleId = id.id; 
+
+
+ let itemDataArr = []; 
+
+useEffect(() => {
+  
+     allProduct.length !== 0 && 
+       allProduct.map((item, index)=> {
+          //page == single cat
+             if (props.single === true){
+                if  (item.cat_name.toLowerCase() == singleId.toLowerCase()) {
+                     item.items.length !== 0 && 
+                       item.items.map((item_, index_) => {
+                          item_.products.length !== 0
+                            item_.products.map((product) => {
+                                itemDataArr.push(product)
+                            })
+                       })
+                } 
+             }
+
+           //page == double cat 
+         else{
+          item.items.length !== 0 &&  
+           item.items.map((item_) => {
+              if(item_.cat_name.split(" ").join("-").toLowerCase() == singleId.toLowerCase()) {
+                item_.products.length !== 0 
+                item_.products.map((product) => {
+                  itemDataArr.push(product)
+                })
+              }
+
+            })  
+           }   
+       })
+
+  const list = itemDataArr.filter((item, index) => itemDataArr.indexOf(item) === index);
+  
+   setData(list);
+   
+
+ 
+}, [ allProduct, itemDataArr ]); 
+
+
+// console.log(ItemsData);
 
      // handle close
      const handleCloseDrop = () => {
@@ -61,7 +129,7 @@ const Shop = () => {
 
                <div className="col-lg-9 col-md-9 right-sidebar popular-products ">
                <div className="top-strip d-flex align-items-center justify-content-between">
-                  <p> We found <span style={{color: "#3BB77E"}}> 29 </span> items for you! </p>
+                  <p> We found <span style={{color: "#3BB77E"}}> {data.length} </span> items for you! </p>
                   <div className="ml-auto  d-flex align-items-center ">
                       <div className="tab-item">
                         <button className="show-btn" onClick={handleCloseDrop }> <IoGrid /> show : 50 <FaAngleDown /> </button>
@@ -91,52 +159,20 @@ const Shop = () => {
                   </div>
                </div>   
 
-                   <div className="row product-row ms-3">
-                      <div className="item">
-                          <Product tag="new"/> 
+                   <div className="row product-row ms-3 ">
+
+                   {
+                    data.length !== 0 && 
+                    data.map((item, index) => {
+                       return (
+                         <div className="item width-big" key={index}>
+                          <Product tag={item.type} item={item}  /> 
                       </div>
-                      <div className="item">
-                          <Product tag="best"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="sale"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="hot"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="hot"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="best"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="sale"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="hot"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="sale"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="hot"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="new"/> 
-                      </div>
-                      <div className="item">
-                          <Product tag="sale"/> 
-                      </div>
+                       )
+                    })
+                   }
+
+                    
                    </div>
                </div>
             </div>

@@ -80,7 +80,7 @@ const Navbar = () => {
                     {
                    productData.length > 0 ? productData.map((item, index) => {
                          return (<li className="list-inline-item list-item-single" key={index}>
-                         <Link to={`/cat/${item.cat_name.toLowerCase()}`}> {item.cat_name} </Link>
+                         <Link to={`/cat/${item.cat_name.toLowerCase()}`} > {item.cat_name} </Link>
                          {
                             item.items?.length !== 0 &&  
                             <ul className="dropDown-menu shadow">

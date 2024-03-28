@@ -8,6 +8,8 @@ import Contact from "../pages/contact/Contact";
 
 
 
+
+
 // create public router 
 const publicRouter = [
   {
@@ -31,11 +33,13 @@ const publicRouter = [
       },
       {
         path : "/cat/:id",
-        element : <Shop />
+        element : <Shop single = { true } />,
+         
       },
       {
         path : "/cat/:id/:id",
-        element : <Shop />
+        element : <Shop  single = { false }/>,      
+        
       },
       {
         path : "*",

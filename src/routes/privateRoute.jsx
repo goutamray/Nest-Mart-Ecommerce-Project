@@ -10,7 +10,7 @@ const privateRouter = [
       element : <Layout />,
       children : [
            {
-            path : "/shop",
+            path : "/shop-abcd",
             element : <Shop />
            }
       ] 

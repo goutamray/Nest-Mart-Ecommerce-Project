@@ -1,7 +1,7 @@
 {
   "productData": [
     {
-      "cat_name": "Groceries",
+      "cat_name": "groceries",
       "id": 1,
       "image": "https://cdn-icons-png.flaticon.com/512/3724/3724788.png",
       "items": [
@@ -820,7 +820,7 @@
       ]
     },
     {
-      "cat_name": "Electronics",
+      "cat_name": "electronics",
       "id": 2,
       "image": "https://cdn-icons-png.flaticon.com/128/3659/3659898.png",
       "items": [
@@ -1050,7 +1050,7 @@
       ]
     },
     {
-      "cat_name": "Fashion",
+      "cat_name": "fashion",
       "id": 3,
       "image": "https://cdn-icons-png.flaticon.com/128/12516/12516451.png",
       "items": [
