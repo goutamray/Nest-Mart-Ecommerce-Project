@@ -32,7 +32,9 @@ const SingleProduct = () => {
   const [activeTab , setActiveTab ] = useState(0); 
   const [count, setCount ] = useState(1); 
 
- const [currentProduct, setCurrentProduct] = useState([])
+ const [currentProduct, setCurrentProduct] = useState([]);
+
+ const [relatedProduct, setRelatedProduct ] = useState([]); 
 
 
   let singleId = useParams(); 
@@ -53,6 +55,30 @@ const SingleProduct = () => {
                  })
             })
        })
+
+
+    // related product 
+   const related_products = [];
+
+    productData.length !== 0 && 
+    productData.map((item) => {
+         if (prodCat.parentCat === item.cat_name) {
+             item.items.length !== 0 && 
+             item.items.map((item_, index_) => {
+                  if (prodCat.subCatName === item_.cat_name) {
+                    item_.products.length !== 0 && 
+                     item_.products.map((product, index) => {
+                       related_products.push(product)
+                      
+
+                     })
+                  }
+             })
+         }
+    })
+  
+    setRelatedProduct(related_products)
+
    
   }, [id, productData]);
 
@@ -312,11 +338,6 @@ const SingleProduct = () => {
                        </div>
                    </div>
                   {/* product info code end */}
-
-         
-
-
-
 
                  </div>
 
@@ -581,10 +602,22 @@ const SingleProduct = () => {
                     <h5> Related products </h5>
 
                     <Slider {...related} className="product-slider-main">
-                      <div className="item">
-                        <Product tag="new"/>  
-                      </div>
-                      <div className="item">
+
+                    {
+                      relatedProduct.length !== 0 && 
+                      relatedProduct.map((item, index) => {
+                        return (
+                          <div className="item" key={index}>
+                             <Product tag={item.type} item={item}/>  
+                          </div>
+                        )
+                      })
+
+                    }
+               
+
+                    
+                      {/* <div className="item">
                         <Product tag="hot"/>  
                       </div>
                       <div className="item">
@@ -595,7 +628,7 @@ const SingleProduct = () => {
                       </div>
                       <div className="item">
                         <Product tag="hot"/>  
-                      </div>                
+                      </div>                 */}
                     </Slider>
                   </div>
              </div>

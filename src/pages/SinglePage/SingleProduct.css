@@ -40,6 +40,7 @@
 .product-galary-slider .slick-slide  img{
   border-radius: 10px;
   overflow: hidden !important;
+  width: 100%;
 }
 
 .product-galary-slider .slick-current{
