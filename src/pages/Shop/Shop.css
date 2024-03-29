@@ -15,14 +15,16 @@
 }
 
 .listingProduct .breadCrumb h2{
-    font-size: 48px;
+    font-size: 45px;
     color: #253D4E;
     font-weight: 700;
 }
-
+.listingProduct .breadCrumb ul li{
+  font-size: 15px !important;
+}
 .listingProduct .breadCrumb ul li a{
   color: #7E7E7E;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 
 }

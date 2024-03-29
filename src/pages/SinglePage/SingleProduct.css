@@ -11,8 +11,9 @@
 }
 
 .breadCrumbWrapper2 .bradcrumb2 ul li a{
-   font-size: 14px;
+   font-size: 15px;
    color: var(--nest-primary);
+   padding-right: 10px !important;
 }
 
 /* product zoom singlePart-1 */
@@ -21,7 +22,7 @@
   padding: 15px;
   border-radius: 10px;
   width: 100%;
-  height: 400px;
+  height: auto;
   overflow: hidden;
   z-index: 99999;
 }
@@ -80,7 +81,7 @@
 }
 
 .product-info .price-sec .sale-price{
-   font-size: 58px;
+   font-size: 38px;
    font-weight: 800;
    color: var(--nest-primary);
 }
@@ -98,7 +99,7 @@
 
 
 .product-info .price-sec .reg-price .regular{
-font-size: 28px;
+font-size: 25px;
 font-weight: 600;
 color: #B6B6B6;
 }

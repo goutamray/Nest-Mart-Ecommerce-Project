@@ -28,8 +28,8 @@ const publicRouter = [
         element : <Contact /> 
       },
       {
-        path : "/product/details",
-        element : <SingleProduct /> 
+        path : "/product/:id",
+        element : <SingleProduct />    
       },
       {
         path : "/cat/:id",

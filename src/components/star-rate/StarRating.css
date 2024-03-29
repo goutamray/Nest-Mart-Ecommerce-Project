@@ -1,10 +1,10 @@
 
-
 .icon-style {
-  display: flex;
+  display: flex !important;
   gap: 0.2rem;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  display: inline-block !important;
 }
 
 .icon-style .icon {

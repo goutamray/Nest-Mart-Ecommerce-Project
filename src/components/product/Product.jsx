@@ -1,6 +1,5 @@
 
 import { CiHeart, CiShuffle } from "react-icons/ci";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 
@@ -15,16 +14,23 @@ import StarRating from "../star-rate/StarRating";
 const Product = (props) => {
     const [productData, setProductData] = useState([]); 
 
-
   useEffect(() => {
     setProductData(props.item)
   }, [props.item])
 
 
+  const setProductCat=()=>{
+    sessionStorage.setItem('parentCat', productData.parentCatName);
+    sessionStorage.setItem('subCatName', productData.subCatName);
+}
+
+
+
+
   return (   
           <>  
 
-      <div className="productThumb my-2">
+      <div className="productThumb my-2" onClick={setProductCat}>
         {
           props.tag !== null && props.tag !== undefined &&  
            <span className={`badge ${props.tag}`}> {props.tag} </span>
@@ -33,9 +39,8 @@ const Product = (props) => {
 
     {
       productData !== undefined && 
-     
       <> 
-        <Link > 
+        <Link to={`/product/${productData.id}`}> 
    
           <div className="product-image">      
              <img style={{width: "100%"}} src={productData.catImg} alt="" />
@@ -81,11 +86,6 @@ const Product = (props) => {
      
       </>
     }
-      
-      
-  
-
-
 
       </div>
       

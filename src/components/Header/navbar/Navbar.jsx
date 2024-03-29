@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="nav navbar-header my-custom-header shadow">
+      <div className="nav navbar-header my-custom-header">
         <div className="container-fluid">
           <div className="row d-flex align-items-center my-3 navbar-row ">
             <div className="col-sm-3 part1">
@@ -80,15 +80,15 @@ const Navbar = () => {
                     {
                    productData.length > 0 ? productData.map((item, index) => {
                          return (<li className="list-inline-item list-item-single" key={index}>
-                         <Link to={`/cat/${item.cat_name.toLowerCase()}`} > {item.cat_name} </Link>
+                       <Link to={`/cat/${item.cat_name.toLowerCase()}`} onClick={() => sessionStorage.setItem("cat", item.cat_name.toLowerCase())} > {item.cat_name} </Link>
                          {
                             item.items?.length !== 0 &&  
                             <ul className="dropDown-menu shadow">
-                                  {
-                                    item.items?.map((item_, index_) => {
-                                      return <li key={index_}> 
-                                              <Link to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g,"-").toLowerCase()}`}> {item_.cat_name} </Link>
-                                            </li>
+                              {
+                                item.items?.map((item_, index_) => {
+                                   return <li key={index_}> 
+                                <Link to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g,"-").toLowerCase()}`} onClick={() => sessionStorage.setItem("cat", item.cat_name.toLowerCase())} > {item_.cat_name} </Link>
+                              </li>
                                  
                                     })
                                   }

@@ -70,17 +70,31 @@ const Home = () => {
        prodData?.map((item, index) => {
           item.items?.map((item_, index_) => {
              if (item_.cat_name === activeTab ) {
-              setActiveTabData(item_.products)
+              {
+                item_.products.length !== 0 &&
+                    item_.products.map((product) => {
+                        arr.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
+                    })
+
+                setActiveTabData(arr)
+               
+               }
              }
           })
        })
- }, [prodData, activeTab, activeTabData]);
+
+    
+
+
+ }, [prodData, activeTab]);
 
  
  let bestArr = []; 
 
  // best sell get all product 
   useEffect(() => {
+
+
     prodData?.length !== 0 && 
      prodData.map((item) => {
        if (item.cat_name == "Electronics") {
@@ -96,6 +110,8 @@ const Home = () => {
    
     setBestSells(bestArr); 
 
+     window.scrollTo(0,0);
+     
   }, [ prodData]);
 
 

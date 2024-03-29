@@ -6,11 +6,11 @@ import { Link, useParams } from "react-router-dom";
 import Product from "../../components/product/Product";
 import SideBar from "../../components/sideBer/SideBar";
 
-
 import { useEffect, useState } from "react";
 
 import axios from "axios";
 import "./Shop.css";
+
 const Shop = ( props  ) => {
 
   const [dropDownOpen, setDropDownOpen ] = useState(false); 
@@ -21,6 +21,7 @@ const Shop = ( props  ) => {
 
   // get all data
   useEffect(() => {
+    window.scrollTo(0,0);
     getData(`http://localhost:5050/productData`);
  }, []);
 
@@ -38,10 +39,13 @@ const Shop = ( props  ) => {
  let singleId = id.id; 
 
 
- let itemDataArr = []; 
+  let itemData = []; 
 
-useEffect(() => {
-  
+
+ 
+
+ useEffect(() => {
+
      allProduct.length !== 0 && 
        allProduct.map((item, index)=> {
           //page == single cat
@@ -51,7 +55,7 @@ useEffect(() => {
                        item.items.map((item_, index_) => {
                           item_.products.length !== 0
                             item_.products.map((product) => {
-                                itemDataArr.push(product)
+                              itemData.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
                             })
                        })
                 } 
@@ -64,7 +68,7 @@ useEffect(() => {
               if(item_.cat_name.split(" ").join("-").toLowerCase() == singleId.toLowerCase()) {
                 item_.products.length !== 0 
                 item_.products.map((product) => {
-                  itemDataArr.push(product)
+                  itemData.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
                 })
               }
 
@@ -72,16 +76,14 @@ useEffect(() => {
            }   
        })
 
-  const list = itemDataArr.filter((item, index) => itemDataArr.indexOf(item) === index);
+  const list = itemData.filter((item, index) => itemData.indexOf(item) === index);
   
    setData(list);
+
+  
    
+ }, [allProduct, itemData ]); 
 
- 
-}, [ allProduct, itemDataArr ]); 
-
-
-// console.log(ItemsData);
 
      // handle close
      const handleCloseDrop = () => {
@@ -93,6 +95,53 @@ useEffect(() => {
       setDropDownOpen2(() => !dropDownOpen2)
      }
   
+     // filter by price
+    const filterByPrice = (minValue, maxValue) => {
+           
+      allProduct.length !== 0 &&
+        allProduct.map((item, index) => {
+          
+              //page == single cat
+              if (props.single === true) {
+                  if (singleId === item.cat_name.toLowerCase()) {
+                      item.items.length !== 0 &&
+                          item.items.map((item_) => {
+                       
+                              item_.products.length !== 0 &&
+                                  item_.products.map((product) => {
+                                      let price = parseInt(product.price.toString().replace(/,/g, ""))
+                                      if (minValue <= price && maxValue >= price) {
+                                         
+                                          itemData.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
+                                      }
+
+                                  })
+                          })
+                  }
+              }
+
+              else {
+                  item.items.length !== 0 &&
+                      item.items.map((item_, index_) => {
+                          if (item_.cat_name.split(' ').join('-').toLowerCase() == singleId.split(' ').join('-').toLowerCase()) {
+                              item_.products.map((product) => {
+                                  let price = parseInt(product.price.toString().replace(/,/g, ""))
+                                  if (minValue <= price && maxValue >= price) {
+                                      itemData.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
+                                  }
+                              })
+
+                          }
+                      })
+              }
+
+          })
+
+      const list2 = itemData.filter((item, index) => itemData.indexOf(item) === index);
+      setData(list2);
+  }
+
+
 
   return (
     <>
@@ -101,17 +150,22 @@ useEffect(() => {
          <div className="container-fluid">
              <div className="row">
                 <div className="breadCrumb">
-                   <h2> Snack </h2>
+                   <h2 className="text-capitalize"> {sessionStorage.getItem("cat")} </h2>
                    <ul className="list list-inline">
                     <li className="list-inline-item">
-                      <Link to=""> Home </Link>
+                      <Link to="/"> Home </Link>
                     </li>
                     <li className="list-inline-item">
-                      <Link to=""> Shop </Link>
+                      <Link to={`/cat/${sessionStorage.getItem("cat")}`} className="text-capitalize"> {sessionStorage.getItem("cat")} </Link>
                     </li>
-                    <li className="list-inline-item">
-                      <Link to=""> Snack </Link>
-                    </li>
+                    
+                   {
+                    props.single === false && 
+                        <li className="list-inline-item text-capitalize">
+                            {singleId.split('-').join(' ')} 
+                       </li>
+                   }
+
                    </ul>
                 </div>
              </div>
@@ -124,7 +178,10 @@ useEffect(() => {
           <div className="container-fluid">
             <div className="row">
                <div className="col-lg-9 col-md-3  left-sidebar">
-                   <SideBar /> 
+                {
+                  data.length !== 0 &&  <SideBar data={allProduct} currentCatData={data} filterByPrice={filterByPrice} /> 
+                }
+               
                </div>
 
                <div className="col-lg-9 col-md-9 right-sidebar popular-products ">
@@ -159,18 +216,19 @@ useEffect(() => {
                   </div>
                </div>   
 
+
                    <div className="row product-row ms-3 ">
 
-                   {
-                    data.length !== 0 && 
-                    data.map((item, index) => {
-                       return (
-                         <div className="item width-big" key={index}>
-                          <Product tag={item.type} item={item}  /> 
-                      </div>
-                       )
-                    })
-                   }
+                      {
+                        data.length !== 0 && 
+                        data.map((item, index) => {
+                          return (
+                            <div className="item width-big" key={index}>
+                              <Product tag={item.type} item={item}  /> 
+                          </div>
+                          )
+                        })
+                      }
 
                     
                    </div>

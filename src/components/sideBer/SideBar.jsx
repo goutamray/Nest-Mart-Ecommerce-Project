@@ -1,18 +1,45 @@
 
 import cat1 from "../../assets/img/icons/category-1.svg"
-import cat2 from "../../assets/img/icons/category-2.svg"
-import cat3 from "../../assets/img/icons/category-3.svg"
-import cat4 from "../../assets/img/icons/category-4.svg"
-import cat5 from "../../assets/img/icons/category-5.svg"
+
 import banner11 from "../../assets/img/banner/banner-11.png"
-
 import { MdFilterListAlt } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-import Filter from "./Filter/Filter"
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
 
-
+import { useEffect, useState } from "react";
 import "./SideBar.css";
-const SideBar = () => {
+
+const SideBar = (props) => {
+   const [value, setValue ] = useState([20, 60000]);
+
+   const [totalLength, setTotalLength] = useState([]);
+
+   var catLength = 0;
+   var lengthArr = [];
+  
+  
+   // get length 
+   useEffect(() => {
+      props.data?.length !== 0 &&
+      props.data?.map((item, index) => {
+               item.items?.length !== 0 &&
+                   item.items?.map((item_) => {
+                       catLength += item_.products.length
+                   })
+               lengthArr.push(catLength)
+               catLength = 0;
+           })
+  
+       const list = lengthArr.filter((item, index) => lengthArr.indexOf(item) === index);
+       setTotalLength(list)
+  
+   }, []);
+
+
+
+
   return (
     <>
     <div className="sidebar-left">
@@ -20,45 +47,34 @@ const SideBar = () => {
            <h2> Category </h2>
 
            <div className="catList">
-             <div className="catItem">
+
+          {
+            props.data?.length !== 0 && 
+              props.data?.map((item, index) => {
+                 return  <div className="catItem" key={index}>
                  <div className="text">
-                    <a href=""> <img src={cat1} alt="" /> Milks & Dairies  </a> 
-                    <p className="count"> 27 </p>
+                    <Link to={`/cat/${item.cat_name.toLowerCase()}`}> <img src={cat1} alt="" /> {item.cat_name} </Link> 
+                    <p className="count"> {totalLength[index]} </p>
                  </div>
              </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat2} alt="" /> Clothing  </a> 
-                    <p className="count"> 2 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat3} alt="" /> Pet Foods  </a> 
-                    <p className="count"> 7 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat4} alt="" /> Baking material  </a> 
-                    <p className="count"> 20 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat5} alt="" /> Fresh Fruit  </a> 
-                    <p className="count"> 9 </p>
-                 </div>
-             </div>
+              })
+          }
+
            </div>
         </div>
 
       {/* Fill by price */}
         <div className="card-box">
-           <h2> Fill by price </h2>
-              <Filter /> 
-       
-          <div className="customer-checkbox">
+           <h2 > Fill by price </h2>
+
+           <RangeSlider value={value} onInput={setValue} min={20} max={60000} step={5}/>
+
+           <div className="colors"> 
+               <span> From : </span > ${value[0]} 
+               <span className="high-price"> To : </span > ${value[1]} 
+           </div>
+
+          <div className="customer-checkbox mt-3">
              <h6> Color </h6>
              <ul>
                <li>
@@ -103,43 +119,7 @@ const SideBar = () => {
         
         </div>
  
-      {/* New products*/}
-        {/* <div className="card-box">
-           <h2> New products </h2>
-           <div className="catList">
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat1} alt="" /> Milks & Dairies  </a> 
-                    <p className="count"> 27 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat2} alt="" /> Clothing  </a> 
-                    <p className="count"> 2 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat3} alt="" /> Pet Foods  </a> 
-                    <p className="count"> 7 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat4} alt="" /> Baking material  </a> 
-                    <p className="count"> 20 </p>
-                 </div>
-             </div>
-             <div className="catItem">
-                 <div className="text">
-                    <a href=""> <img src={cat5} alt="" /> Fresh Fruit  </a> 
-                    <p className="count"> 9 </p>
-                 </div>
-             </div>
-           </div>
-
-        </div> */}
+    
 
       {/* New products*/}
         <div className="card-box-img">

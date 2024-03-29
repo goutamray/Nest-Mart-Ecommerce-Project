@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Slider from "react-slider"; 
 
- const MIN = 100;
- const MAX = 12000;
+ const MIN = 20;
+ const MAX = 60000;
 
 
 import "./Filter.css";

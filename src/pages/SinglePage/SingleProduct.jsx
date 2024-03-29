@@ -3,30 +3,26 @@ import { CiHeart, CiShuffle } from "react-icons/ci";
 import { FaCartPlus, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import { Link, useParams} from "react-router-dom";
+import { useEffect, useRef, useState } from 'react';
+
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
-import { Link } from "react-router-dom";
-
-// import galary1 from "../../assets/img/thumbnail/thumbnail-7.jpg"
-// import galary2 from "../../assets/img/thumbnail/thumbnail-8.jpg"
-// import galary3 from "../../assets/img/thumbnail/thumbnail-9.jpg"
-// import galary4 from "../../assets/img/thumbnail/thumbnail-10.jpg"
-// import galary5 from "../../assets/img/thumbnail/thumbnail-11.jpg"
-// import galary6 from "../../assets/img/thumbnail/thumbnail-12.jpg"
 
 import Slider from "react-slick";
+import axios from "axios";
+
 // slider css  import 
-import { useRef, useState } from 'react';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-import SideBar from '../../components/sideBer/SideBar';
-import "./SingleProduct.css";
 import Product from "../../components/product/Product";
+import StarRating from "../../components/star-rate/StarRating";
 
+import "./SingleProduct.css";
 const SingleProduct = () => {
 
-  // const [zoomImage, setZoomImage ] = useState("https://www.jiomart.com/images/product/original/590002136/onion-5-kg-pack-product-images-o590002136-p590002136-0-202203141906.jpg");
+  const [productData, setproductData] = useState([]);
 
 
   const [bigImageSize, setbigImageSize ] = useState([1500 , 1500]);
@@ -34,8 +30,32 @@ const SingleProduct = () => {
   const [activeSize, setActiveSize ] = useState(0);
 
   const [activeTab , setActiveTab ] = useState(0); 
-
   const [count, setCount ] = useState(1); 
+
+ const [currentProduct, setCurrentProduct] = useState([])
+
+
+  let singleId = useParams(); 
+  let id = singleId.id;
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+      
+     productData.length !== 0 && 
+       productData.map((item, index) => {
+        item.items.length !== 0 && 
+            item.items.map((item_, index_) => {
+                 item_.products.length !== 0 &&
+                 item_.products.map((product) => {
+                    if (parseInt(product.id) === parseInt(id) ) {
+                      setCurrentProduct(product);
+                    }
+                 })
+            })
+       })
+   
+  }, [id, productData]);
+
 
   // increment 
   const handleIncrement = () => {
@@ -92,6 +112,28 @@ const SingleProduct = () => {
     setActiveSize(index)
   }; 
 
+    // get all data
+    useEffect(() => {
+      getData(`http://localhost:5050/productData`);
+   }, []);
+  
+   const getData = async(url) => {
+     try {
+        await axios.get(url).then((response) => {
+            setproductData(response.data);
+        })
+     } catch (error) {
+       console.log(error.message);
+     }
+   };
+
+   const [prodCat, setProdCat] = useState({
+    parentCat: sessionStorage.getItem('parentCat'),
+    subCatName: sessionStorage.getItem('subCatName')
+  })
+
+
+
   return (
     <>   
       <div className="single-product">
@@ -103,8 +145,11 @@ const SingleProduct = () => {
                <nav aria-label="breadcrumb">
                  <ul className="breadcrumb">
                       <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                      <li className="breadcrumb-item active" aria-current="page"> <Link to="/"> Vegetables & Tubers </Link></li>
-                      <li className="breadcrumb-item " > Seeds Of Change Organic</li>
+                      <li><Link to={`/cat/${prodCat.parentCat.split(' ').join('-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.parentCat.split(' ').join('-').toLowerCase())} className='text-capitalize'>{prodCat.parentCat}</Link> </li>
+
+                       <li><Link to={`/cat/${prodCat.parentCat.toLowerCase()}/${prodCat.subCatName.replace(/\s/g, '-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.subCatName.toLowerCase())} className='text-capitalize'>{prodCat.subCatName}</Link> </li>
+
+                      <li>{currentProduct.productName}</li>
                  </ul>
                 </nav>
              </div>
@@ -115,66 +160,45 @@ const SingleProduct = () => {
         <div className="container my-5">
            <div className="row">
 
-             <div className="col-md-9 singlePart-1 ">
+             <div className="col singlePart-1 ">
                  <div className="row">
                   {/* product zoom code start */}
                    <div className="col-md-5 ">
                    <Slider {...settings2} className="product-galary-slider-big" ref={zoomSliderBig}>
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1"  src={`https://www.jiomart.com/images/product/original/590003515/onion-1-kg-product-images-o590003515-p590003515-0-202203170724.jpg?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1"  src={`https://www.shutterstock.com/image-photo/onion-bulbs-shallot-vegetable-raw-260nw-2250877815.jpg?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
-            
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1" src={`https://www.jiomart.com/images/product/original/590002136/onion-5-kg-pack-product-images-o590002136-p590002136-0-202203141906.jpg?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1"  src={`https://chaldn.com/_mpimage/deshi-peyaj-local-onion-50-gm-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52358&q=low&v=1?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
-                
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1"  src={`https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/1200px-Mixed_onions.jpg?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
-                      <div className="item">
-                         <div className="product-zoom">
-                            <InnerImageZoom zoomType="hover" zoomScale="1"  src={`https://www.shutterstock.com/image-photo/onion-bulbs-shallot-vegetable-raw-260nw-2250877815.jpg?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
-                         </div>
-                      </div>
+
+                     {
+                      currentProduct.productImages !== undefined && 
+                        currentProduct.productImages?.map((imaUrl, index)=> {
+                             return (               
+                          <div className="item" key={index}>
+                             <div className="product-zoom">
+                                   <InnerImageZoom zoomType="hover" zoomScale="1"  src={`${imaUrl}?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
+                            </div>
+                          </div>
+                             )
+                      })
+                     }
+
                     </Slider>
 
-                     {/*galary   */}
+
+                     {/*galary image start  */}
                       <div className="zoom-galary">
                     <Slider {...settings} className="product-galary-slider" ref={zoomSlider}>
-                        <div className="item">
-                            <img src={`https://www.jiomart.com/images/product/original/590003515/onion-1-kg-product-images-o590003515-p590003515-0-202203170724.jpg?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(0)}/>
-                        </div>
-                        <div className="item">
-                            <img src={`https://www.shutterstock.com/image-photo/onion-bulbs-shallot-vegetable-raw-260nw-2250877815.jpg?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(1)}/>
-                        </div>
-                        <div className="item">
-                            <img src={`https://www.jiomart.com/images/product/original/590002136/onion-5-kg-pack-product-images-o590002136-p590002136-0-202203141906.jpg?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(2)}/>
-                        </div>
-                        <div className="item">
-                            <img src={`https://chaldn.com/_mpimage/deshi-peyaj-local-onion-50-gm-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52358&q=low&v=1?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(3)}/>
-                        </div>
-                        <div className="item">
-                            <img src={`https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/1200px-Mixed_onions.jpg?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(4)}/>
-                        </div>
-                        <div className="item">
-                            <img src={`https://www.shutterstock.com/image-photo/onion-bulbs-shallot-vegetable-raw-260nw-2250877815.jpg?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(5)}/>
-                        </div>
+
+                    {
+                      currentProduct.productImages !== undefined && 
+                        currentProduct.productImages?.map((imaUrl, index)=> {
+                             return (               
+                              <div className="item" key={index}>
+                              <img src={`${imaUrl}?im=Resize=(${smallImageSize[0]},${smallImageSize[1]})`} alt="" onClick={() => goto(index)}/>
+                          </div>
+                             )
+                      })
+                     }
+                      
+
+          
                      </Slider>
                       </div>    
                    </div>
@@ -184,30 +208,69 @@ const SingleProduct = () => {
                   {/* product info code start */}
                    <div className="col-md-7 product-info">
                        <div className="all-single-info">
-                           <h2> Seeds of Change Organic Quinoa, Brown </h2>
+                           <h2>{ currentProduct.productName} </h2>
                            <div className="review">
-                              <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt /></span> (32 reviews)
+                               <span> <StarRating stars={currentProduct.rating}/> </span>   <span>  (32 reviews) </span> 
                             </div>
                             <div className="price-sec">
-                              <span className="sale-price"> $38 </span>
+                              <span className="sale-price"> ${currentProduct.price} </span>
                               <div className="reg-price">
-                                 <span className="offer"> 26% Off </span>
-                                 <span className="regular"> $52 </span>
+                                 <span className="offer">{currentProduct.discount}% Off </span>
+                                 <span className="regular"> ${currentProduct.oldPrice}</span>
                               </div>
                             </div>
                             <div className="short-desc">
-                              <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi</p>
+                              <p> {currentProduct.description} </p>
                             </div>
-                            <div className="productSize d-flex align-items-center mt-3">
-                              <span> Size / Weight: </span>
-                              <ul className='list list-inline'>
-                                <li className='list-inline-item'> <a href="#" className={`tag ${activeSize === 0 ? "active" : ""}`} onClick={() => isActive(0)}> 50kg </a></li>
-                                <li className='list-inline-item'> <a href="#" className={`tag ${activeSize === 1 ? "active" : ""}`}  onClick={() => isActive(1)}> 60kg </a></li>
-                                <li className='list-inline-item'> <a href="#" className={`tag ${activeSize === 2 ? "active" : ""}`} onClick={() => isActive(2)} > 80kg </a></li>
-                                <li className='list-inline-item'> <a href="#" className={`tag ${activeSize === 3 ? "active" : ""}`}  onClick={() => isActive(3)}> 100kg </a></li>
-                                <li className='list-inline-item'> <a href="#" className={`tag ${activeSize === 4 ? "active" : ""}`}  onClick={() => isActive(4)}> 150kg </a></li>
-                              </ul>
-                            </div>
+
+                      {
+                        currentProduct.weight !== undefined && currentProduct.weight.length !== 0 &&  <div className="productSize d-flex align-items-center mt-3">
+                        <span> Size / Weight: </span>
+                        <ul className='list list-inline'>
+                          {
+                            currentProduct.weight.map((item, index) => {
+                                 return <li className='list-inline-item' key={index}> 
+                                 <a href="#" className={`tag ${activeSize === index ? "active" : ""}`} onClick={() => isActive(index)}> {item}kg </a></li>
+                            })
+                          }                      
+                        </ul>
+                      </div>
+                      }
+
+                            {/* ram   */}
+                      {
+                        currentProduct.RAM !== undefined && currentProduct.RAM.length !== 0 &&  <div className="productSize d-flex align-items-center mt-3">
+                        <span> RAM: </span>
+                        <ul className='list list-inline'>
+                          {
+                            currentProduct.RAM.map((RAM, index) => {
+                                 return <li className='list-inline-item' key={index}> 
+                                 <a href="#" className={`tag ${activeSize === index ? "active" : ""}`} onClick={() => isActive(index)}> { RAM } GB </a></li>
+                            })
+                          }                      
+                        </ul>
+                      </div>
+                      }
+
+
+                            {/* size  */}
+
+
+                      {
+                        currentProduct.SIZE !== undefined && currentProduct.SIZE.length !== 0 &&  <div className="productSize d-flex align-items-center mt-3">
+                        <span> SIZE: </span>
+                        <ul className='list list-inline'>
+                          {
+                            currentProduct.SIZE.map((SIZE, index) => {
+                                 return <li className='list-inline-item' key={index}> 
+                                 <a href="#" className={`tag ${activeSize === index ? "active" : ""}`} onClick={() => isActive(index)}> {SIZE} </a></li>
+                            })
+                          }                      
+                        </ul>
+                      </div>
+                      }
+                                     
+
                             <div className="product-counter ">
                                <div className="counter d-flex align-items-center">
                                  <h1> { count } </h1>
@@ -247,9 +310,6 @@ const SingleProduct = () => {
                               </div>
                             </div>
                        </div>
-
-
-
                    </div>
                   {/* product info code end */}
 
@@ -271,14 +331,7 @@ const SingleProduct = () => {
                   
                   {
                     activeTab === 0 && <div className="tab-content mt-3">
-                    <p className="all-small-font"> Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart. </p> <br/>
-                    <p className="all-small-font"> Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart. </p>
-                    <h3 className="meduim-text"> Packaging & Delivery</h3>
-                    <p className="all-small-font"> Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.</p>
-
-                    <h3 className="meduim-text" > Suggested Use </h3>
-                    <p className="all-small-font"> Refrigeration not necessary.</p>
-                    <p className="all-small-font"> Stir before serving </p>
+                    <p className="all-small-font">{currentProduct.description}</p>
                   </div>
                   }
                     
@@ -548,9 +601,7 @@ const SingleProduct = () => {
              </div>
 
 
-             <div className="col-md-3 singlePart-2 left-sidebar">
-                 <SideBar /> 
-             </div>
+
            </div>
         </div>
 

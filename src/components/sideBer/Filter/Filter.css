@@ -13,7 +13,7 @@
 }
 
 .colors .high-price{
-  margin-left: 40px;
+  margin-left: 27px;
 }
 small{
   color: var(--nest-primary);
@@ -47,8 +47,6 @@ small span{
 .slider .thumb:focus{
   outline: none !important;
 }
-
-
 
 
 

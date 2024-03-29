@@ -1,8 +1,5 @@
 
 /******* sideber css ***********/
-
-
-
 .sidebar-left .card-box {
   padding: 20px;
   border: 1px solid rgb(239 239 239);
@@ -14,6 +11,7 @@
   font-size: 24px;
   color: #253D4E;
   font-weight: 500;
+  margin-bottom: 40px;
 }
 .sidebar-left .card-box h2::after {
   content: "";
@@ -155,6 +153,20 @@ color: var(--nest-primary);
 }
 
 
+/* price filter css  */
+.card-box .colors{
+  margin-top: 6px;
+}
+.card-box .colors span{
+  color: #333 !important;
+  font-weight: 600;
+  font-size: 18px;
 
+
+}
+
+.card-box .colors .high-price{
+  margin-left: 27px;
+} 
 
 

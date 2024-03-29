@@ -35,10 +35,6 @@ const StarRating = ({ stars }) => {
 
 };
 
-
-
-
-
 export default StarRating
 
 
