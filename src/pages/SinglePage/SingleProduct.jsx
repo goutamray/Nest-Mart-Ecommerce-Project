@@ -178,9 +178,9 @@ const handleChangeInput = (e) => {
         [e.target.name] : e.target.value,
         date: new Date().toLocaleString(),
         id: id,
-        rating : rating
+        rating : 0, 
       }))
-}      
+}         
              
 
 
@@ -189,7 +189,7 @@ const handleFormSubmit = async(e) => {
 
 
    try {
-     const response = await axios.post(`http://localhost:5050/productReviews`, input, {rating : rating} )
+     const response = await axios.post(`http://localhost:5050/productReviews`, input )
 
     console.log(rating);
      return response.data; 

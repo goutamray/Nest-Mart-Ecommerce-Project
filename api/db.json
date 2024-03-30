@@ -1261,57 +1261,16 @@
       ]
     }
   ],
+
+
+
   "productReviews": [
-    {
-      "id": "35",
-      "review": "Goutam ray",
-      "userName": "sujan ",
-      "rating": 0,
-      "date": "3/30/2024, 8:18:13 PM"
-    },
-    {
-      "id": "35",
-      "review": "Goutam ray",
-      "userName": "sujan ",
-      "rating": 0,
-      "date": "3/30/2024, 8:18:13 PM"
-    },
-    {
-      "id": "35",
-      "review": "Goutam ray",
-      "userName": "sujan ",
-      "rating": 0,
-      "date": "3/30/2024, 8:18:13 PM"
-    },
-    {
-      "id": "35",
-      "review": "gfjhfghfg",
-      "userName": "fghfghfg",
-      "rating": 0,
-      "date": "3/30/2024, 8:39:52 PM"
-    },
-    {
-      "id": "35",
-      "review": "gfjhfghfg",
-      "userName": "fghfghfg",
-      "rating": 0,
-      "date": "3/30/2024, 8:39:52 PM"
-    },
-    {
-      "id": "35",
-      "review": "dfhdfhfghfgh",
-      "userName": "fghfghfg",
-      "rating": 0,
-      "date": "3/30/2024, 8:41:20 PM"
-    },
-    {
-      "id": "35",
-      "review": "dfhdfhfghfgh",
-      "userName": "fghfghfg",
-      "rating": 0,
-      "date": "3/30/2024, 8:41:20 PM"
-    }
+   
   ],
+
+
+
+  
   "cartItems": [
     {
       "productName": "Moong Dal 2 kg",

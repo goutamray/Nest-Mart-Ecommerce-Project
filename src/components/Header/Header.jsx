@@ -102,7 +102,7 @@ const Header = ( ) => {
                            <img className=""  src={cart} />
                            <span className="pro-count blue">2 </span>
                         </a>
-                      <a href='' className="compare-text"><span className="lable ml-0">Cart</span></a>
+                      <Link to='/cart' className="compare-text"><span className="lable ml-0">Cart</span></Link>
                    </div>        
                  </div>
 

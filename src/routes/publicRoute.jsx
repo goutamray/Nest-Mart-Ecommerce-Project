@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Shop from "../pages/Shop/Shop";
 import SingleProduct from "../pages/SinglePage/SingleProduct";
+import Cart from "../pages/cart/Cart";
 import Contact from "../pages/contact/Contact";
 
 
@@ -44,6 +45,10 @@ const publicRouter = [
       {
         path : "*",
         element : <NotFound />  
+      },
+      {
+        path : "/cart",
+        element : <Cart />  
       },
     ] 
   }
