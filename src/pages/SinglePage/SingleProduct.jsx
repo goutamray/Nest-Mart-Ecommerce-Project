@@ -2,8 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CiHeart, CiShuffle } from "react-icons/ci";
 import { FaCartPlus, FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
-import { MdKeyboardArrowUp } from "react-icons/md";
+
 import { Link, useParams } from "react-router-dom";
 
 import InnerImageZoom from 'react-inner-image-zoom';
@@ -22,9 +21,11 @@ import StarRating from "../../components/star-rate/StarRating";
 import "./SingleProduct.css";
 
 import Rating from 'react-rating';
+import Counter from '../../components/counter/Counter';
+
 
 const SingleProduct = () => {
-  
+
 
   const [productData, setproductData] = useState([]);
 
@@ -34,7 +35,7 @@ const SingleProduct = () => {
   const [activeSize, setActiveSize ] = useState(0);
 
   const [activeTab , setActiveTab ] = useState(0); 
-  const [count, setCount ] = useState(1); 
+
 
  const [currentProduct, setCurrentProduct] = useState([]);
 
@@ -86,16 +87,7 @@ const SingleProduct = () => {
   }, [id, productData]);
 
 
-  // increment 
-  const handleIncrement = () => {
-    setCount((count) => count + 1); 
-  }; 
-  // handleDescrement 
-  const handleDescrement = () => {
-    if (count > 1 ) {
-      setCount((count) => count - 1); 
-    }
-  }; 
+
 
   const zoomSliderBig = useRef(); 
   const zoomSlider = useRef(); 
@@ -212,9 +204,9 @@ const handleFormSubmit = async(e) => {
                <nav aria-label="breadcrumb">
                  <ul className="breadcrumb">
                       <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                      <li><Link to={`/cat/${prodCat.parentCat.split(' ').join('-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.parentCat.split(' ').join('-').toLowerCase())} className='text-capitalize'>{prodCat.parentCat}</Link> </li>
+                      <li className="breadcrumb-item"><Link to={`/cat/${prodCat.parentCat.split(' ').join('-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.parentCat.split(' ').join('-').toLowerCase())} className='text-capitalize'>{prodCat.parentCat}</Link> </li>
 
-                       <li><Link to={`/cat/${prodCat.parentCat.toLowerCase()}/${prodCat.subCatName.replace(/\s/g, '-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.subCatName.toLowerCase())} className='text-capitalize'>{prodCat.subCatName}</Link> </li>
+                       <li className="breadcrumb-item"><Link to={`/cat/${prodCat.parentCat.toLowerCase()}/${prodCat.subCatName.replace(/\s/g, '-').toLowerCase()}`} onClick={() => sessionStorage.setItem('cat', prodCat.subCatName.toLowerCase())} className='text-capitalize'>{prodCat.subCatName}</Link> </li>
 
                       <li>{currentProduct.productName}</li>
                  </ul>
@@ -339,11 +331,11 @@ const handleFormSubmit = async(e) => {
                                      
 
                             <div className="product-counter ">
-                               <div className="counter d-flex align-items-center">
-                                 <h1> { count } </h1>
-                                 <button className='upper' onClick={handleIncrement} > <MdKeyboardArrowUp /> </button>
-                                 <button className='lower' onClick={handleDescrement}> <IoIosArrowDown /> </button>
-                               </div>
+                              
+                                <div className="counter-box-add">
+                                     <Counter />
+                                </div>
+
                                <div className="add-to-cart-btn">
                                    <Link to=""> <FaCartPlus className='cart-icon'/> Add to cart </Link>
                                </div>
