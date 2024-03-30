@@ -1,16 +1,16 @@
 
+import { useEffect, useRef, useState } from 'react';
 import { CiHeart, CiShuffle } from "react-icons/ci";
 import { FaCartPlus, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdKeyboardArrowUp } from "react-icons/md";
-import { Link, useParams} from "react-router-dom";
-import { useEffect, useRef, useState } from 'react';
+import { Link, useParams } from "react-router-dom";
 
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 
-import Slider from "react-slick";
 import axios from "axios";
+import Slider from "react-slick";
 
 // slider css  import 
 import "slick-carousel/slick/slick-theme.css";
@@ -20,7 +20,11 @@ import Product from "../../components/product/Product";
 import StarRating from "../../components/star-rate/StarRating";
 
 import "./SingleProduct.css";
+
+import Rating from 'react-rating';
+
 const SingleProduct = () => {
+  
 
   const [productData, setproductData] = useState([]);
 
@@ -68,9 +72,9 @@ const SingleProduct = () => {
                   if (prodCat.subCatName === item_.cat_name) {
                     item_.products.length !== 0 && 
                      item_.products.map((product, index) => {
-                       related_products.push(product)
-                      
-
+                      if (product.id !== parseInt(id)) {
+                        related_products.push(product)                        
+                       }                     
                      })
                   }
              })
@@ -79,7 +83,6 @@ const SingleProduct = () => {
   
     setRelatedProduct(related_products)
 
-   
   }, [id, productData]);
 
 
@@ -137,7 +140,7 @@ const SingleProduct = () => {
   const isActive = (index) => {
     setActiveSize(index)
   }; 
-
+   
     // get all data
     useEffect(() => {
       getData(`http://localhost:5050/productData`);
@@ -158,7 +161,45 @@ const SingleProduct = () => {
     subCatName: sessionStorage.getItem('subCatName')
   })
 
+  // form state manage 
+ const [rating, setRating ] = useState(0);
 
+  const [input, setInput] = useState({
+     review : "",
+     userName : "",
+     rating : 0
+  
+});     
+
+
+const handleChangeInput = (e) => {
+  setInput((prevState) => ({
+        ...prevState,
+        [e.target.name] : e.target.value,
+        date: new Date().toLocaleString(),
+        id: id,
+        rating : rating
+      }))
+}      
+             
+
+
+const handleFormSubmit = async(e) => {
+   e.preventDefault();
+
+
+   try {
+     const response = await axios.post(`http://localhost:5050/productReviews`, input, {rating : rating} )
+
+    console.log(rating);
+     return response.data; 
+
+   } catch (error) {
+    console.log(error.message);
+   }    
+
+
+}
 
   return (
     <>   
@@ -198,7 +239,7 @@ const SingleProduct = () => {
                              return (               
                           <div className="item" key={index}>
                              <div className="product-zoom">
-                                   <InnerImageZoom zoomType="hover" zoomScale="1"  src={`${imaUrl}?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
+                                   <InnerImageZoom zoomType="hover" zoomScale= "1"  src={`${imaUrl}?im=Resize=(${bigImageSize[0]},${bigImageSize[1]})`}  /> 
                             </div>
                           </div>
                              )
@@ -459,87 +500,65 @@ const SingleProduct = () => {
                                <div className="review-customer">
                                   <h4> Customer questions & answers  </h4>
 
-                                  <div className="card p-3 review-card mb-4">
-                                      <div className="image-item">
-                                        <div className="rounded-circle">
-                                            <img src="https://nest-frontend-v6.netlify.app/assets/imgs/blog/author-2.png" alt="" />
-                                         </div>
-                                         <p> Sienna </p>
-                                      </div>
-                                   <div className="card-info">
-                                      <div className="review-date">
-                                          <p className="now-date"> December 4, 2024 at 3:12 pm</p>
-                                          <p className="review-star"> 
-                                           <span> <FaStar /> <FaStar /><FaStar /><FaStar /> <FaStarHalfAlt />  </span>
-                                           </p>
-                                       </div>
-                                         <p className="message"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt </p>
+                         {/* {
+                          currentProduct.reviews.length !== 0 && 
+                             currentProduct.reviews.map((item, index) => {
+                                return (
+                                <div className="card p-3 review-card mb-4" key={index}>
+                                  <div className="image-item">
+                                    <div className="rounded-circle">
+                                        <img src="https://nest-frontend-v6.netlify.app/assets/imgs/blog/author-2.png" alt="" />
                                      </div>
+                                     <p> Sienna </p>
                                   </div>
-
-                                  <div className="card p-3 review-card mb-4">
-                                      <div className="image-item">
-                                        <div className="rounded-circle">
-                                            <img src="https://nest-frontend-v6.netlify.app/assets/imgs/blog/author-3.png" alt="" />
-                                         </div>
-                                         <p> Brenna </p>
+                                  <div className="card-info">
+                                     <div className="review-date">
+                                       <p className="now-date"> December 4, 2024 at 3:12 pm</p>
                                       </div>
-                                   <div className="card-info">
-                                      <div className="review-date">
-                                          <p className="now-date"> December 4, 2024 at 3:12 pm</p>
-                                          <p className="review-star"> 
-                                           <span> <FaStar /> <FaStar /><FaStar /><FaStar /> <FaStarHalfAlt />  </span>
-                                           </p>
-                                       </div>
-                                         <p className="message"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt </p>
-                                     </div>
+                                      <div className="star-message mt-3"> 
+                                        <p className="message">{item.review} </p>
+                                      </div> 
                                   </div>
-
-                                  <div className="card p-3 review-card mb-4">
-                                      <div className="image-item">
-                                        <div className="rounded-circle">
-                                            <img src="https://nest-frontend-v6.netlify.app/assets/imgs/blog/author-4.png" alt="" />
-                                         </div>
-                                         <p> Gemma </p>
-                                      </div>
-                                   <div className="card-info">
-                                      <div className="review-date">
-                                          <p className="now-date"> December 4, 2024 at 3:12 pm</p>
-                                          <p className="review-star"> 
-                                           <span> <FaStar /> <FaStar /><FaStar /><FaStar /> <FaStarHalfAlt />  </span>
-                                           </p>
-                                       </div>
-                                         <p className="message"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, suscipit exercitationem accusantium obcaecati quos voluptate nesciunt facilis itaque modi commodi dignissimos sequi repudiandae minus ab deleniti totam officia id incidunt </p>
-                                     </div>
+                                  <div className="review-final">
+                                     <span> <StarRating stars={item.rating}/> </span>   
                                   </div>
+                              </div>
+                                )
+                             })
+                         } */}
+                                 
 
 
-                                  <div className="review-form">
+    
+
+
+
+                            <div className="review-form">
                                      <h3> Add a review </h3>
-                                     <span className="review-form-data"> <FaStar /> <FaStar /><FaStar /><FaStar /> <FaStarHalfAlt /> </span>
-                                 <div className="form"> 
+                             
+                                 <form className="form" onSubmit={handleFormSubmit}> 
                                      <div className="form-group my-2">
-                                        <textarea name="" cols="30" rows="5" className="form-control" placeholder="Write Comment"></textarea>
+                                        <textarea name="review" value={input.review}  onChange={handleChangeInput} cols="30" rows="5" className="form-control" placeholder="Write Comment"></textarea>
                                      </div>
                                      <div className="row my-3">
                                        <div className="col-md-6">
                                           <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Name"/>
+                                            <input type="text" className="form-control" placeholder="Name" name="userName" value={input.userName} onChange={handleChangeInput} />
                                           </div>
                                        </div>
-                                       <div className="col-md-6">
-                                         <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Email"/>
+                                    <div className="col-md-6">
+                                      <div className="form-group">
+                                       <span className="me-3"> 
+                                       Review  <Rating className='icon-all' emptySymbol="fa fa-star-o fa-2x" fullSymbol="fa fa-star fa-2x"  fractions={2} name="rating"  value={rating} onChange={(rating) => setRating(rating)} /> </span>
+                                     
                                           </div>
-                                       </div>
+                                       </div>  
                                      </div>
-                                     <div className="form-group">
-                                        <input type="text" className="form-control" placeholder="Website"/>
-                                     </div>                                   
-                                     <button className="submit-btn"> Submit Review </button>
-                                  </div>
+                                                                       
+                                     <button type="submit" className="submit-btn"> Submit Review </button>
+                                  </form>
 
-                                 </div>                       
+                                 </div> 
                                </div>
                           </div>
 
@@ -615,20 +634,6 @@ const SingleProduct = () => {
 
                     }
                
-
-                    
-                      {/* <div className="item">
-                        <Product tag="hot"/>  
-                      </div>
-                      <div className="item">
-                        <Product tag="best"/>  
-                      </div>
-                      <div className="item">
-                        <Product tag="sale"/>  
-                      </div>
-                      <div className="item">
-                        <Product tag="hot"/>  
-                      </div>                 */}
                     </Slider>
                   </div>
              </div>

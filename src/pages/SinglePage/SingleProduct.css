@@ -12,6 +12,7 @@
 
 .breadCrumbWrapper2 .bradcrumb2 ul li a{
    font-size: 15px;
+   font-weight: 500;
    color: var(--nest-primary);
    padding-right: 10px !important;
 }
@@ -28,19 +29,19 @@
 }
 
 /* galary css */
-
 .product-galary-slider {
    padding-top: 20px !important;
 }
 .product-galary-slider .slick-slide .item {
   padding: 5px !important;
   overflow: hidden !important;
-  height: 90px;
+  height: 120px;
 }
 .product-galary-slider .slick-slide  img{
   border-radius: 10px;
   overflow: hidden !important;
   width: 100%;
+
 }
 
 .product-galary-slider .slick-current{
@@ -297,11 +298,16 @@ color: #B6B6B6;
    gap: 8px;
    flex-direction: row;
    transition: all 0.3s ease-in-out;
+   width: 100%;
 }
 
 .review-card:hover{
    transform: translateY(-5px);
 }
+.review-card .image-item {
+  width: 15%;
+}
+
 
 .review-card .image-item .rounded-circle {
   width: 110px !important;
@@ -321,25 +327,27 @@ color: #B6B6B6;
     margin-top: 4px;
 }
 
-.card-info .review-date{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.review-card .card-info {
+  width: 73%;
 }
-.card-info .review-date .now-date{
-   color: #B6B6B6;
-   font-style: 13px;
-   font-weight: 400;
+.review-card .card-info .review-date{
+  color: #B6B6B6;
+  font-style: 13px;
+  font-weight: 400;
 }
-.card-info .review-date .review-star span{
-      margin-right: 5px;
+.review-card.card-info .star-message{
+  font-size: 15px;
+  color: #7E7E7E;
+  font-weight: 400;
+  margin-top: 7px;
 }
-.card-info .message{
-   font-size: 15px;
-   color: #7E7E7E;
-   font-weight: 400;
-   margin-top: 7px;
+.review-card .review-final{
+  width: 12%;
 }
+
+
+
+
 
 
 /****** right side ber  ******/
@@ -402,6 +410,24 @@ color: #B6B6B6;
   margin-top: 20px;
 }
 
+.review-form .customer-rating {
+  font-size: 13px !important;
+  color: orange !important;
+  position: relative;
+  top: 5px;
+}
+.review-form .customer-rating span{
+  padding: 0px 1px !important;
+}
+
+.icon-all {
+  font-size: 12px !important;
+  color: orange !important;
+  padding-left: 4px;
+}
+.icon-all span{
+  padding: 1px;
+}
 
 
 /***** single-progress bar *******/

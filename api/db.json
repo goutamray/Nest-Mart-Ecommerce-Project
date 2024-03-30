@@ -2,7 +2,7 @@
   "productData": [
     {
       "cat_name": "Groceries",
-      "id": 1,
+      "id": "1",
       "image": "https://cdn-icons-png.flaticon.com/512/3724/3724788.png",
       "items": [
         {
@@ -211,7 +211,6 @@
             }
           ]
         },
-
         {
           "cat_name": "Ghee & Oils",
           "products": [
@@ -363,7 +362,6 @@
             }
           ]
         },
-
         {
           "cat_name": "Atta & Flours",
           "products": [
@@ -540,7 +538,6 @@
             }
           ]
         },
-
         {
           "cat_name": "Masalas Spices",
           "products": [
@@ -692,7 +689,6 @@
             }
           ]
         },
-
         {
           "cat_name": "Rice Products",
           "products": [
@@ -821,7 +817,7 @@
     },
     {
       "cat_name": "Electronics",
-      "id": 2,
+      "id": "2",
       "image": "https://cdn-icons-png.flaticon.com/128/3659/3659898.png",
       "items": [
         {
@@ -1051,7 +1047,7 @@
     },
     {
       "cat_name": "Fashion",
-      "id": 3,
+      "id": "3",
       "image": "https://cdn-icons-png.flaticon.com/128/12516/12516451.png",
       "items": [
         {
@@ -1265,110 +1261,57 @@
       ]
     }
   ],
-
-
   "productReviews": [
     {
-      "review": "nice ",
-      "userName": "rinku verma",
-      "rating": "5",
-      "productId": "47",
-      "date": "11/19/2023, 12:35:32 AM",
-      "id": 1
-    },
-    {
-      "review": "good ",
-      "userName": "sfsdf",
-      "rating": "4",
-      "productId": "40",
-      "date": "11/19/2023, 12:36:30 AM",
-      "id": 2
-    },
-    {
-      "review": "Realme C55 DLC 64GB, 4 GB RAM, Sunshower, Mobile Phone  nice product ",
-      "userName": "rinku verma",
-      "rating": "5",
-      "productId": "38",
-      "date": "11/19/2023, 12:37:35 AM",
-      "id": 3
-    },
-    {
-      "review": "HARYANA FRESH Rich Desi Danedar Ghee 500 Grams (Carton)  nice product ",
-      "userName": "@rinkuv37",
-      "rating": "5",
-      "productId": "13",
-      "date": "11/19/2023, 6:54:23 PM",
-      "id": 4
-    },
-    {
-      "review": "nice product ",
-      "userName": "rinku verma",
-      "rating": "5",
-      "productId": "36",
-      "date": "11/19/2023, 8:43:56 PM",
-      "id": 5
-    },
-    {
-      "review": "zsfzsdf",
-      "userName": "dfsdff",
-      "rating": "5",
-      "productId": "8",
-      "date": "11/22/2023, 6:57:23 PM",
-      "id": 6
-    }, 
-    {
-      "review": "",
-      "userName": "",
+      "id": "35",
+      "review": "Goutam ray",
+      "userName": "sujan ",
       "rating": 0,
-      "productId": 0,
-      "date": "",
-      "id": 7
+      "date": "3/30/2024, 8:18:13 PM"
     },
     {
-      "review": "nice product",
-      "userName": "rinku verma",
+      "id": "35",
+      "review": "Goutam ray",
+      "userName": "sujan ",
       "rating": 0,
-      "productId": "1",
-      "date": "12/17/2023, 5:58:25 AM",
-      "id": 8
+      "date": "3/30/2024, 8:18:13 PM"
     },
     {
-      "review": "nice product",
-      "userName": "rinku verma",
-      "rating": "5",
-      "productId": "1",
-      "date": "12/17/2023, 5:58:43 AM",
-      "id": 9
+      "id": "35",
+      "review": "Goutam ray",
+      "userName": "sujan ",
+      "rating": 0,
+      "date": "3/30/2024, 8:18:13 PM"
     },
     {
-      "review": "nice product ",
-      "userName": "rinku verma",
-      "rating": "5",
-      "productId": "36",
-      "date": "12/17/2023, 10:18:11 PM",
-      "id": 10
+      "id": "35",
+      "review": "gfjhfghfg",
+      "userName": "fghfghfg",
+      "rating": 0,
+      "date": "3/30/2024, 8:39:52 PM"
     },
     {
-      "review": "nice product",
-      "userName": "sdfsdf",
-      "rating": "5",
-      "productId": "37",
-      "date": "1/7/2024, 9:22:18 PM",
-      "id": 11
+      "id": "35",
+      "review": "gfjhfghfg",
+      "userName": "fghfghfg",
+      "rating": 0,
+      "date": "3/30/2024, 8:39:52 PM"
     },
     {
-      "review": "seff",
-      "userName": "dsgrdg",
-      "rating": "5",
-      "productId": "45",
-      "date": "1/8/2024, 12:57:58 AM",
-      "id": 12
+      "id": "35",
+      "review": "dfhdfhfghfgh",
+      "userName": "fghfghfg",
+      "rating": 0,
+      "date": "3/30/2024, 8:41:20 PM"
+    },
+    {
+      "id": "35",
+      "review": "dfhdfhfghfgh",
+      "userName": "fghfghfg",
+      "rating": 0,
+      "date": "3/30/2024, 8:41:20 PM"
     }
   ],
-
-
-
-
   "cartItems": [
     {
       "productName": "Moong Dal 2 kg",
@@ -1392,7 +1335,7 @@
       ],
       "rating": 4,
       "description": "Moong Dal is essentially packed with loads of nutrients that are extremely beneficial for your health. Moong contains almost every important element that your body might need. Buy Moong Dal online today.",
-      "id": 2,
+      "id": "2",
       "quantity": 1
     },
     {
@@ -1416,7 +1359,7 @@
       ],
       "rating": 4.5,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 47,
+      "id": "47",
       "parentCatName": "Fashion",
       "subCatName": "Men Western Wear",
       "quantity": 1
@@ -1443,7 +1386,7 @@
       ],
       "rating": 4.5,
       "description": "Good life Moong Dal is procured from reliable and high-quality sources. The beans are best consumed after being sprouted. Dosa with whole moong also turns out to be yummy, another exotic way to eat moong is to eat it as a korma which is spiced up with tangy tomatoes and a cashew paste. It is mainly used as the base for curries such as sambar, dal etc. Buy Good Life Moong Dal online now!",
-      "id": 5,
+      "id": "5",
       "quantity": 1
     },
     {
@@ -1469,7 +1412,7 @@
       ],
       "rating": 4.5,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 44,
+      "id": "44",
       "quantity": 1
     },
     {
@@ -1496,7 +1439,7 @@
       ],
       "rating": 5,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 45,
+      "id": "45",
       "quantity": 1
     },
     {
@@ -1522,216 +1465,8 @@
       ],
       "rating": 5,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 46,
-      "quantity": 1
-    },
-    {
-      "productName": "Men Checked Slim Fit Shirt",
-      "price": "179.00",
-      "oldPrice": "489.00",
-      "weight": [],
-      "RAM": [],
-      "SIZE": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model-420395610_red-0-202309052055.jpg",
-      "discount": "45",
-      "brand": "ROXTAR",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model-420395610_red-0-202309052055.jpg",
-        "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model2-420395610_red-2-202309052055.jpg",
-        "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model3-420395610_red-3-202309052055.jpg",
-        "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model4-420395610_red-4-202309052055.jpg",
-        "https://www.jiomart.com/images/product/original/420395610_red/checked-slim-fit-shirt-model5-420395610_red-5-202309052055.jpg"
-      ],
-      "rating": 4.5,
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 48,
-      "quantity": 1
-    },
-    {
-      "productName": "Good Life Whole Moong 500 g",
-      "price": "20",
-      "oldPrice": "140",
-      "weight": [
-        50,
-        100,
-        150,
-        200,
-        250,
-        500
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-0-202308311426.jpg",
-      "discount": "12",
-      "brand": "AASHIRVAAD",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-0-202308311426.jpg",
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-1-202308311426.jpg",
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-2-202308311426.jpg",
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-3-202308311426.jpg",
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-4-202308311426.jpg",
-        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-legal-images-o491187309-p491187309-5-202308311427.jpg"
-      ],
-      "rating": 3.5,
-      "description": "Good Life Whole Moong is one of the light meal to digest. It is often given to people who prefer diet for fitness. It contains antioxidants which are very healthy for the good functioning of the human body. It can be included in our daily diet as it can fulfil the nutritional and dietary requirements of an entire meal. Buy Good Life Whole Moong online now!",
-      "id": 1,
-      "parentCatName": "groceries",
-      "subCatName": "dals and pulses",
-      "quantity": 1
-    },
-    {
-      "productName": "Good Life Kabuli Chana 1 kg",
-      "price": "185",
-      "oldPrice": "210",
-      "weight": [
-        50,
-        100,
-        150,
-        200,
-        250,
-        500
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-0-202301171615.jpg",
-      "discount": "23",
-      "brand": "Good Life",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-0-202301171615.jpg",
-        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-1-202301171615.jpg",
-        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-legal-images-o491187282-p491187282-4-202301171615.jpg"
-      ],
-      "rating": 3.5,
-      "description": "Kabuli Chana is rich in proteins, dietary fibre and low in cholesterol and saturated fat. The beans can be soaked in water and cooked along with vegetables in the preparation of a variety of curries that complement well with rice, roti, chapattis, puri, kulcha as well as bread. It can be sprouted after soaking in water for 24 hours and added to salads to enrich the latter with proteins. Buy Good Life Kabuli Chana online now!",
-      "id": 6,
-      "parentCatName": "groceries",
-      "subCatName": "dals and pulses",
-      "quantity": 1
-    },
-    {
-      "productName": "Shrug with Shawl Lapel",
-      "price": "699.00",
-      "oldPrice": "989.00",
-      "weight": [],
-      "RAM": [],
-      "SIZE": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model-441131609_grey-0-202309271631.jpg",
-      "discount": "65",
-      "brand": "FIG",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model2-441131609_grey-2-202309271631.jpg",
-        "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model3-441131609_grey-3-202309271631.jpg",
-        "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model3-441131609_grey-3-202309271631.jpg",
-        "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model4-441131609_grey-4-202309271631.jpg",
-        "https://www.jiomart.com/images/product/original/441131609_grey/shrug-with-shawl-lapel-model5-441131609_grey-5-202309271631.jpg"
-      ],
-      "rating": 5,
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
-      "id": 51,
-      "quantity": 1
-    },
-    {
-      "productName": "Good Life Raw Peanuts 500 g",
-      "price": "89",
-      "oldPrice": "150",
-      "weight": [
-        50,
-        100,
-        150,
-        200,
-        250,
-        500
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-0-202306102242.jpg",
-      "discount": "16",
-      "brand": "Good Life",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-0-202306102242.jpg",
-        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-2-202306102242.jpg",
-        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-3-202306102243.jpg",
-        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-4-202306102243.jpg",
-        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-5-202306102243.jpg"
-      ],
-      "rating": 3.5,
-      "description": "Good Life Raw Peanuts is a healthy snack and the right choice for you. You can easily roast them at home. They are loaded with the goodness of health and taste. Peanut butter made with Peanuts clearly works well in sweet dishes, like cookies and brownies, which is why it pairs well with other sweeter foods like sweet potato. Buy Good Life Raw Peanuts online now!",
-      "id": 3,
-      "parentCatName": "groceries",
-      "subCatName": "dals and pulses",
-      "quantity": 1
-    },
-    {
-      "productName": "Tata Sampann Unpolished Chilka Moong 500 g",
-      "price": "74",
-      "oldPrice": "95",
-      "weight": [
-        50,
-        100,
-        150,
-        200,
-        250,
-        500
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/490830947/tata-sampann-high-protein-unpolished-chilka-moong-500-g-product-images-o490830947-p490830947-0-202203150526.jpg",
-      "discount": "18",
-      "brand": "Tata Sampann",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/490830947/tata-sampann-high-protein-unpolished-chilka-moong-500-g-product-images-o490830947-p490830947-0-202203150526.jpg",
-        "https://www.jiomart.com/images/product/original/490830947/tata-sampann-high-protein-unpolished-chilka-moong-500-g-product-images-o490830947-p490830947-1-202203150526.jpg",
-        "https://www.jiomart.com/images/product/original/490830947/tata-sampann-high-protein-unpolished-chilka-moong-500-g-legal-images-o490830947-p490830947-2-202203150526.jpg",
-        "https://www.jiomart.com/images/product/original/490830947/tata-sampann-high-protein-unpolished-chilka-moong-500-g-legal-images-o490830947-p490830947-5-202203150526.jpg"
-      ],
-      "rating": 4,
-      "description": "Moong Dal is procured from reliable and high-quality sources. The beans are best consumed after being sprouted. Dosa with the whole moong also turns out to be yummy, another exotic way to eat moong is to eat it as a korma which is spiced up with tangy tomatoes and a cashew paste. It is mainly used as the base for curries such as sambar, dal, etc. Buy Tata Sampann Unpolished Chilka Moong online now!",
-      "id": 4,
-      "parentCatName": "groceries",
-      "subCatName": "dals and pulses",
-      "quantity": 1
-    },
-    {
-      "productName": "Fortune Soya Wadi / Chunks 1 kg",
-      "price": "139",
-      "oldPrice": "152",
-      "weight": [
-        50,
-        100,
-        150,
-        200,
-        250,
-        500
-      ],
-      "catImg": "https://www.jiomart.com/images/product/original/491161236/fortune-soya-wadi-chunks-1-kg-product-images-o491161236-p491161236-0-202303181437.jpg",
-      "discount": "15",
-      "brand": "Fortune",
-      "productImages": [
-        "https://www.jiomart.com/images/product/original/491161236/fortune-soya-wadi-chunks-1-kg-product-images-o491161236-p491161236-0-202303181437.jpg",
-        "https://www.jiomart.com/images/product/original/491161236/fortune-soya-wadi-chunks-1-kg-product-images-o491161236-p491161236-1-202303181437.jpg",
-        "https://www.jiomart.com/images/product/original/491161236/fortune-soya-wadi-chunks-1-kg-legal-images-o491161236-p491161236-4-202303181437.jpg"
-      ],
-      "rating": 4.5,
-      "description": "Fortune Soya Wadi / Chunks are light, soft and easy on your stomach. Does your family need champion wala dum aur yum? From biryanis to pulao and even Chinese fried rice, cooked soya chunks can be added to numerous rice dishes. Fortune Soya Chunk - ''Yum jo de champion ko dum'', so buy Fortune Soya Wadi / Chunks online now!",
-      "id": 8,
-      "parentCatName": "groceries",
-      "subCatName": "dals and pulses",
+      "id": "46",
       "quantity": 1
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
