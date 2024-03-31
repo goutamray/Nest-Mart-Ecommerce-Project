@@ -172,7 +172,7 @@
     text-decoration: line-through;
   }
 
-  .productThumb .info  .product-cart a {
+  .productThumb .info  .product-cart button {
     position: relative;
     display:block;
     text-align: center;
@@ -183,13 +183,15 @@
     color: var(--nest-primary);
     font-size: 15px;
     font-weight: 600;
+    border: none;
+    width: 100%;
     transition: all 0.3s ease-in-out;
 }
-  .productThumb .info .product-cart a .cart{
+  .productThumb .info .product-cart button .cart{
     font-size: 20px;
   }
 
-  .productThumb .info .product-cart a:hover{
+  .productThumb .info .product-cart button:hover{
     background-color: var(--nest-primary);
     color: #fff !important;
    

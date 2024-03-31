@@ -7,12 +7,17 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Product.css";
 import StarRating from "../star-rate/StarRating";
 
+import { useContext } from "react";
+import  { MyContext }  from "../../App"
 
+
+import "./Product.css";
 const Product = (props) => {
     const [productData, setProductData] = useState([]); 
+
+    const context = useContext(MyContext)
 
   useEffect(() => {
     setProductData(props.item)
@@ -25,6 +30,9 @@ const Product = (props) => {
 }
 
 
+const addToCart = (item) => {
+   context.addToCart(item);
+}
 
 
   return (   
@@ -80,7 +88,7 @@ const Product = (props) => {
               </div>      
            </div>
            <div className="product-cart">
-               <a href="#"> <IoCartOutline className="cart" /> Add </a>
+               <button onClick={() => addToCart(productData)}> <IoCartOutline className="cart" /> Add </button>
             </div>
          </div>
      

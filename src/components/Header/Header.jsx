@@ -1,9 +1,8 @@
 
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { IoIosSearch } from "react-icons/io";
-import SelectDrop from "../selectDropdown/SelectDrop";
 import { FiUser } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { MdVideoLabel } from "react-icons/md";
@@ -11,18 +10,20 @@ import { CiHeart } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
 
+import SelectDrop from "../selectDropdown/SelectDrop";
 
 import logo from "../../assets/img/logo.svg"
 import compare from "../../assets/img/icons/compare.svg"
 import heart  from "../../assets/img/icons/heart.svg"
 import cart  from "../../assets/img/icons/cart.svg"
 import user  from "../../assets/img/icons/user.svg"
+import { MyContext } from "../../App";
 
 import ClickAwayListener from 'react-click-away-listener';  
 
+import Navbar from "./navbar/Navbar";
 
 import "./Header.css";  
-import Navbar from "./navbar/Navbar";
 
 const Header = ( ) => {
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
@@ -31,8 +32,6 @@ const Header = ( ) => {
    const handleCloseDrop = () => {
     setDropDownOpen(() => !dropDownOpen)
    }
-
-
 
    const [categories, setCategories ] = useState([ 
           "All Categories",
@@ -49,6 +48,7 @@ const Header = ( ) => {
         
    ]); 
 
+   const context = useContext(MyContext); 
   
 
   return (
@@ -100,7 +100,7 @@ const Header = ( ) => {
                    <div className="header-action-icon-2">
                        <a href='' className="compare-box">
                            <img className=""  src={cart} />
-                           <span className="pro-count blue">2 </span>
+                           <span className="pro-count blue"> {context.cartItems.length} </span>
                         </a>
                       <Link to='/cart' className="compare-text"><span className="lable ml-0">Cart</span></Link>
                    </div>        

@@ -1,42 +1,56 @@
 
+import { createContext, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes/router';
 
 
+import axios from 'axios';
+
+const MyContext = createContext();
+
 
 import './App.css'
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
-
-
 function App() {
 
-  // const [productData, setProductData] = useState([]);
-
-
-  // useEffect(() => {
-  //    getData(`http://localhost:5050/productData`);
-  // }, []);
+  const [cartItems, setCartItems] = useState([]);
 
 
 
-  // const getData = async(url) => {
-  //    try {
-  //        await axios.get(url).then((response) => {
-  //         setProductData(response.data);
-  //        })
-  //    } catch (error) {
-  //       console.log(error.message);
-  //    }
-  // }; 
+  const addToCart = async (item) => {
+    item.quantity = 1;
+   
+    try {
+      await axios.post("http://localhost:5050/cartItems", item).then((res) => {
+        if (res !== undefined) {
+          setCartItems([...cartItems, { ...item, quantity: 1 }])
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }   
+
+  }; 
+
+
+
+  const value = {
+     addToCart,
+     cartItems,
+    //  removeItemsFromCart,
+    //   emptyCart,
+  }
    
   return (
     <>
-
-      <RouterProvider router={router} /> 
-        
+     <MyContext.Provider value={value}> 
+          <RouterProvider router={router} /> 
+      </MyContext.Provider>
     </> 
   )
 }
 
 export default App; 
+
+export { MyContext }; 
+
+

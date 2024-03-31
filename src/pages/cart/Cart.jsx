@@ -1,16 +1,47 @@
 
-import { RiDeleteBin6Fill } from "react-icons/ri"; 
+import { useContext, useEffect, useState } from "react";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { PiSignOutBold } from "react-icons/pi";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-import { PiSignOutBold } from "react-icons/pi";
 
-import StarRating from "../../components/star-rate/StarRating";
 import Counter from "../../components/counter/Counter";
+import StarRating from "../../components/star-rate/StarRating";
 
+import { MyContext } from "../../App";
 
+import axios from "axios";
 import "./Cart.css";
 
+
 const Cart = () => {
+
+  const [cartItems, setCartItems] = useState([]);
+  const context = useContext(MyContext); 
+
+  useEffect(() => {
+      getCartData(`http://localhost:5050/cartItems`); 
+  }, []); 
+
+
+
+  const getCartData = async(url) => {
+   try {
+    await axios.get(url).then((response) => {
+      setCartItems(response.data)
+    })
+   } catch (error) {
+     console.log(error.message);
+   }
+  }
+
+
+
+
+
+
+
 
   return (
     <>
@@ -44,7 +75,7 @@ const Cart = () => {
                      <p> There are <span> 1 </span> products in your cart </p>
                   </div>
                   <div className="right">
-                    <p> <span> <RiDeleteBin6Fill /> </span> Clear Cart  </p>
+                    <p  > <span> <RiDeleteBin6Fill /> </span> Clear Cart  </p>
                   </div>                              
                  </div>
                </div>   
@@ -65,55 +96,51 @@ const Cart = () => {
                           </tr>           
                     </thead>
                     <tbody>
-                        <tr>
-                          <td> 
-                             <div className="table-box d-flex align-items-center">
-                                <div className="image">
-                                    <img src="https://www.ecom5.themetodo.com/storage/guest-8ea6b3ca-f4d9-4460-a04a-785d669235d5-400x400.jpeg" alt="" />
-                                </div>
-                                <div className="product-content">
-                                  <Link to=""> <h5> Organic Frozen Triple Berry Blend </h5> </Link>
-                                  <p> <span> <StarRating value={4.5} /> (4.5)  </span> </p>
-                               
-                                </div>
-                             </div>
-                          </td>
-                          <td className="product-price"> $120.00</td>
-                          <td> 
-                            <div className="cart-counter">
-                                <Counter />
-                            </div>
-                          </td>
-                          <td className="subTotal"> $120.00 </td>
-                          <td className="delete-product"> <span> <RiDeleteBin6Fill /> </span></td>
-                        </tr>
 
-                        <tr>
+                      {
+                       context.cartItems.length !== 0 && 
+                       context.cartItems.map((item, index) => {
+                          return(
+                         <tr key={index}>
                           <td> 
                              <div className="table-box d-flex align-items-center">
                                 <div className="image">
-                                    <img src="https://www.ecom5.themetodo.com/storage/guest-8ea6b3ca-f4d9-4460-a04a-785d669235d5-400x400.jpeg" alt="" />
+                                     <Link to={`/product/${item.id}`}> 
+                                        <img src={item.catImg} alt="" />
+                                     </Link>  
                                 </div>
                                 <div className="product-content">
-                                  <Link to=""> <h5> Organic Frozen Triple Berry Blend </h5> </Link>
+                                  <Link to={`/product/${item.id}`}> <h5> {item.productName} </h5> </Link>
                                   <p> <span> <StarRating value={4.5} /> (4.5)  </span> </p>
                                
                                 </div>
                              </div>
                           </td>
-                          <td className="product-price"> $120.00</td>
+                          <td className="product-price"> ${parseInt(item.price.split(",").join(""))}  </td>
                           <td> 
                             <div className="cart-counter">
                                 <Counter />
                             </div>
                           </td>
                           <td className="subTotal"> $120.00 </td>
-                          <td className="delete-product"> <span> <RiDeleteBin6Fill /> </span></td>
+                          <td className="delete-product"> 
+                              <span onClick={() => deleteItem(item.id)}> <RiDeleteBin6Fill /> </span>
+                          </td>
                         </tr>
+                          )
+                        })
+                      }
+                        
+
+                      
 
                     </tbody>
                 </table>
               </div>
+            </div>
+
+            <div className="continue-btn mb-3">
+              <Link to="/"> <span> <FaLongArrowAltLeft /></span> Continue Shopping </Link>
             </div>
         </div>
 
