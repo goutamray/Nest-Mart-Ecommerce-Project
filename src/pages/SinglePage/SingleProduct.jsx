@@ -333,7 +333,7 @@ const handleFormSubmit = async(e) => {
                             <div className="product-counter ">
                               
                                 <div className="counter-box-add">
-                                     <Counter />
+                                     <Counter  />
                                 </div>
 
                                <div className="add-to-cart-btn">

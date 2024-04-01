@@ -6,9 +6,8 @@ import Shop from "../pages/Shop/Shop";
 import SingleProduct from "../pages/SinglePage/SingleProduct";
 import Cart from "../pages/cart/Cart";
 import Contact from "../pages/contact/Contact";
-
-
-
+import SignIn from "../pages/signIn/SignIn";
+import SignUp from "../pages/signUp/SignUp";
 
 
 // create public router 
@@ -50,6 +49,15 @@ const publicRouter = [
         path : "/cart",
         element : <Cart />  
       },
+      {
+        path : "/signIn",
+        element : <SignIn />   
+      },
+      {
+        path : "/signUp",
+        element : <SignUp />   
+      },
+  
     ] 
   }
 ]

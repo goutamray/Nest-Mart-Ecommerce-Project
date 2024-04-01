@@ -23,36 +23,50 @@ const Cart = () => {
 
 
   useEffect(() => {
-      getCartData(`http://localhost:5050/cartItems`); 
+    getCartData(`http://localhost:5050/cartItems`); 
   }, []); 
-
-
-
-  const getCartData = async(url) => {
-   try {
-    await axios.get(url).then((response) => {
-      setCartItems(response.data)
-    })
-   } catch (error) {
-     console.log(error.message);
-   }
-  }
-
-
-  const handledeleteItem = async (id) => {
-   alert(id); 
-    try {
-      const response =  await axios.delete(`http://localhost:5050/cartItems/${parseInt(id)}`)
   
-      if (response !== null) {
-       getCartData(`http://localhost:5050/cartItems`); 
-       context.removeItemsFromCart(id);
-      }
-     
+  
+  
+  const getCartData = async(url) => {
+    try {
+     await axios.get(url).then((response) => {
+       setCartItems(response.data)
+     })
     } catch (error) {
       console.log(error.message);
     }
-};   
+   };
+  
+
+
+  const handledeleteItem = async (id) => {
+   const response=  await axios.delete(`http://localhost:5050/cartItems/${id}`);
+
+    if (response !== null) {
+        getCartData("http://localhost:5050/cartItems");
+        context.removeItemsFromCart(id);
+    }
+}          
+   
+
+
+
+
+  // delete single item
+//   const handledeleteItem = async (id) => {
+//     try {
+//       const response =  await axios.delete(`http://localhost:5050/cartItems/${parseInt(id)}`)
+  
+//       if (response !== null) {
+//         context.getCartData(`http://localhost:5050/cartItems`); 
+//        context.removeItemsFromCart(id);
+//       }
+     
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+// };   
 
 
 // Clear all empty cart 
@@ -67,8 +81,14 @@ const emptyCart = () => {
       context.getCartData("http://localhost:5050/cartItems");
   }
 
-  // context.emptyCart();   
+  context.emptyCart();   
 };     
+
+// update cart
+const updateCart = (items) => {
+  context.setCartItems(items)
+}
+
 
 
   return (
@@ -147,7 +167,7 @@ const emptyCart = () => {
                           <td className="product-price"> ${parseInt(item.price.split(",").join(""))}  </td>
                           <td> 
                             <div className="cart-counter">
-                                <Counter />
+                                <Counter item={item} cartItems={context.cartItems} index={index} updateCart={updateCart} />
                             </div>
                           </td>
                           <td className="subTotal"> $120.00 </td>
