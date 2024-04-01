@@ -11,23 +11,26 @@ import { CiSettings } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
 
 import SelectDrop from "../selectDropdown/SelectDrop";
+import ClickAwayListener from 'react-click-away-listener';  
 
 import logo from "../../assets/img/logo.svg"
 import compare from "../../assets/img/icons/compare.svg"
 import heart  from "../../assets/img/icons/heart.svg"
 import cart  from "../../assets/img/icons/cart.svg"
 import user  from "../../assets/img/icons/user.svg"
-import { MyContext } from "../../App";
 
-import ClickAwayListener from 'react-click-away-listener';  
 
 import Navbar from "./navbar/Navbar";
 
 import "./Header.css";  
 
-const Header = ( ) => {
+import { MyContext } from "../../App";
+
+const Header = () => {
+
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
-     
+ 
+
    // handle close
    const handleCloseDrop = () => {
     setDropDownOpen(() => !dropDownOpen)
@@ -100,7 +103,7 @@ const Header = ( ) => {
                    <div className="header-action-icon-2">
                        <a href='' className="compare-box">
                            <img className=""  src={cart} />
-                           <span className="pro-count blue"> {context.cartItems.length} </span>
+                           <span className="pro-count blue"> {context?.cartItems.length} </span>
                         </a>
                       <Link to='/cart' className="compare-text"><span className="lable ml-0">Cart</span></Link>
                    </div>        

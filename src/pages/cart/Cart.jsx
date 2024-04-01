@@ -18,7 +18,9 @@ import "./Cart.css";
 const Cart = () => {
 
   const [cartItems, setCartItems] = useState([]);
+
   const context = useContext(MyContext); 
+
 
   useEffect(() => {
       getCartData(`http://localhost:5050/cartItems`); 
@@ -37,10 +39,36 @@ const Cart = () => {
   }
 
 
+  const handledeleteItem = async (id) => {
+   alert(id); 
+    try {
+      const response =  await axios.delete(`http://localhost:5050/cartItems/${parseInt(id)}`)
+  
+      if (response !== null) {
+       getCartData(`http://localhost:5050/cartItems`); 
+       context.removeItemsFromCart(id);
+      }
+     
+    } catch (error) {
+      console.log(error.message);
+    }
+};   
 
 
+// Clear all empty cart 
+const emptyCart = () => {
+  let response = null;
 
+  cartItems.length !== 0 &&
+      cartItems.map((item) => {
+          response = axios.delete(`http://localhost:5050/cartItems/${parseInt(item.id)}`);
+      })
+  if (response !== null) {
+      context.getCartData("http://localhost:5050/cartItems");
+  }
 
+  // context.emptyCart();   
+};     
 
 
   return (
@@ -75,7 +103,7 @@ const Cart = () => {
                      <p> There are <span> 1 </span> products in your cart </p>
                   </div>
                   <div className="right">
-                    <p  > <span> <RiDeleteBin6Fill /> </span> Clear Cart  </p>
+                    <p  > <span onClick={() => emptyCart()}> <RiDeleteBin6Fill /> </span> Clear Cart  </p>
                   </div>                              
                  </div>
                </div>   
@@ -95,11 +123,11 @@ const Cart = () => {
                             <th> Remove </th>
                           </tr>           
                     </thead>
-                    <tbody>
+                    <tbody>   
 
                       {
-                       context.cartItems.length !== 0 && 
-                       context.cartItems.map((item, index) => {
+                       cartItems?.length !== 0 && 
+                       cartItems?.map((item, index) => {
                           return(
                          <tr key={index}>
                           <td> 
@@ -124,7 +152,8 @@ const Cart = () => {
                           </td>
                           <td className="subTotal"> $120.00 </td>
                           <td className="delete-product"> 
-                              <span onClick={() => deleteItem(item.id)}> <RiDeleteBin6Fill /> </span>
+                              <span onClick={() => handledeleteItem(item.id)}>       <RiDeleteBin6Fill  /> 
+                              </span>
                           </td>
                         </tr>
                           )

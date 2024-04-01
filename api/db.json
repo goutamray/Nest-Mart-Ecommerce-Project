@@ -1263,6 +1263,259 @@
   ],
   "productReviews": [],
   "cartItems": [
-
+    {
+      "id": 2,
+      "productName": "Moong Dal 2 kg",
+      "price": "246",
+      "oldPrice": "320",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/491432711/moong-dal-2-kg-product-images-o491432711-p491432711-0-202205191636.jpg",
+      "discount": "16",
+      "brand": "Private Label",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/491432711/moong-dal-2-kg-product-images-o491432711-p491432711-0-202205191636.jpg",
+        "https://www.jiomart.com/images/product/original/491432711/moong-dal-2-kg-product-images-o491432711-p491432711-1-202205191636.jpg",
+        "https://www.jiomart.com/images/product/original/491432711/moong-dal-2-kg-legal-images-o491432711-p491432711-3-202205191636.jpg"
+      ],
+      "rating": 4,
+      "description": "Moong Dal is essentially packed with loads of nutrients that are extremely beneficial for your health. Moong contains almost every important element that your body might need. Buy Moong Dal online today.",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "productName": "Good Life Whole Moong 500 g",
+      "price": "20",
+      "oldPrice": "140",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-0-202308311426.jpg",
+      "discount": "12",
+      "brand": "AASHIRVAAD",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-0-202308311426.jpg",
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-1-202308311426.jpg",
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-2-202308311426.jpg",
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-3-202308311426.jpg",
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-product-images-o491187309-p491187309-4-202308311426.jpg",
+        "https://www.jiomart.com/images/product/original/491187309/good-life-whole-moong-500-g-legal-images-o491187309-p491187309-5-202308311427.jpg"
+      ],
+      "rating": 3.5,
+      "description": "Good Life Whole Moong is one of the light meal to digest. It is often given to people who prefer diet for fitness. It contains antioxidants which are very healthy for the good functioning of the human body. It can be included in our daily diet as it can fulfil the nutritional and dietary requirements of an entire meal. Buy Good Life Whole Moong online now!",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "productName": "Good Life Raw Peanuts 500 g",
+      "price": "89",
+      "oldPrice": "150",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-0-202306102242.jpg",
+      "discount": "16",
+      "brand": "Good Life",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-0-202306102242.jpg",
+        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-2-202306102242.jpg",
+        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-3-202306102243.jpg",
+        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-4-202306102243.jpg",
+        "https://www.jiomart.com/images/product/original/491278616/good-life-raw-peanuts-500-g-product-images-o491278616-p491278616-5-202306102243.jpg"
+      ],
+      "rating": 3.5,
+      "description": "Good Life Raw Peanuts is a healthy snack and the right choice for you. You can easily roast them at home. They are loaded with the goodness of health and taste. Peanut butter made with Peanuts clearly works well in sweet dishes, like cookies and brownies, which is why it pairs well with other sweeter foods like sweet potato. Buy Good Life Raw Peanuts online now!",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "productName": "Good Life Moong Dal 1 kg",
+      "price": "145",
+      "oldPrice": "189",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/491187257/good-life-moong-dal-1-kg-product-images-o491187257-p491187257-0-202301171616.jpg",
+      "discount": "12",
+      "brand": "Good Life",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/491187257/good-life-moong-dal-1-kg-product-images-o491187257-p491187257-0-202301171616.jpg",
+        "https://www.jiomart.com/images/product/original/491187257/good-life-moong-dal-1-kg-product-images-o491187257-p491187257-1-202301171616.jpg",
+        "https://www.jiomart.com/images/product/original/491187257/good-life-moong-dal-1-kg-legal-images-o491187257-p491187257-2-202301171616.jpg"
+      ],
+      "rating": 4.5,
+      "description": "Good life Moong Dal is procured from reliable and high-quality sources. The beans are best consumed after being sprouted. Dosa with whole moong also turns out to be yummy, another exotic way to eat moong is to eat it as a korma which is spiced up with tangy tomatoes and a cashew paste. It is mainly used as the base for curries such as sambar, dal etc. Buy Good Life Moong Dal online now!",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "productName": "Good Life Kabuli Chana 1 kg",
+      "price": "185",
+      "oldPrice": "210",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-0-202301171615.jpg",
+      "discount": "23",
+      "brand": "Good Life",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-0-202301171615.jpg",
+        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-product-images-o491187282-p491187282-1-202301171615.jpg",
+        "https://www.jiomart.com/images/product/original/491187282/good-life-kabuli-chana-1-kg-legal-images-o491187282-p491187282-4-202301171615.jpg"
+      ],
+      "rating": 3.5,
+      "description": "Kabuli Chana is rich in proteins, dietary fibre and low in cholesterol and saturated fat. The beans can be soaked in water and cooked along with vegetables in the preparation of a variety of curries that complement well with rice, roti, chapattis, puri, kulcha as well as bread. It can be sprouted after soaking in water for 24 hours and added to salads to enrich the latter with proteins. Buy Good Life Kabuli Chana online now!",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "productName": "Angur Oily Toor Dal 5Kg",
+      "price": "999",
+      "oldPrice": "1100",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-0-202306071944.jpg",
+      "discount": "16",
+      "brand": "Angur",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-0-202306071944.jpg",
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-1-202306071944.jpg",
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-2-202306071944.jpg",
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-3-202306071944.jpg",
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-product-images-orv8axdxoiw-p602216568-4-202306071944.jpg",
+        "https://www.jiomart.com/images/product/original/rv8axdxoiw/angur-oily-toor-dal-5kg-legal-images-orv8axdxoiw-p602216568-5-202306071944.png"
+      ],
+      "rating": 5,
+      "description": "ANGUR TOOR DAL: Toor Dal (split yellow peas) is a mainstay of Indian cuisine. Related to lentils (pulses) and rich in natural nutrients, these delicious legumes are an excellent source of protein, minerals, and B vitamins.ADDS FLAVORFUL PROTEIN: Split yellow peas are an excellent, flavorful protein alternative for any meal. Use as a base or add Toor Dals to your favorite Indian dishes, including curries, soups, stews, salads, and more!",
+      "parentCatName": "Groceries",
+      "subCatName": "Dals & Pulses",
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "productName": "Gowardhan Pure Cow Ghee 1 L (Jar)",
+      "price": "676",
+      "oldPrice": "820",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/490489040/gowardhan-pure-cow-ghee-1-l-jar-product-images-o490489040-p490489040-0-202203170210.jpg",
+      "discount": "18",
+      "brand": "Gowardhan",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/490489040/gowardhan-pure-cow-ghee-1-l-jar-product-images-o490489040-p490489040-0-202203170210.jpg",
+        "https://www.jiomart.com/images/product/original/490489040/gowardhan-pure-cow-ghee-1-l-jar-product-images-o490489040-p490489040-1-202203170210.jpg",
+        "https://www.jiomart.com/images/product/original/490489040/gowardhan-pure-cow-ghee-1-l-jar-product-images-o490489040-p490489040-2-202203170210.jpg",
+        "https://www.jiomart.com/images/product/original/490489040/gowardhan-pure-cow-ghee-1-l-jar-legal-images-o490489040-p490489040-5-202203170210.jpg"
+      ],
+      "rating": 5,
+      "description": "Ghee is a class of clarified butter that originated in ancient India. It is commonly used in Indian cooking. Gowardhan Pure Cow Ghee can be swapped for vegetable oil or coconut oil in baked goods or can be used for deep-frying. Or simply melt it and spread it on roti, or pour it on vegetables/dal before serving. So go ahead and buy this product online today!",
+      "parentCatName": "Groceries",
+      "subCatName": "Ghee & Oils",
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "productName": "Nestle EveryDay Ghee 1 L (Carton)",
+      "price": "579",
+      "oldPrice": "620",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-0-202203141958.jpg",
+      "discount": "16",
+      "brand": "Nestle",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-0-202203141958.jpg",
+        "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-1-202203141958.jpg",
+        "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-2-202203141958.jpg",
+        "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-3-202203141958.jpg",
+        "https://www.jiomart.com/images/product/original/490440207/nestle-everyday-ghee-1-l-carton-product-images-o490440207-p490440207-4-202203141958.jpg"
+      ],
+      "rating": 4.5,
+      "description": "Ghee is a class of clarified butter that originated in ancient India. It is commonly used in Indian cooking. Nestle EveryDay Ghee can be swapped for vegetable oil or coconut oil in baked goods or can be used for deep-frying. Or simply melt it and spread it on roti, or pour it on vegetables/dal before serving. So go ahead and buy this product online today!",
+      "parentCatName": "Groceries",
+      "subCatName": "Ghee & Oils",
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "productName": "Kheduthaat Shudh Ghee Vedic Method Traditional Suddha Ghee 1 LTR ml",
+      "price": "699",
+      "oldPrice": "780",
+      "weight": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        500
+      ],
+      "catImg": "https://www.jiomart.com/images/product/original/rv6qd7bcjt/kheduthaat-shudh-ghee-vedic-method-traditional-suddha-ghee-1-ltr-ml-product-images-orv6qd7bcjt-p604175636-0-202308291243.jpg",
+      "discount": "14",
+      "brand": "KHEDUT HAAT",
+      "productImages": [
+        "https://www.jiomart.com/images/product/original/rv6qd7bcjt/kheduthaat-shudh-ghee-vedic-method-traditional-suddha-ghee-1-ltr-ml-product-images-orv6qd7bcjt-p604175636-0-202308291243.jpg",
+        "https://www.jiomart.com/images/product/original/rv6qd7bcjt/kheduthaat-shudh-ghee-vedic-method-traditional-suddha-ghee-1-ltr-ml-product-images-orv6qd7bcjt-p604175636-1-202308291243.jpg",
+        "https://www.jiomart.com/images/product/original/rv6qd7bcjt/kheduthaat-shudh-ghee-vedic-method-traditional-suddha-ghee-1-ltr-ml-legal-images-orv6qd7bcjt-p604175636-3-202308291243.jpg"
+      ],
+      "rating": 4,
+      "description": "Khedut haat provides you with the pure cow ghee from the milk . Our ghee provides you with all the nutrients needed and only in the vessels made with Soil (Mitti) has taken an initiative for farmers to keep their strength which is a cow. All our products are directly or indirectly related to Cows & Buffalows. this milk to make milk-made dairy products. Cow dung and cow urine for fertilizing the soil. We do not use chemical fertilizers ",
+      "parentCatName": "Groceries",
+      "subCatName": "Ghee & Oils",
+      "quantity": 1
+    }
   ]
 }

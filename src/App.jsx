@@ -26,16 +26,16 @@ function App() {
         }
       })
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
     }   
 
-  }; 
+  };      
 
 
 
   const value = {
-     addToCart,
      cartItems,
+     addToCart,
     //  removeItemsFromCart,
     //   emptyCart,
   }

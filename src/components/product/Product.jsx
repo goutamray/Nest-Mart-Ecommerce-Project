@@ -6,7 +6,6 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import StarRating from "../star-rate/StarRating";
 
 import { useContext } from "react";
@@ -32,17 +31,17 @@ const Product = (props) => {
 
 const addToCart = (item) => {
    context.addToCart(item);
-}
+}; 
 
 
   return (   
           <>  
 
       <div className="productThumb my-2" onClick={setProductCat}>
-        {
+        {/* {
           props.tag !== null && props.tag !== undefined &&  
            <span className={`badge ${props.tag}`}> {props.tag} </span>
-        } 
+        }  */}
 
 
     {
