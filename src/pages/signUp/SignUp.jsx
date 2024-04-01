@@ -1,23 +1,24 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
-import googleImage from "../../assets/img/icons/google.png"
-import loginImg from "../../assets/img/icons/login-1.png"
+import googleImage from "../../assets/img/icons/google.png";
+import loginImg from "../../assets/img/icons/login-1.png";
 
 const SignUp = () => {
   const [showPassword, setShowPassword ] = useState(false); 
+  const [showPassword1, setShowPassword1 ] = useState(false); 
 
   return (
     <>
-         <div className="sign-up py-3">
+      <div className="sign-up py-3">
         <div className="container-fluid">
           <div className="row"> 
               <nav aria-label="breadcrumb py-3">
-          <div className="breadCrumb">
-              <ul className="breadcrumb list list-inline ">
+              <div className="breadCrumb">
+                 <ul className="breadcrumb list list-inline ">
                     <li className="breadcrumb-item list-inline-item breadcrumb-item">
                       <Link to="/"> Home </Link>
                     </li>
@@ -27,13 +28,9 @@ const SignUp = () => {
                  </ul>
               </div>
               </nav>  
-
-
-
-
                </div>
             </div>
-        </div>
+        </div> 
 
 
         <div className="login-section">
@@ -50,11 +47,9 @@ const SignUp = () => {
 
               {/* Sign up form  start */}
               <div className="col-md-4">
-                <div className="sign-in-form py-3 ">
-                    <div className="card">
-                        <div className="card-header">   
-                            <h4 className="text-center"> Sign Up </h4>
-                        </div>
+                <div className="sign-in-form py-3 ">        
+                    <div className="card p-3 shadow">
+                            <h4 className="ms-3 mt-2"> Sign Up </h4>
                         <div className="card-body">
                         <div className="form-floating mb-3">
                               <input
@@ -71,7 +66,8 @@ const SignUp = () => {
                                 <input
                                   type={ showPassword === false ? "password" : "text"} className="form-control"
                                   id="floatingPassword"
-                                    placeholder="Password"
+                                  placeholder="Password"
+                                  name="password"
                                 />
                                 <label htmlFor="floatingPassword">Password</label>
                               </div>
@@ -85,13 +81,36 @@ const SignUp = () => {
                               </div>
                           </div>
 
+
+                          <div className="pass-box mt-3"> 
+                            <div className="form-floating ">
+                                <input
+                                  type={ showPassword1 === false ? "password" : "text"} className="form-control"
+                                  id="confirmPassword"
+                                  placeholder="Password"
+                                  name="confirmPassword"
+                                />
+                                <label htmlFor="confirmPassword"> Confirm Password</label>
+                              </div>
+                              <div className="icon-show">
+                                <button className="icon" onClick={() => setShowPassword1(!showPassword1)}>
+                                  {
+                                    showPassword1 === false ? <FaRegEyeSlash /> : <FiEye />
+                                  }
+                                  
+                                </button>
+                              </div>
+                          </div>
+
                               <div className="signIn-button">
                                   <button> Sign Up </button> 
                               </div>
-                              <div className="or text-center p-4"> OR </div>
-                              <div className="google-btn">
-                                <button> <img src={googleImage} alt="" /> Sign In With Google </button>
+
+                              <div className="not-account mt-3">
+                                <p className="text-center">Already have an Acount <Link to="/signIn">  Sign In </Link>  </p>
                               </div>
+
+                       
 
                         
                         </div>

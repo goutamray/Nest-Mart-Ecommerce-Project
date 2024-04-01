@@ -170,9 +170,9 @@ const handleChangeInput = (e) => {
         [e.target.name] : e.target.value,
         date: new Date().toLocaleString(),
         id: id,
-        rating : 0, 
+       
       }))
-}         
+};           
              
 
 
@@ -181,9 +181,8 @@ const handleFormSubmit = async(e) => {
 
 
    try {
-     const response = await axios.post(`http://localhost:5050/productReviews`, input )
+     const response = await axios.post(`http://localhost:5050/productReviews`, {...input, rating} )
 
-    console.log(rating);
      return response.data; 
 
    } catch (error) {
@@ -267,7 +266,7 @@ const handleFormSubmit = async(e) => {
                   {/* product info code start */}
                    <div className="col-md-7 product-info">
                        <div className="all-single-info">
-                           <h2>{ currentProduct.productName} </h2>
+                           <h2>{ currentProduct.productName} </h2>    
                            <div className="review">
                                <span> <StarRating stars={currentProduct.rating}/> </span>   <span>  (32 reviews) </span> 
                             </div>

@@ -51,10 +51,8 @@ const SignIn = () => {
              {/* Sign up form  start */}
               <div className="col-md-4">
                 <div className="sign-in-form py-3 ">
-                    <div className="card">
-                        <div className="card-header">   
-                            <h4 className="text-center"> Sign In </h4>
-                        </div>
+                    <div className="card p-3 shadow">    
+                            <h4 className="ms-3 mt-2"> Sign In </h4>
                         <div className="card-body">
                         <div className="form-floating mb-3">
                               <input
@@ -88,9 +86,12 @@ const SignIn = () => {
                               <div className="signIn-button">
                                   <button> Sign In </button> 
                               </div>
-                              <div className="or text-center p-4"> OR </div>
+                              <div className="or text-center p-2"> <p> OR  </p></div>
                               <div className="google-btn">
                                 <button> <img src={googleImage} alt="" /> Sign In With Google </button>
+                              </div>
+                              <div className="not-account mt-3">
+                                <p className="text-center">  Not have an Acount <Link to="/signUp">  Sign Up </Link>  </p>
                               </div>
 
                          
