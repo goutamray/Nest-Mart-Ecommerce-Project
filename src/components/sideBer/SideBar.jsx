@@ -1,17 +1,20 @@
 
-import cat1 from "../../assets/img/icons/category-1.svg"
-
-import banner11 from "../../assets/img/banner/banner-11.png"
-import { MdFilterListAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+import { MdFilterListAlt } from "react-icons/md";
+
+// import images
+import cat1 from "../../assets/img/icons/category-1.svg"
+import banner11 from "../../assets/img/banner/banner-11.png"
+
+// slider css
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
-import { useEffect, useState } from "react";
 import "./SideBar.css";
-
 const SideBar = (props) => {
+   
    const [value, setValue ] = useState([20, 60000]);
 
    const [totalLength, setTotalLength] = useState([]);

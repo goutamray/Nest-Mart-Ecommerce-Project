@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
+// import icons 
 import { IoGrid } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa"; 
 import { TfiHeadphoneAlt } from "react-icons/tfi";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
+// import image
 import sreen from "../../../assets/img/thumbnail/screen.png"
 
 import "./Navbar.css"   

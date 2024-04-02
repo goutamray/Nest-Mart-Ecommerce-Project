@@ -1,7 +1,9 @@
 
 import {  useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+// icon import 
 import { IoIosSearch } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
@@ -13,19 +15,18 @@ import { LuLogOut } from "react-icons/lu";
 import SelectDrop from "../selectDropdown/SelectDrop";
 import ClickAwayListener from 'react-click-away-listener';  
 
+// images import 
 import logo from "../../assets/img/logo.svg"
 import compare from "../../assets/img/icons/compare.svg"
 import heart  from "../../assets/img/icons/heart.svg"
 import cart  from "../../assets/img/icons/cart.svg"
 import user  from "../../assets/img/icons/user.svg"
 
+import { MyContext } from "../../App";
 
 import Navbar from "./navbar/Navbar";
 
 import "./Header.css";  
-
-import { MyContext } from "../../App";
-
 const Header = () => {
 
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
@@ -52,7 +53,14 @@ const Header = () => {
    ]); 
 
    const context = useContext(MyContext); 
-  
+   const navigate = useNavigate(); 
+
+
+   const signOut = () => {
+     context.signOut();
+     navigate("/");
+   }
+
 
   return (
     <>
@@ -109,7 +117,9 @@ const Header = () => {
                    </div>        
                  </div>
 
-           <ClickAwayListener onClickAway={() => setDropDownOpen(false) }>
+
+               {
+                context.isLogin === "true" ?  <ClickAwayListener onClickAway={() => setDropDownOpen(false) }>
                 <div className="header-cart-wishlist ">                      
                   <div className="header-action-icon-2">
                        <a href='' className="compare-box">
@@ -129,11 +139,23 @@ const Header = () => {
                     <li className="drop-down-hover"> <MdVideoLabel /> <button> My Voucher </button></li>
                     <li className="drop-down-hover"> <CiHeart /> <button> My Wishlist </button></li>
                     <li className="drop-down-hover"> <CiSettings /> <button> Setting </button></li>
-                    <li className="drop-down-hover"> <LuLogOut /> <button> Sign out </button></li>
+                    <li className="drop-down-hover"> <LuLogOut />
+                       <button onClick={signOut}> Sign out </button>
+                    </li>
                   </ul>
                    }
                  </div>
-                </ ClickAwayListener > 
+                </ ClickAwayListener >  
+
+                 : <div className="header-cart-wishlist "> 
+                <button className="sign-in-btn"> <Link to="/signIn">  Sign In </Link> </button>
+             </div>
+               }
+
+                
+
+
+                
              </div>
 
             </div>

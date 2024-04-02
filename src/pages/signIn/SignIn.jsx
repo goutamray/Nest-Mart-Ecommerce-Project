@@ -1,18 +1,69 @@
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 
+// import images 
 import googleImage from "../../assets/img/icons/google.png"
 import loginImg from "../../assets/img/icons/login-1.png" 
+
+
+import { MyContext } from "../../App";
+
+// firebase sign in 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from '../../fireBase';
+
+const auth = getAuth(app);
+
 
 import "./SignIn.css"
 const SignIn = () => {
    const [showPassword, setShowPassword ] = useState(false); 
 
+   const [formFields, setFormFields] = useState({
+    email : "",
+    password : "",
+  }); 
 
 
+  const handleChangeFieldData = (e) => {
+    setFormFields((prevState) => ({
+      ...prevState,
+      [e.target.name] : e.target.value
+    }))
+   }; 
+
+   const context = useContext(MyContext); 
+   
+   const navigate = useNavigate(); 
+
+  const signIn = () => {
+    signInWithEmailAndPassword(auth, formFields.email, formFields.password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          setFormFields({
+            email : "",
+            password : "",
+          });
+
+
+        localStorage.setItem("isLogin", true); 
+        context.signIn(); 
+
+        navigate("/")
+       
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+  };         
+
+ 
   return (
     <>
        <div className="sign-up py-3">
@@ -60,6 +111,9 @@ const SignIn = () => {
                                 className="form-control"
                                 id="floatingInput"
                                 placeholder="name@example.com"
+                                name="email"
+                                value={formFields.email}
+                                onChange={handleChangeFieldData}
                               />
                               <label htmlFor="floatingInput">Email address</label>
                             </div>
@@ -69,7 +123,10 @@ const SignIn = () => {
                                 <input
                                    type={ showPassword === false ? "password" : "text"} className="form-control"
                                    id="floatingPassword"
-                                    placeholder="Password"
+                                   placeholder="Password"
+                                   name="password"
+                                   value={formFields.password}
+                                   onChange={handleChangeFieldData}
                                  />
                                 <label htmlFor="floatingPassword">Password</label>
                               </div>
@@ -84,7 +141,7 @@ const SignIn = () => {
                           </div>
 
                               <div className="signIn-button">
-                                  <button> Sign In </button> 
+                                  <button onClick={signIn}> Sign In </button> 
                               </div>
                               <div className="or text-center p-2"> <p> OR  </p></div>
                               <div className="google-btn">

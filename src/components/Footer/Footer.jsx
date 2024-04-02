@@ -1,4 +1,5 @@
 
+// import icons
 import { IoLocationOutline, IoMailOpenOutline } from "react-icons/io5";
 import { MdOutlineHeadphones } from "react-icons/md"; 
 import { CiClock2 } from "react-icons/ci";
@@ -7,6 +8,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineSkype } from "react-icons/ai"; 
 import { IoIosSend } from "react-icons/io";
 
+// import images 
 import logo from "../../assets/img/logo.svg"
 import payment1 from "../../assets/img/pay/google-play.jpg"
 import payment2 from "../../assets/img/pay/app-store.jpg"

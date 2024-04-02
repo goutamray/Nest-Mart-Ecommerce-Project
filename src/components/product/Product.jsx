@@ -1,11 +1,14 @@
 
+
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+// import icons 
 import { CiHeart, CiShuffle } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import StarRating from "../star-rate/StarRating";
 
 import { useContext } from "react";

@@ -3,13 +3,58 @@ import { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
-import googleImage from "../../assets/img/icons/google.png";
 import loginImg from "../../assets/img/icons/login-1.png";
+
+
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from '../../fireBase';
+
+
+ const auth = getAuth(app);
+
 
 const SignUp = () => {
   const [showPassword, setShowPassword ] = useState(false); 
   const [showPassword1, setShowPassword1 ] = useState(false); 
+
+
+
+ const [formFields, setFormFields] = useState({
+   email : "",
+   password : "",
+   confirmPassword : ""
+
+ });              
+
+  const signUp = () => {
+    createUserWithEmailAndPassword(auth, formFields.email, formFields.password)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      setFormFields({
+        email : "",
+        password : "",
+        confirmPassword : ""
+      });       
+      // ...
+    })      
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  };      
+
+
+   const handleChangeField = (e) => {
+    setFormFields((prevState) => ({
+      ...prevState,
+      [e.target.name] : e.target.value
+    }))
+   }; 
+
+
+
 
   return (
     <>
@@ -57,6 +102,9 @@ const SignUp = () => {
                                 className="form-control"
                                 id="floatingInput"
                                 placeholder="name@example.com"
+                                name="email"
+                                value={formFields.email}
+                                onChange={handleChangeField}
                               />
                               <label htmlFor="floatingInput">Email address</label>
                             </div>
@@ -68,6 +116,8 @@ const SignUp = () => {
                                   id="floatingPassword"
                                   placeholder="Password"
                                   name="password"
+                                  value={formFields.password}
+                                  onChange={handleChangeField}
                                 />
                                 <label htmlFor="floatingPassword">Password</label>
                               </div>
@@ -79,7 +129,7 @@ const SignUp = () => {
                                   
                                 </button>
                               </div>
-                          </div>
+                          </div>    
 
 
                           <div className="pass-box mt-3"> 
@@ -89,6 +139,8 @@ const SignUp = () => {
                                   id="confirmPassword"
                                   placeholder="Password"
                                   name="confirmPassword"
+                                  value={formFields.confirmPassword}
+                                  onChange={handleChangeField}
                                 />
                                 <label htmlFor="confirmPassword"> Confirm Password</label>
                               </div>
@@ -103,7 +155,7 @@ const SignUp = () => {
                           </div>
 
                               <div className="signIn-button">
-                                  <button> Sign Up </button> 
+                                  <button onClick={signUp} > Sign Up </button> 
                               </div>
 
                               <div className="not-account mt-3">

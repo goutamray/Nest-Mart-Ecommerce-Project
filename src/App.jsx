@@ -1,10 +1,10 @@
 
 import { createContext, useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import router from './routes/router';
-
+import { ToastContainer  } from 'react-toastify';
 
 import axios from 'axios';
+import router from './routes/router';
 
 const MyContext = createContext();
 
@@ -12,10 +12,29 @@ const MyContext = createContext();
 import './App.css'
 function App() {
 
+    <ToastContainer
+    position="top-center"
+    autoClose={5000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+
+   />
+
   const [cartItems, setCartItems] = useState([]);
+
+  const [isLogin , setIsLogin] = useState();
 
   useEffect(() => {
     getCartData(`http://localhost:5050/cartItems`); 
+
+    const is_Login = localStorage.getItem("isLogin");
+    setIsLogin(is_Login); 
   }, []); 
   
   
@@ -57,11 +76,27 @@ function App() {
     setCartItems([])
   }
 
+  // sign in 
+  const signIn = () => {
+    const is_Login = localStorage.getItem("isLogin");
+    setIsLogin(is_Login); 
+  }
+
+// sign out 
+ const signOut = () => {
+  localStorage.removeItem("isLogin"); 
+  setIsLogin(false); 
+
+ }
+
   const value = {
      cartItems,
      addToCart,
      removeItemsFromCart,
      emptyCart,
+     isLogin,
+     signOut,
+     signIn, 
   }
    
   return (

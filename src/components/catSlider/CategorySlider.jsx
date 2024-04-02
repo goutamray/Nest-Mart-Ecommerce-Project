@@ -1,16 +1,17 @@
 
-import Slider from "react-slick";
-
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+
+import Slider from "react-slick";
+import axios from "axios";
 
 // slider css  import 
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-import "./CategorySlider.css";
-import { Link } from "react-router-dom";
 
+import "./CategorySlider.css";
 const CategorySlider = () => {
    
   const [allData, setAllData] = useState([]);

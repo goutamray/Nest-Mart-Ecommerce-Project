@@ -4,26 +4,30 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 import Counter from "../../components/counter/Counter";
 import StarRating from "../../components/star-rate/StarRating";
 
 import { MyContext } from "../../App";
-
 import axios from "axios";
+
 import "./Cart.css";
-
-
 const Cart = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
   const context = useContext(MyContext); 
-
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    getCartData(`http://localhost:5050/cartItems`); 
+    if (context.isLogin === "true") {
+      getCartData(`http://localhost:5050/cartItems`); 
+    }else{
+      navigate("/");
+    }
+
   }, []); 
   
   

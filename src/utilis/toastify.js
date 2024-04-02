@@ -1,13 +1,13 @@
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 // create toastify 
-const createToast = (msg, type ="error" ) => {
-   return toast[type](msg)
-}
+// const createToast = (msg, type ="error" ) => {
+//    return toast[type](msg)
+// }
 
 
-// export default 
-export default createToast;  
+// // export default 
+// export default createToast;  
 
 
 

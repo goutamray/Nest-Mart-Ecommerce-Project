@@ -1,10 +1,12 @@
-
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
+
+// import icons 
 import { CiHeart, CiShuffle } from "react-icons/ci";
 import { FaCartPlus, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
-import { Link, useParams } from "react-router-dom";
 
+// image zoom css 
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 
@@ -17,13 +19,13 @@ import "slick-carousel/slick/slick.css";
 
 import Product from "../../components/product/Product";
 import StarRating from "../../components/star-rate/StarRating";
-
-import "./SingleProduct.css";
-
-import Rating from 'react-rating';
 import Counter from '../../components/counter/Counter';
 
 
+import Rating from 'react-rating';
+
+
+import "./SingleProduct.css";
 const SingleProduct = () => {
 
 
