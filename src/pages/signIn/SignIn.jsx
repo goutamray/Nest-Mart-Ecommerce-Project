@@ -1,28 +1,32 @@
 
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
 
 // import images 
-import googleImage from "../../assets/img/icons/google.png"
-import loginImg from "../../assets/img/icons/login-1.png" 
+import facebookImage from "../../assets/img/icons/facebook.png";
+import googleImage from "../../assets/img/icons/google.png";
+import loginImg from "../../assets/img/icons/login-1.png";
 
 
 import { MyContext } from "../../App";
 
 // firebase sign in 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { app } from '../../fireBase';
+
+const googleProvider = new GoogleAuthProvider();
+
 
 const auth = getAuth(app);
 
 
-import "./SignIn.css"
+
+
+import "./SignIn.css";
 const SignIn = () => {
    const [showPassword, setShowPassword ] = useState(false); 
-
    const [formFields, setFormFields] = useState({
     email : "",
     password : "",
@@ -37,9 +41,9 @@ const SignIn = () => {
    }; 
 
    const context = useContext(MyContext); 
-   
    const navigate = useNavigate(); 
 
+   // sign in email & password 
   const signIn = () => {
     signInWithEmailAndPassword(auth, formFields.email, formFields.password)
         .then((userCredential) => {
@@ -61,9 +65,42 @@ const SignIn = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
         });
-  };         
-
+  };    
+  
+  
+//sign in with google 
+const signInWithGoogle = () => {
+  signInWithPopup(auth, googleProvider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
  
+    const user = result.user;
+
+    localStorage.setItem("isLogin", true); 
+    context.signIn(); 
+
+    navigate("/")
+
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    const email = error.customData.email;
+
+    const credential = GoogleAuthProvider.credentialFromError(error);
+
+  });
+}; 
+
+
+
+
+
+
+
   return (
     <>
        <div className="sign-up py-3">
@@ -145,8 +182,9 @@ const SignIn = () => {
                               </div>
                               <div className="or text-center p-2"> <p> OR  </p></div>
                               <div className="google-btn">
-                                <button> <img src={googleImage} alt="" /> Sign In With Google </button>
+                                <button onClick={signInWithGoogle}> <img src={googleImage} alt="" /> Sign In With Google </button>
                               </div>
+                              
                               <div className="not-account mt-3">
                                 <p className="text-center">  Not have an Acount <Link to="/signUp">  Sign Up </Link>  </p>
                               </div>

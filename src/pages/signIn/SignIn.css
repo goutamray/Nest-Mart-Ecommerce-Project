@@ -63,7 +63,20 @@
   font-weight: 600;
 }
 
+.facebook-btn button {
+  background: transparent;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #c4c4c4;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .google-btn button img{
+   width: 45px;
+
+}
+.facebook-btn button img{
    width: 45px;
 
 }
