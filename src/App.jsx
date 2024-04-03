@@ -8,7 +8,6 @@ import router from './routes/router';
 
 const MyContext = createContext();
 
-
 import './App.css'
 function App() {
 
@@ -23,11 +22,9 @@ function App() {
     draggable
     pauseOnHover
     theme="light"
-
    />
 
   const [cartItems, setCartItems] = useState([]);
-
   const [isLogin , setIsLogin] = useState();
 
   useEffect(() => {
@@ -86,7 +83,6 @@ function App() {
  const signOut = () => {
   localStorage.removeItem("isLogin"); 
   setIsLogin(false); 
-
  }
 
   const value = {

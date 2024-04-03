@@ -1263,18 +1263,44 @@
   ],
   "productReviews": [
     {
-      "id": "1",
-      "review": "dhgxdhfdhfghfg",
-      "userName": "ftgjhfgjfghfgh",
-      "rating": 5,
-      "date": "4/2/2024, 12:30:08 AM"
+      "id": "4871",
+      "review": "very nice ",
+      "userName": "goutam ",
+      "rating": 4,
+      "productId": "1",
+      "date": "4/2/2024, 8:20:41 PM"
     },
     {
-      "id": "1",
-      "review": "nice product ",
-      "userName": "Goutam ray ",
+      "id": "5d34",
+      "review": "goood ",
+      "userName": "sujan ",
+      "rating": 5,
+      "productId": "9",
+      "date": "4/2/2024, 8:21:37 PM"
+    },
+    {
+      "id": "87bb",
+      "review": "nice ",
+      "userName": "goutam ",
       "rating": 4,
-      "date": "4/2/2024, 12:56:20 AM"
+      "productId": "7",
+      "date": "4/3/2024, 8:35:21 AM"
+    },
+    {
+      "id": "6dbb",
+      "review": "dfhgdgfd",
+      "userName": "dfgdfgdfd",
+      "rating": 2,
+      "productId": "7",
+      "date": "4/3/2024, 8:36:04 AM"
+    },
+    {
+      "id": "6f47",
+      "review": "fgjhf",
+      "userName": "fghfghfg",
+      "rating": 3,
+      "productId": "7",
+      "date": "4/3/2024, 8:36:16 AM"
     }
   ],
   "cartItems": []

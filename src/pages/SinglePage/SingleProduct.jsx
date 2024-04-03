@@ -27,21 +27,18 @@ import Rating from 'react-rating';
 
 import "./SingleProduct.css";
 const SingleProduct = () => {
-
-
   const [productData, setproductData] = useState([]);
 
 
   const [bigImageSize, setbigImageSize ] = useState([1500 , 1500]);
   const [smallImageSize, setsmallImageSize ] = useState([150 , 150]);
   const [activeSize, setActiveSize ] = useState(0);
-
   const [activeTab , setActiveTab ] = useState(0); 
-
 
  const [currentProduct, setCurrentProduct] = useState([]);
 
  const [relatedProduct, setRelatedProduct ] = useState([]); 
+ const [reviewArr, setReviewArr ] = useState([]); 
 
 
   let singleId = useParams(); 
@@ -84,7 +81,9 @@ const SingleProduct = () => {
          }
     })
   
-    setRelatedProduct(related_products)
+    setRelatedProduct(related_products);
+
+   showReviews(); 
 
   }, [id, productData]);
 
@@ -158,41 +157,72 @@ const SingleProduct = () => {
   // form state manage 
  const [rating, setRating ] = useState(0);
 
-  const [input, setInput] = useState({
+ const [input, setInput] = useState({
      review : "",
      userName : "",
-     rating : 0
+     rating : 0,
+     productId: 0,
+     date: ''
   
 });     
 
-
+// handle input change
 const handleChangeInput = (e) => {
   setInput((prevState) => ({
         ...prevState,
-        [e.target.name] : e.target.value,
+        [e.target.name] : e.target.value, 
+        productId: id,  
         date: new Date().toLocaleString(),
-        id: id,
-       
       }))
 };           
-             
+        
+// show review 
+const reviews_Arr = []; 
+
+const showReviews = async() => {
+  try {
+   await axios.get(`http://localhost:5050/productReviews`).then((response) => {
+     if (response.data.length !== 0 ) {
+       response.data.map((item) => {
+         if (parseInt(item.productId) === parseInt(id)) {
+             reviews_Arr.push(item); 
+         }
+       })
+     }
+   })
+  } catch (error) {
+    console.log(error.message);
+  }
+
+   if (reviews_Arr.length !== 0) {
+     setReviewArr(reviews_Arr); 
+   }
+
+}; 
 
 
+// review form submit 
 const handleFormSubmit = async(e) => {
    e.preventDefault();
 
-
    try {
      const response = await axios.post(`http://localhost:5050/productReviews`, {...input, rating} )
-
-     return response.data; 
+     reviews_Arr.push(response.data); 
+     setInput({
+      review : "",
+      userName : "",
+      rating : 0,
+      productId: 0,
+      date: ''
+     })
 
    } catch (error) {
     console.log(error.message);
    }    
+   showReviews(); 
+};     
 
 
-}
 
   return (
     <>   
@@ -493,32 +523,32 @@ const handleFormSubmit = async(e) => {
                                <div className="review-customer">
                                   <h4> Customer questions & answers  </h4>
 
-                         {/* {
-                          currentProduct.reviews.length !== 0 && 
-                             currentProduct.reviews.map((item, index) => {
+                         {
+                          reviewArr.length !== 0 && reviewArr.length !== undefined && 
+                             reviewArr.map((item, index) => {
                                 return (
                                 <div className="card p-3 review-card mb-4" key={index}>
                                   <div className="image-item">
                                     <div className="rounded-circle">
                                         <img src="https://nest-frontend-v6.netlify.app/assets/imgs/blog/author-2.png" alt="" />
                                      </div>
-                                     <p> Sienna </p>
+                                     <p> {item.userName} </p>
                                   </div>
                                   <div className="card-info">
                                      <div className="review-date">
-                                       <p className="now-date"> December 4, 2024 at 3:12 pm</p>
+                                       <p className="now-date">{item.date} </p>
                                       </div>
                                       <div className="star-message mt-3"> 
                                         <p className="message">{item.review} </p>
                                       </div> 
                                   </div>
                                   <div className="review-final">
-                                     <span> <StarRating stars={item.rating}/> </span>   
+                                     <span> <StarRating stars={parseFloat(item.rating)}/> </span>   
                                   </div>
                               </div>
                                 )
                              })
-                         } */}
+                         }
                                  
 
 
@@ -604,7 +634,7 @@ const handleFormSubmit = async(e) => {
                           </div>
                          </div>
                      </div>
-                  }
+                  }     
 
                      </div>
                   </div>
