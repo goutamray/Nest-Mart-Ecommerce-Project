@@ -1,5 +1,5 @@
 
-import {  useContext, useState } from "react";
+import {  useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,11 @@ import { MdVideoLabel } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
+import { GiHamburgerMenu } from "react-icons/gi";    
+
+import { FaRegUser } from "react-icons/fa";
+import { IoClose } from "react-icons/io5"; 
+
 
 import SelectDrop from "../selectDropdown/SelectDrop";
 import ClickAwayListener from 'react-click-away-listener';  
@@ -28,14 +33,18 @@ import Navbar from "./navbar/Navbar";
 
 import "./Header.css";  
 const Header = () => {
-
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
- 
+   const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+   const [openSearch, setOpenSearch ] = useState(false); 
+   const [isOpenNav, setIsOpenNav ]  = useState(false);
+   
+  
+   const searchInput = useRef();
 
    // handle close
    const handleCloseDrop = () => {
     setDropDownOpen(() => !dropDownOpen)
-   }
+   }; 
 
    const [categories, setCategories ] = useState([ 
           "All Categories",
@@ -55,10 +64,33 @@ const Header = () => {
    const context = useContext(MyContext); 
    const navigate = useNavigate(); 
 
-
    const signOut = () => {
      context.signOut();
      navigate("/");
+   }; 
+
+   useEffect(() => {
+
+   }, [context.cartItems])
+
+
+   const handleOpenSearch = () => {
+      setOpenSearch(true);
+      searchInput.current.focus(); 
+   };    
+
+   const handleCloseSearch = () => {
+      setOpenSearch(false);
+      searchInput.current.blur(); 
+      searchInput.current.value = ""; 
+   };  
+   
+   const openNavBar = () => {
+    setIsOpenNav(true);
+   }
+
+   const closeNav = () => {
+    setIsOpenNav(false);
    }
 
 
@@ -68,25 +100,51 @@ const Header = () => {
           <div className="container-fluid">
             <div className="row">
 
-              <div className="col-sm-2">
-                 <div className="logo">
-                   <Link to="/"> <img src={logo} alt="" /> </Link>
+              <div className="col-sm-2 header-part1 ">
+                 <div className="logo ">
+                     <Link to="/"> <img src={logo} alt="" /> </Link>
+                     {
+                      windowWidth < 992 && 
+                      <div className="ml-auto d-flex align-items-center ">
+                           <div className="navBarToogle mr-3" onClick={handleOpenSearch}> <IoIosSearch /></div>
+                            <div className="header-cart-wishlist "> 
+                              <div className="header-action-icon-2">
+                                  <a href='' className="compare-box">
+                                      <img className=""  src={cart} />
+                                      <span className="pro-count blue"> {context?.cartItems.length} </span>
+                                    </a>
+                                  <Link to='/cart' className="compare-text"><span className="lable ml-0"></span></Link>
+                              </div>        
+                            </div>
+                            <div className="navBarToogle me-2" onClick={openNavBar}> <GiHamburgerMenu /></div>
+
+                          {
+                            context.isLogin === "true" && 
+                             <div className="myAccDrop"> <FaRegUser /> </div>
+                          }
+                         
+                     </div>
+                     }
+                    
                  </div>
               </div>
 
             {/* header search start  */}
-              <div className="col-sm-5 middle-bar ">
-                 <div className="header-search d-flex align-items-center"> 
-                      <SelectDrop data ={categories}/>
+              <div className="col-sm-5 middle-bar header-part2 ">
+                 <div className={`header-search ${openSearch === true ? "open" : ""}`}> 
+                 {
+                  windowWidth < 992 && <div className="closeSearch" onClick={handleCloseSearch}> <IoClose  /> </div> 
+                 }
+                    <SelectDrop data ={categories} className="SelectDrop-box"/>
                      <div className="search">
-                       <input type="text" placeholder="Search for items..."/> <IoIosSearch className="search-icon"/>
+                       <input type="text" placeholder="Search for items..." ref={searchInput}/> <IoIosSearch className="search-icon"/>
                      </div>
                  </div>
               </div>
             {/* header search end   */}
 
           
-             <div className="col-sm-5 cart-wish-account">
+             <div className="col-sm-5 cart-wish-account header-part3 res-hide">
                 <div className="header-cart-wishlist "> 
                    <div className="header-action-icon-2">
                        <a href='' className="compare-box">
@@ -152,17 +210,13 @@ const Header = () => {
              </div>
                }
 
-                
-
-
-                
+              
              </div>
-
             </div>
           </div>
         </header>
 
-        <Navbar /> 
+       <Navbar openNav = {isOpenNav} closeNav={closeNav}/>  
         
             
     </>      

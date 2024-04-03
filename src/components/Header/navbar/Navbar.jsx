@@ -12,8 +12,10 @@ import sreen from "../../../assets/img/thumbnail/screen.png"
 
 import "./Navbar.css"   
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [productData, setProductData ] = useState([]);
+  const [isOpenNav, setIsOpenNav ]  = useState(false);
+
 
   useEffect(() => {
      getData(`http://localhost:5050/productData`);
@@ -43,23 +45,29 @@ const Navbar = () => {
   const handleClickOpenbtn = () => {
     setNestOpenbtn(() => !nestOpenbtn)
   }
-
+ 
+  useEffect(() => {
+    setIsOpenNav(props.openNav)
+  }, [props.openNav])
 
 
   return (
     <>
+    {
+      isOpenNav === true && <div className="navbarOverlay" onClick={props.closeNav}></div>
+    }
       <div className="nav navbar-header my-custom-header">
         <div className="container-fluid">
           <div className="row d-flex align-items-center my-3 navbar-row ">
-            <div className="col-sm-3 part1">
+            <div className="col-sm-3 part1 nav-part1 ">
                <div className="browse-button ">
                 <button> <IoGrid className="grid-box" />  Browse All Categories <FaChevronDown className="down-arrow-btn"/> </button>
                </div>
             </div>
-            <div className="col-sm-7 part2 ">
-              <div className="navbar-menu">
+            <div className="col-sm-7 part2 nav-part2 ">
+              <div className={`navbar-menu ${isOpenNav === true ? "open" : ""}`}>
                  <ul className="list list-inline menu-item">
-                    <li className="list-inline-item list-item-single ">
+                    <li className="list-inline-item list-item-single " onClick={props.closeNav}>
                        <Link to="/" onClick={handleClickOpen}> Home <FaChevronDown className="down-arrow-item"/> </Link>  
                       
                         <ul className="dropDown-menu shadow">
@@ -81,14 +89,14 @@ const Navbar = () => {
                 
                     {
                    productData.length > 0 ? productData.map((item, index) => {
-                         return (<li className="list-inline-item list-item-single" key={index}>
+                         return (<li className="list-inline-item list-item-single" key={index} onClick={props.closeNav}>
                        <Link to={`/cat/${item.cat_name.toLowerCase()}`} onClick={() => sessionStorage.setItem("cat", item.cat_name.toLowerCase())} > {item.cat_name} </Link>
                          {
                             item.items?.length !== 0 &&  
                             <ul className="dropDown-menu shadow">
                               {
                                 item.items?.map((item_, index_) => {
-                                   return <li key={index_}> 
+                                   return <li key={index_} onClick={props.closeNav}> 
                                 <Link to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g,"-").toLowerCase()}`} onClick={() => sessionStorage.setItem("cat", item.cat_name.toLowerCase())} > {item_.cat_name} </Link>
                               </li>
                                  
@@ -102,8 +110,8 @@ const Navbar = () => {
                    }) : ""
                     }
 
-                    <li className="list-inline-item list-item-single mega-menu-li ">
-                       <Link to=""> Megamenu <FaChevronDown className="down-arrow-item"/></Link>  
+                    <li className="list-inline-item list-item-single mega-menu-li " onClick={props.closeNav}>
+                       <Link to=""   > Megamenu <FaChevronDown className="down-arrow-item"/></Link>  
                        <ul className="dropDown-menu mega-menu shadow">
                           <div className="row">
 
@@ -143,7 +151,7 @@ const Navbar = () => {
                        </ul>
                     </li>
                    
-                    <li className="list-inline-item list-item-single">
+                    <li className="list-inline-item list-item-single"  onClick={props.closeNav}>
                        <Link to="" onClick={handleClickOpenbtn} > Pages  <FaChevronDown className="down-arrow-item"/> </Link>
                        <ul className="dropDown-menu shadow">
                         <li> 
@@ -176,7 +184,7 @@ const Navbar = () => {
               </div>
 
             </div>
-            <div className="col-sm-2 part3">
+            <div className="col-sm-2 part3 nav-part3 ">
                 <div className="contact-section">
                    <span className="headphone"> <TfiHeadphoneAlt /> </span>
                    <div className="support">

@@ -132,8 +132,8 @@ const Home = () => {
   return (
     <> 
     
-      <HomeSlider /> 
-      <CategorySlider />  
+      {/* <HomeSlider /> 
+      <CategorySlider />   */}
 
       {/* Banner section  */}
       <div className="banner-section my-3">
