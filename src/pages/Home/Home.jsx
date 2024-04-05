@@ -136,7 +136,7 @@ const Home = () => {
       <CategorySlider />   */}
 
       {/* Banner section  */}
-      <div className="banner-section my-3">
+      <div className="banner-section my-5">
         <div className="container-fluid">
           <div className="row">
 

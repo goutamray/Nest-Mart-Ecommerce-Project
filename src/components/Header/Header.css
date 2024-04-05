@@ -164,8 +164,7 @@ background-color: #ffa500;
 
 
 /****************** Responsive css header part  ***************/
-
-@media (min-width : 320px) and (max-width: 768px){ 
+@media (min-width : 320px) and (max-width: 992px){ 
   .container-fluid {
     padding: 0px 25px !important;
   }
@@ -197,6 +196,15 @@ background-color: #ffa500;
     margin-right: 10px;
   }
 
+}
+
+
+/*******  Min width 320px & Max 992px   *********/
+
+@media (min-width : 320px) and (max-width: 992px){ 
+ body, html{
+  overflow-x: hidden !important;
+ }
   .header-part1 .logo .header-cart-wishlist{
     position: relative;
     margin-right: 25px;
@@ -220,11 +228,16 @@ background-color: #ffa500;
     text-align: center;
   }
 
-  .header-middle{
+  /* part 222222  */
+  .header-middle {
     padding: 0px !important;
+    box-shadow: 0px 1px 5px #0000001a;
     border: 1px solid #f1f1f1;
-  }
-
+    position: fixed;
+    top: 0px !important;
+    z-index: 999999999;
+    background: #fff !important;
+ }
   .header-middle .header-search {
     display: flex;
     align-items: center;
@@ -333,7 +346,7 @@ background-color: #ffa500;
 
 .part3.nav-part3{
   display: none !important;
-}
+} 
  /* menu  */
 
 
@@ -395,7 +408,7 @@ background-color: #ffa500;
 
 .list-item-single .dropDown-menu{
   display: none !important;
-}
+} 
 
 
 }; 
@@ -406,31 +419,6 @@ background-color: #ffa500;
 
 
 
-@media (min-width : 320px) and (max-width: 992px){ 
-  .container-fluid {
-    padding: 0px 25px !important;
-  }
-
-  .header-middle{
-    padding: 0px !important;
-    }
-
-
-  .header-search{
-    position: fixed !important; 
-    top: 0px !important;
-    left: 0px;
-    z-index: 100;
-    width: 100%;
-    height: 100vh !important;
-    background: #fff;
-    flex-direction: column !important;
-
-  } 
-
-
-
-}; 
 
 
 
