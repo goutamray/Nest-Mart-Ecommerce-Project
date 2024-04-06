@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -10,11 +10,17 @@ import { TfiHeadphoneAlt } from "react-icons/tfi";
 // import image
 import sreen from "../../../assets/img/thumbnail/screen.png"
 
+
+import { MyContext } from "../../../App";
+
 import "./Navbar.css"   
 
 const Navbar = (props) => {
   const [productData, setProductData ] = useState([]);
   const [isOpenNav, setIsOpenNav ]  = useState(false);
+  const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+
+  const context = useContext(MyContext); 
 
 
   useEffect(() => {
@@ -50,6 +56,10 @@ const Navbar = (props) => {
     setIsOpenNav(props.openNav)
   }, [props.openNav])
 
+
+  const closeNav = () => {
+    props.closeNav()
+  }
 
   return (
     <>
@@ -178,10 +188,23 @@ const Navbar = (props) => {
                        </ul>
                     </li>
                    
-                 
-             
-                 </ul>
-              </div>
+                 </ul>      
+
+
+                 {
+                  windowWidth < 992 &&
+                  <>
+                  {
+                    context.isLogin !== "true" && 
+                    <div className="pl-3 pr-3">
+                        <button className="sign-in-btnabc" onClick={closeNav}> <Link to="/signIn">  Sign In </Link> </button>
+                    </div>
+                  }
+                    
+                  </>
+
+                 }
+              </div>      
 
             </div>
             <div className="col-sm-2 part3 nav-part3 ">
@@ -191,7 +214,7 @@ const Navbar = (props) => {
                         <p> 1900 - 888 </p>
                         <span className="center"> 24/7 Support Center </span>
                    </div>
-                 
+                    
                 </div>
             </div>
           </div>

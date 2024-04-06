@@ -82,6 +82,7 @@
 
 .popular-products .banner-image {
   position: relative;
+  z-index: -1;
 }
 
 .popular-products .banner-image h2 {

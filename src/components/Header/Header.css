@@ -10,6 +10,8 @@
   margin: auto;
   padding: 20px 0px;
 
+  z-index: 999 !important;
+
 }
 .middle-bar {
   display: flex;
@@ -99,20 +101,33 @@
  .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover {
   padding: 2px 13px;
   width: 160px;
-  transition: all 0.3s ease-in-out;
+
 }
 
-.cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover:hover{
-  color: var(--nest-primary);
-  background-color: #dcdcdc;
+
+.cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button{
+  border: none !important;
+  background: transparent;
+
 }
 
- .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button {
-    border: none !important;
+ .cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button a {
     background: transparent !important;
     padding: 8px 5px;
     font-size: 14px;
+    color: #636262;
+    display: block;
+    padding: 5px 2px;
+    transition: all 0.3s ease-in-out;
+}
 
+.cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button  a:hover {
+  color: var(--nest-primary) !important;
+
+}
+.cart-wish-account .header-cart-wishlist .dropdown-menu-abc .drop-down-hover button  a svg{
+  font-size: 16px;
+  margin-right: 5px;
 }
 
  .cart-wish-account .header-cart-wishlist .header-action-icon-2 .compare-box{
@@ -162,39 +177,41 @@
 background-color: #ffa500;
 }
 
-
 /****************** Responsive css header part  ***************/
-@media (min-width : 320px) and (max-width: 992px){ 
+
+ @media (min-width : 320px) and (max-width: 575px){ 
+  .navbar-menu, .dropDownMenuAcc {
+    width: 80% !important;
+  }
+  
+}
+
+ @media (min-width : 575px) and (max-width: 767px){ 
+  .navbar-menu, .dropDownMenuAcc {
+    width: 60% !important;
+  }
+
+  
+}
+
+
+ @media (min-width : 767px) and (max-width: 992px){ 
+  .navbar-menu, .dropDownMenuAcc {
+    width: 50% !important;
+
+  }
+}   
+
+
+
+
+/*******  Min width 320px & Max 768px   *********/
+
+@media (min-width : 320px) and (max-width: 768px){ 
   .container-fluid {
     padding: 0px 25px !important;
   }
 
-  .header-part1 {
-   width: 100% !important;
-   padding: 8px 0px !important;
-
-  }
-  .header-part1 .logo {
-   max-width: 100% !important;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-
-  }
-
-  .header-part1 .logo img{
-    width: 120px;
-  }
-
-  .header-part1 .logo .navBarToogle {
-    margin-left: auto;
-    width: 35px;
-    font-size: 24px;
-  }
-
-  .header-part1 .logo .navBarToogle .search{
-    margin-right: 10px;
-  }
 
 }
 
@@ -202,9 +219,43 @@ background-color: #ffa500;
 /*******  Min width 320px & Max 992px   *********/
 
 @media (min-width : 320px) and (max-width: 992px){ 
+
  body, html{
   overflow-x: hidden !important;
  }
+ .container-fluid {
+  padding: 0px 30px !important;
+}
+
+.header-part1 {
+ width: 100% !important;
+ padding: 9px 0px !important;
+
+}
+
+.header-part1 .logo {
+ max-width: 100% !important;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+
+}
+
+.header-part1 .logo img{
+  width: 120px;
+}
+
+.header-part1 .logo .navBarToogle {
+  margin-left: auto;
+  width: 35px;
+  font-size: 24px;
+}
+
+.header-part1 .logo .navBarToogle .search{
+  margin-right: 10px;
+}
+
+
   .header-part1 .logo .header-cart-wishlist{
     position: relative;
     margin-right: 25px;
@@ -229,15 +280,20 @@ background-color: #ffa500;
   }
 
   /* part 222222  */
+  .my-custom-header {
+    display: inline;
+    z-index: 999999;
+}
+  
   .header-middle {
     padding: 0px !important;
     box-shadow: 0px 1px 5px #0000001a;
     border: 1px solid #f1f1f1;
     position: fixed;
     top: 0px !important;
-    z-index: 999999999;
     background: #fff !important;
  }
+
   .header-middle .header-search {
     display: flex;
     align-items: center;
@@ -259,6 +315,7 @@ background-color: #ffa500;
   .header-middle .header-search.open{
     opacity: 1;
     right: 0px;
+
     z-index: 9999;
   }
 
@@ -308,7 +365,6 @@ background-color: #ffa500;
 
   .header-middle .header-search .select-drop::after {
     right: 3px !important;
-
   }
 
   .SelectDrop-box{
@@ -347,20 +403,20 @@ background-color: #ffa500;
 .part3.nav-part3{
   display: none !important;
 } 
+
+
  /* menu  */
-
-
 .navbar-menu {
-  width: 80% !important;
   height: 100% !important;
   position: fixed;
   top: 0px;
   right: -100%;
   background: #fff !important;
-  z-index: 99999 !important;
 
+  z-index: 1;
   transition: all 0.3s ease-in-out;
   opacity: 0;
+  z-index: 9999999 !important;
 }
 
 .navbar-menu.open{
@@ -368,15 +424,16 @@ background-color: #ffa500;
   right: 0px;
 }
 
-.navbar-menu ul{
+.navbar-menu ul {
   padding-top: 5px;
 }
+
 .navbar-menu ul li{
   width: 100%;
   margin: 0px !;
   padding: 12px 0px ;
-
 }
+
 .navbar-menu ul li a{
   width: 100% !important;
   display: flex !important;
@@ -384,31 +441,86 @@ background-color: #ffa500;
   justify-content: space-between;
   align-items: center;
   font-size: 14px !important;
-
 }
+
 .navbar-menu ul li a svg{
   display: none !important;
   font-size: 14px !important;
 }
-.my-custom-header{
-  display: inline;
-}
+
 
 .navbarOverlay{
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   position: fixed;
   top: 0px;
   left: 0px;
   background-color: rgba(0,0,0, 0.5);
   z-index: 5;
-
-
 }
 
 .list-item-single .dropDown-menu{
   display: none !important;
 } 
+
+.sign-in-btnabc {
+  background: var(--nest-primary) !important;
+  border: none;
+  width: 96%;
+  padding: 9px 0px;
+  font-weight: 500;
+  margin: 5px 10px !important;
+  border-radius: 4px;
+}
+
+.sign-in-btnabc a{
+  color: #fff;
+}
+
+ .dropDownMenuAcc{
+  height: 100vh !important;
+  right: 0% !important;
+  top: -30px !important;
+  opacity: 1 !important;
+  padding-left: 20px !important;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  background: #fff !important;
+  margin-left: auto;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  
+  z-index: 999999 !important;
+} 
+
+
+.dropDownMenuAcc  li button{
+   border: none;
+   background: transparent;
+}
+
+.dropDownMenuAcc  li button a{
+   display: block;
+   color: #636262;
+   padding: 7px 0px;
+   width: 100%;
+}
+
+.dropDownMenuAcc  li button a svg{
+  padding-right: 3px !important;
+  font-size: 20px;
+}
+
+.dropDownMenuAcc  li button a:hover {
+   color: var(--nest-primary) !important;
+}
+
+.dropDownMenuAcc  li button a img{
+  width: 16px;
+}
+
+
+
 
 
 }; 

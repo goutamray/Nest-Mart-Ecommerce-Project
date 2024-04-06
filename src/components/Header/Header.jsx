@@ -34,6 +34,7 @@ import Navbar from "./navbar/Navbar";
 import "./Header.css";  
 const Header = () => {
    const [dropDownOpen, setDropDownOpen ] = useState(false); 
+   const [isAccdropDownOpen, setIsAccdropDownOpen ] = useState(false); 
    const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
    const [openSearch, setOpenSearch ] = useState(false); 
    const [isOpenNav, setIsOpenNav ]  = useState(false);
@@ -91,6 +92,7 @@ const Header = () => {
 
    const closeNav = () => {
     setIsOpenNav(false);
+    setIsAccdropDownOpen(false); 
    }
 
 
@@ -120,8 +122,8 @@ const Header = () => {
 
                           {
                             context.isLogin === "true" && 
-                             <div className="myAccDrop"> <FaRegUser /> </div>
-                          }
+                             <div className="myAccDrop"  onClick={() => setIsAccdropDownOpen(!isAccdropDownOpen)} > <FaRegUser /> </div>
+                          }    
                          
                      </div>
                      }
@@ -186,19 +188,18 @@ const Header = () => {
                         </a>   
                   
                
-                      <a href='#' className="compare-text"><span className="lable ml-0" onClick={handleCloseDrop}> Account </span></a>    
+                      <a href='#' className="compare-text" onClick={() => setDropDownOpen(!dropDownOpen)} ><span className="lable ml-0" onClick={handleCloseDrop}> Account </span></a>    
                       
                    </div>
                    {
                     
                     dropDownOpen && <ul className="dropdown-menu-abc shadow">
-                    <li className="drop-down-hover"> <FiUser /> <button > My Account </button></li>
-                    <li className="drop-down-hover"> <CiLocationOn /> <button> Order Tracking </button></li>
-                    <li className="drop-down-hover"> <MdVideoLabel /> <button> My Voucher </button></li>
-                    <li className="drop-down-hover"> <CiHeart /> <button> My Wishlist </button></li>
-                    <li className="drop-down-hover"> <CiSettings /> <button> Setting </button></li>
-                    <li className="drop-down-hover"> <LuLogOut />
-                       <button onClick={signOut}> Sign out </button>
+                    <li className="drop-down-hover">  <button > <Link>  <FiUser />  My Account </Link> </button></li>
+                    <li className="drop-down-hover">  <button> <Link> <CiLocationOn /> Order Tracking  </Link>  </button></li>
+                    <li className="drop-down-hover">  <button> <Link> <MdVideoLabel /> My Voucher  </Link> </button></li>
+                    <li className="drop-down-hover">  <button> <Link> <CiHeart /> My Wishlist </Link>  </button></li>
+                    <li className="drop-down-hover">  <button> <Link> <CiSettings />  Setting </Link> </button></li>
+                    <li className="drop-down-hover">  <button onClick={signOut}> <Link> <LuLogOut /> Sign out </Link>  </button>
                     </li>
                   </ul>
                    }
@@ -216,9 +217,32 @@ const Header = () => {
           </div>
         </header>
 
-       <Navbar openNav = {isOpenNav} closeNav={closeNav}/>  
+        <Navbar openNav = {isOpenNav} closeNav={closeNav}/>  
+
+        {
+      
+           isAccdropDownOpen  && 
+           <> 
+           <div className="navbarOverlay" onClick={closeNav}></div>
+              <ul className="dropdown-menu-abc shadow dropDownMenuAcc">
+              <li className="drop-down-hover">  <button > <Link> <FiUser />  My Account </Link> </button></li>
+              <li className="drop-down-hover">  <button > <Link> <img src={compare} />  Compare </Link> </button></li>
+              <li className="drop-down-hover">  <button > <Link>  <img className=""  src={heart} /> Wishlist </Link> </button></li>
+              <li className="drop-down-hover">  <button> <Link> <CiLocationOn />  Order Tracking </Link> </button></li>
+              <li className="drop-down-hover">  <button>  <Link> <MdVideoLabel />  My Voucher </Link> </button></li>
+              <li className="drop-down-hover">  <button>  <Link> <CiHeart />  My Wishlist </Link> </button></li>
+              <li className="drop-down-hover">  <button>  <Link> <CiSettings /> Setting </Link> </button></li>
+              <li className="drop-down-hover" onClick={closeNav}> 
+                  <button onClick={signOut}> <Link> <LuLogOut /> Sign out   </Link>  </button>
+              </li>
+         </ul>
+
+         </>
+    }  
+    
         
-            
+  
+
     </>      
   )
 }
