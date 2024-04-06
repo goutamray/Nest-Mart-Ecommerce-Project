@@ -131,16 +131,16 @@ const Home = () => {
 
   return (
     <> 
-    
-      {/* <HomeSlider /> 
-      <CategorySlider />   */}
+     
+      <HomeSlider /> 
+      <CategorySlider />   
 
       {/* Banner section  */}
       <div className="banner-section my-5">
         <div className="container-fluid">
           <div className="row">
 
-            <div className="col-sm-4 banner-part">
+            <div className="col-sm-6 col-md-6 col-lg-4  banner-part">
               <div className="banner-img">
                 <img src={banner1} alt="" />
                 <div className="banner-text">
@@ -150,7 +150,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-sm-4 banner-part">
+            <div className="col-sm-6 col-md-6 col-lg-4 banner-part">
               <div className="banner-img">
                 <img src={banner2} alt="" />
                 <div className="banner-text">
@@ -160,7 +160,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-sm-4 banner-part">
+            <div className="col-sm-12 col-md-12 col-lg-4 banner-part extra">
               <div className="banner-img">
                 <img src={banner3} alt="" />
                 <div className="banner-text">

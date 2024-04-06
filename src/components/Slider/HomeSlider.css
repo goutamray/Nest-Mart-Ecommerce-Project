@@ -134,7 +134,78 @@
   left: -5%;
 } 
 
+/*************** Responsive css **************/
+@media (min-width : 320px) and (max-width: 575px){ 
+  .home-slider-main .item .info h2{
+    font-size: 25px;
+  }
+  .home-slider-main .item .info p{
+    font-size: 16px;
+  }
 
+
+
+}
+
+ @media (min-width : 575px) and (max-width: 767px){ 
+  .home-slider-main .item .info h2{
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  .home-slider-main .item .info p{
+    font-size: 22px;
+  }
+
+
+  
+}
+
+
+ @media (min-width : 767px) and (max-width: 992px){ 
+  .home-slider-main .item .info h2{
+    font-size: 35px;
+  
+  }
+  .home-slider-main .item .info p{
+    font-size: 26px;
+  }
+
+
+
+
+
+}   
+
+
+ @media (min-width : 320px) and (max-width: 768px){ 
+  .slick-arrow.slick-prev{
+    display: none !important;
+  }
+  .slick-arrow.slick-next{
+    display: none !important;
+  }
+
+
+
+}   
+
+ @media (min-width : 320px) and (max-width: 992px){ 
+  .home-slider {
+    margin-top: 57px !important;
+    padding: 0px !important;
+  }
+
+  .home-slider-main .item .info h2{
+    margin-bottom: 10px;
+  }
+
+  .subscribe-form{
+    display: none;
+  }
+
+
+
+}   
 
 
 

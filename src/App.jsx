@@ -6,6 +6,7 @@ import { ToastContainer  } from 'react-toastify';
 import axios from 'axios';
 import router from './routes/router';
 
+
 const MyContext = createContext();
 
 import './App.css'
@@ -26,6 +27,7 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [isLogin , setIsLogin] = useState();
+  const [windowWidth, setWindowWidth ] = useState(window.innerWidth); 
 
   useEffect(() => {
     getCartData(`http://localhost:5050/cartItems`); 
@@ -93,6 +95,7 @@ function App() {
      isLogin,
      signOut,
      signIn, 
+     windowWidth, 
   }
    
   return (

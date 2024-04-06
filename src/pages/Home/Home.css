@@ -112,3 +112,85 @@
 .popular-products .product-slider-main .slick-slide {
   padding: 0px 2px !important;
 }
+
+
+
+/*********** Banner section Responsive  css  *********/
+@media (min-width : 320px) and (max-width: 576px){ 
+  .banner-section .banner-part{
+    margin: 10px 0px;
+  }
+
+  .banner-section .banner-part .banner-img .banner-text .banner-title{
+    font-size: 20px !important;
+  }
+}
+
+/******** Min 320px & Max 768px  **********/
+@media (min-width : 320px) and (max-width: 768px){ 
+  .banner-section .banner-part.extra{
+     margin-top: 15px !important;
+  }
+
+}
+
+/******** Min 576px & Max 768px  **********/
+@media (min-width : 576px) and (max-width: 768px){ 
+  .banner-section .banner-part .banner-img .banner-text .button-shop {
+    top: 57%;
+}
+
+}
+
+
+/******** Min 576px & Max 992px  **********/
+@media (min-width : 576px) and (max-width: 992px){ 
+  .banner-section .banner-part .banner-img img {
+    border-radius: 10px;
+    height: 201px;
+    width: 100% !important;
+    object-fit: cover;
+  }
+
+  .banner-section .banner-part .banner-img .banner-text .banner-title{
+    font-size: 16px !important;
+  }
+}
+
+
+/******** Min 768px & Max 992px  **********/
+@media (min-width : 768px) and (max-width: 992px){ 
+  .banner-section .banner-part.extra{
+    margin-top: 15px !important;
+ }
+}
+
+
+/******** Min 992px & Max 1200px  **********/
+@media (min-width : 992px) and (max-width: 1200px){ 
+  .banner-section .banner-part .banner-img .banner-text .banner-title{
+    font-size: 22px !important;
+  }
+
+  .banner-section .banner-part .banner-img .banner-text .button-shop {
+    top: 56%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

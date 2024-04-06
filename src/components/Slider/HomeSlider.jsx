@@ -10,13 +10,15 @@ import slider1 from "../../../src/assets/img/slider/slider-1.png"
 import slider2 from "../../../src/assets/img/slider/slider-2.png"
 
 
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 
-
-import "./Slider.css" 
-
-
+import "./HomeSlider.css" 
+  
 const HomeSlider = () => {
+  const context = useContext(MyContext); 
+
 
   let settings = {
     dots: true,
@@ -25,12 +27,16 @@ const HomeSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade : true,
-    arrows : true, 
-  }
+    arrows : true , 
+    autoplay : true,
+  }; 
+
+
+
 
   return (
     <>
-    <section className="home-slider">
+    <section className="home-slider ">
        <div className="container-fluid">
             <Slider {...settings} className="home-slider-main">
                 <div className="item">
@@ -38,6 +44,7 @@ const HomeSlider = () => {
                     <div className="info">
                          <h2> Don’t miss amazing <br/>  grocery deals </h2>
                          <p> Sign up for the daily newsletter </p>
+                     
                          <form className="subscribe-form">
                            <IoIosSend className="send" />
                            <input type="email" placeholder="Your emaill address" />

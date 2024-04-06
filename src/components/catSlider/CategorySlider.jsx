@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 import Slider from "react-slick";
@@ -10,12 +10,16 @@ import axios from "axios";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
+import { MyContext } from "../../App"; 
+
 
 import "./CategorySlider.css";
 const CategorySlider = () => {
    
   const [allData, setAllData] = useState([]);
   const [totalLength, setTotalLength] = useState([]);
+  const context = useContext(MyContext); 
+
 
    // get all data 
    const getData = async(url) => {
@@ -84,7 +88,9 @@ const CategorySlider = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     fade : false,
-    arrows : true, 
+    arrows :  context.windowWidth > 992 ? true : false, 
+    autoplay : context.windowWidth > 992 ? 2000 : false,
+    centerMode : context.windowWidth > 992 ? true : false
   }
 
   return (
@@ -111,6 +117,7 @@ const CategorySlider = () => {
                                 )
                             })
                         }        
+ 
                          
             </Slider>
          </div>
