@@ -246,9 +246,10 @@ color: #ADADAD;
    color: #7E7E7E;
 } 
 .bottom-footer .middle-bar .icon-call .call h2{
-   font-size: 26px;
+   font-size: 25px;
    color: var(--nest-primary);
    margin-bottom: 0px;
+
 } 
 .bottom-footer .middle-bar .icon-call .call p{
    font-size: 12px;
@@ -270,9 +271,7 @@ color: #ADADAD;
    color:  #253D4E;
    margin-bottom: 5px;
 }
-.bottom-right .follow-media .media span{
-   
-}
+
 .bottom-right .follow-media .media span .all-icon{
     font-size: 20px;
     color: var(--nest-primary);
@@ -294,7 +293,6 @@ color: #ADADAD;
 
 
 /************ Footer newsletter  section **************/
-
 @media (min-width : 320px) and (max-width: 576px){ 
   .news-letter .item .info h2 {
     font-size: 23px;
@@ -392,26 +390,167 @@ color: #ADADAD;
 /********* Bottom-footer responsive css   *********/
 
 @media (min-width : 320px) and (max-width: 576px){ 
+  .footer-all-part {
+    display: flex;
+    flex-flow: wrap;
+}
+.footer-section .footer-all-part .footer-part1 {
+  width: 100% !important;
+  display: block;
+}
+
+.footer-part2 {
+  width: 50% !important;
+  display: block;
+  margin-top: 36px !important;
+}
+
+.footer-section .footer-all-part  .footer-part1 .footer-left-box img {
+  width: 40%;
+  margin-bottom: 20px;
+}
+.footer-section .footer-all-part  .footer-part2 h2 {
+  font-size: 20px;
+}
+
+
+.footer-section .footer-all-part  .footer-part2 ul li a {
+  font-size: 15px !important;
+}
+
 
 
 }
 
 
-@media (min-width : 320px) and (max-width: 768px){ 
-
-
+@media (min-width : 576px) and (max-width: 768px){ 
+  .footer-all-part{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer-part1 {
+   width: 50% !important;
+  }
+  
+  .footer-part2 {
+   width: 50% !important;
+  }
+  
+  .footer-part2 {
+     margin-top: 0px !important; 
 }
 
 
+}
 
 @media (min-width : 768px) and (max-width: 992px){ 
+  .footer-all-part{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer-part1 {
+   width: 33% !important;
+  }
+  
+  .footer-part2 {
+   width: 33% !important;
+  }
+  
+  .footer-part2 {
+     margin-top: 0px !important; 
+}
+
+.footer-section .footer-all-part  .footer-part1 .footer-left-box p {
+  padding-right: 16px !important;
+}
 
 
 }
 
 
 
+/********  footer contact section  ********/
+@media (min-width : 320px) and (max-width: 576px){
+  .footer-left {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 13px;
+}
+.bottom-footer .middle-bar {
+  gap: 17px;
+  margin: auto;
+}
 
+.bottom-footer .middle-bar .icon-call .call h2 {
+  font-size: 19px;
+
+}
+.middle-bar.middle-contact {
+  justify-content: center;
+  padding: 20px 0px !important;
+}
+
+.bottom-right {
+  margin: auto;
+}
+
+.bottom-footer .middle-bar .icon-call .icon {
+  font-size: 26px;
+}
+
+.bottom-right .follow-media {
+  justify-content: center;
+}
+.bottom-right p {
+  text-align: center;
+}
+
+}
+
+
+
+/*********** Min 576px & Max 768px  *****************/
+@media (min-width : 576px) and (max-width: 768px){
+  .follow-media{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center !important;
+    gap: 0px !important;
+    margin-bottom: 10px;
+  }
+  .bottom-right p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #7E7E7E;
+}
+
+}
+
+/*********** Min 576px & Max 992px  *****************/
+@media (min-width : 576px) and (max-width: 992px){
+.same-width{
+  width: 33% !important;
+}
+
+
+.middle-bar.middle-contact.same-width{
+  display: flex;
+  flex-direction: column;
+}
+.bottom-footer .middle-bar .icon-call .call h2 {
+  font-size: 22px !important;
+
+}
+
+.bottom-footer .middle-bar .icon-call .icon {
+  font-size: 28px;
+}
+
+
+}
 
 
 

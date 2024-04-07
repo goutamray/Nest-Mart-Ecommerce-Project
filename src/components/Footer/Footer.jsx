@@ -256,13 +256,13 @@ const Footer = () => {
       {/* bottom footer */}
       <div className="bottom-footer">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-4">
+          <div className="row justify-content-center align-items-center">
+            <div className="col-sm-4 same-width ">
                <div className="footer-left">
                   <p> All rights reserved By <a href="#"> Goutam Ray </a> </p>
                </div>
             </div>
-            <div className="col-sm-5 middle-bar">
+            <div className="col-sm-5 middle-bar middle-contact  same-width ">
                <div className="icon-call">
                   <div className="icon">
                       <span> <FiPhoneCall /></span>
@@ -282,7 +282,7 @@ const Footer = () => {
                   </div>
                </div>
             </div>
-            <div className="col-sm-3 d-flex align-items-center">
+            <div className="col-sm-3 d-flex align-items-center social-media  same-width">
                <div className="bottom-right">
                  <div className="follow-media">
                   <div className="follow">
