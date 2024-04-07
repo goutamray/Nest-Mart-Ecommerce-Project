@@ -90,5 +90,62 @@
 
 
 
+/****** Responsive css *******/
+@media (min-width : 320px) and (max-width: 576px){
+  .google-btn button {
+    font-size: 13px;
+}
+
+.google-btn button img {
+  width: 36px;
+}
+
+
+}
+
+
+@media (min-width : 320px) and (max-width: 768px){
+  .breadcrumb {
+    display: none !important;
+  }
+
+  .image-part1 {
+    display: none;
+  }
+
+  .image-part {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+
+
+@media (min-width : 768px) and (max-width: 992px){
+  .breadcrumb{
+    margin-top: 20px;
+  }
+  .single-part {
+    width: 0%;
+  }
+
+  .image-part1 {
+    display: block;
+    width: 45%;
+  }
+
+  .image-part {
+    display: block;
+    width: 45%;
+  }
+
+  .image-login img {
+    height: 442px;
+   }
+
+}
+
+
 
 

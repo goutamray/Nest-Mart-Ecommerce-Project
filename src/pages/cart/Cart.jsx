@@ -13,7 +13,7 @@ import StarRating from "../../components/star-rate/StarRating";
 import { MyContext } from "../../App";
 import axios from "axios";
 
-import "./Cart.css";
+import "./Cart.css";             
 const Cart = () => {
 
   const [cartItems, setCartItems] = useState([]);
@@ -98,19 +98,22 @@ const updateCart = (items) => {
   return (
     <>
         {/* breadcrumb */}
-      <div className="breadCrumbWrapper2 ">
-         <div className="container-fluid">
-            <div className="bradcrumb2 ">
-             <nav aria-label="breadcrumb">
-                <ul className="breadcrumb">
-                   <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                    <li className="breadcrumb-item" ><Link to="/shop"> Shop </Link> </li>
-                     <li className="breadcrumb-item"><Link to=""> Cart </Link> </li>          
-                 </ul>
-                </nav>
-             </div>
-          </div>
-        </div>
+
+          <div className="breadCrumbWrapper2 ">
+          <div className="container-fluid">
+             <div className="bradcrumb2 ">
+              <nav aria-label="breadcrumb">
+                 <ul className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                     <li className="breadcrumb-item" ><Link to="/shop"> Shop </Link> </li>
+                      <li className="breadcrumb-item"><Link to=""> Cart </Link> </li>          
+                  </ul>
+                 </nav>
+              </div>
+           </div>
+         </div>
+       
+     
 
 
         {/* Cart section  */}
@@ -118,7 +121,7 @@ const updateCart = (items) => {
    <div className="cart-section py-2">
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-8">
+        <div className="col-md-8 cart-part-left ">
            <div className="cart-header py-4">
                <div className="cart-left">
                  <h2 className="heading"> Your Cart </h2>
@@ -197,7 +200,7 @@ const updateCart = (items) => {
             </div>
         </div>
 
-         <div className="col-md-4 ">
+         <div className="col-md-4 cart-part-right">
             <div className="total-box">
               <div className="card p-2">
                 <div className="card-body">

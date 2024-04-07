@@ -152,3 +152,88 @@
 }
 
 
+/*********** Responsive css   ***************/
+@media (min-width : 320px) and (max-width: 768px){
+  .counter {
+    width: 68px;
+}
+
+.counter h1 {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.cart-counter {
+  margin-top: 56px;
+}
+
+}
+
+
+@media (min-width : 320px) and (max-width: 768px){ 
+  .table-box .image img {
+    width: 70px;
+  }
+
+  .product-content a h5 {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .product-price {
+    font-size: 18px;
+}
+
+.subTotal {
+  font-size: 18px;
+}
+
+
+  
+}
+
+
+@media (min-width : 320px) and (max-width: 992px){ 
+  .breadCrumbWrapper2{
+    display: none;
+  }
+
+ .cart-part-left{
+  width: 100%;
+  display: block;
+ }
+ .cart-part-right{
+  width: 100%;
+  display: block;
+ }
+
+  .cart-section .cart-body .table-box {
+    display: flex !important;
+    flex-direction: column;
+ }
+
+
+}
+
+
+@media (min-width : 576px) and (max-width: 992px){ 
+
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

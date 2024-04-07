@@ -171,7 +171,12 @@ const Header = () => {
                    <div className="header-action-icon-2">
                        <a href='' className="compare-box">
                            <img className=""  src={cart} />
-                           <span className="pro-count blue"> {context?.cartItems.length} </span>
+                           <span className="pro-count blue">
+                               {
+                                context.isLogin === true ?  context?.cartItems.length : 0
+                              }
+                                
+                           </span>
                         </a>
                       <Link to='/cart' className="compare-text"><span className="lable ml-0">Cart</span></Link>
                    </div>        

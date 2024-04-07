@@ -12,7 +12,7 @@ import { app } from '../../fireBase';
 
  const auth = getAuth(app);
 
-
+import "./SignUp.css"
 const SignUp = () => {
   const [showPassword, setShowPassword ] = useState(false); 
   const [showPassword1, setShowPassword1 ] = useState(false); 
@@ -82,16 +82,16 @@ const SignUp = () => {
         <div className="container-fluid">
             <div className="row">  
 
-             <div className="col-md-2"></div>
+             <div className="col-md-2 single-part "></div>
 
-              <div className="col-md-4">
+              <div className="col-md-4 col-sm-6 image-part1 " >
                 <div className="image-login">
                   <img src={loginImg} alt="" />
                 </div>
               </div>
 
               {/* Sign up form  start */}
-              <div className="col-md-4">
+              <div className="col-md-4 col-sm-6 image-part">
                 <div className="sign-in-form py-3 ">        
                     <div className="card p-3 shadow">
                             <h4 className="ms-3 mt-2"> Sign Up </h4>
@@ -174,7 +174,7 @@ const SignUp = () => {
 
 
 
-                <div className="col-md-2"></div>
+                <div className="col-md-2 single-part "></div>
              </div>
            </div>
         </div>
