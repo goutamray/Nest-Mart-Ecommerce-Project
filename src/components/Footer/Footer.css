@@ -134,26 +134,9 @@ color: #ADADAD;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /********** bottom footer css *************/
 .footer-section .footer-all-part .footer-part1{
   width: 21%;
-}
-
-
-.footer-section .footer-all-part  .footer-part1 .footer-left-box{
-
 }
 
 .footer-section .footer-all-part  .footer-part1 .footer-left-box img{
@@ -209,9 +192,7 @@ color: #ADADAD;
 }
 
 /* right box */
-.footer-section .footer-all-part  .footer-part1 .footer-right-box{
-  
-}
+
 .footer-section .footer-all-part  .footer-part1 .footer-right-box h2{
   color:  #253D4E !important;
   font-size: 25px;
@@ -309,6 +290,129 @@ color: #ADADAD;
   font-weight: 400;
   color: #7E7E7E;
 }
+
+
+
+/************ Footer newsletter  section **************/
+
+@media (min-width : 320px) and (max-width: 576px){ 
+  .news-letter .item .info h2 {
+    font-size: 23px;
+}
+.news-letter {
+  width: 90%;
+  height: 220px;
+}
+
+.news-letter .item .info p {
+  font-size: 13px;
+
+}
+
+}
+
+
+
+@media (min-width : 576px) and (max-width: 768px){ 
+  .news-letter .item .info h2 {
+    font-size: 25px;
+   font-weight: 500;
+}
+
+.news-letter {
+  width: 92%;
+  height: 250px;
+}
+
+.news-letter .item .info p {
+  font-size: 17px;
+
+}
+
+}
+
+
+@media (min-width : 768px) and (max-width: 992px){ 
+  .news-letter {
+    width: 95%;
+    height: 274px;
+}
+.news-letter .item .info p {
+  font-size: 20px;
+
+}
+}
+
+
+
+
+/********* top-footer  *********/
+
+@media (min-width : 320px) and (max-width: 768px){ 
+
+  .top-footer .collumPartAll {
+    display: block;
+ }
+ 
+ .top-footer .collumPartAll .item-box-icon {
+   width: 100%;
+  margin: 15px 0px !important;
+ }
+ .top-footer .collumPartAll .single-text {
+  margin-top: 17px;
+}
+
+}
+
+@media (min-width : 768px) and (max-width: 992px){ 
+  .top-footer .collumPartAll {
+    display: flex;
+    gap: 10px;
+}
+  
+.top-footer .collumPartAll .item-box-icon {
+  width: 20%;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px !important;
+  text-align: center;
+
+}
+
+
+.single-img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+}
+
+/********* Bottom-footer responsive css   *********/
+
+@media (min-width : 320px) and (max-width: 576px){ 
+
+
+}
+
+
+@media (min-width : 320px) and (max-width: 768px){ 
+
+
+}
+
+
+
+@media (min-width : 768px) and (max-width: 992px){ 
+
+
+}
+
+
+
+
+
 
 
 

@@ -177,27 +177,29 @@ const Home = () => {
       {/* Popular Products */}
       <div className="popular-products my-5">
         <div className="container-fluid">
-          <div className="tab-header d-flex align-items-center justify-content-between">
-            <h3> Popular Products </h3>
-            <ul className="list list-inline custom-ul">   
+          <div className="tab-header d-flex align-items-center justify-content-between popular-productsTileWrap ">
+               <h3 className="res-full"> Popular Products </h3>
+            <div className="pppppp-div"> 
+              <ul className="list list-inline custom-ul res-full">   
 
+                { 
+                catArray?.length !== 0 && 
+                catArray?.map((item, index) => {
+                  return <li  className="list-inline-item" key={index}> 
+                            <a className={`${activeTabIndex === index && "active"}`} onClick={() => {             
+                            setactiveTab(item)
+                            setactiveTabIndex(index)
 
-             { 
-              catArray?.length !== 0 && 
-              catArray?.map((item, index) => {
-               return <li  className="list-inline-item" key={index}> 
-                         <a className={`${activeTabIndex === index && "active"}`} onClick={() => {             
-                          setactiveTab(item)
-                          setactiveTabIndex(index)
+                          }}> {item} 
 
-                        }}> {item} 
+                            </a>
+                        </li>
+                }) 
+                } 
 
-                         </a>
-                     </li>
-              }) 
-             } 
-
-            </ul>
+</ul>
+            </div>
+           
           </div>
 
           <div className="row product-row my-4">
@@ -217,7 +219,7 @@ const Home = () => {
       </div>
        
        {/* Daily Best Products */}
-       <div className="popular-products my-5">
+       <div className="popular-products daily-sells my-5">
         <div className="container-fluid">
           <div className="tab-header d-flex align-items-center justify-content-between">
             <h3> Daily Best Sells </h3>
@@ -225,7 +227,7 @@ const Home = () => {
           
           <div className="row my-4">
             <div className="col-md-3">
-               <div className="banner-image">
+               <div className="banner-image my-banner">
                    <img src={banner4} alt="" className="w-100" style={{borderRadius: "20px"}}/>
                    <h2> Bring nature into your home </h2>   
                    <a href="#" className="button-shop-primary"> Shop Now <FaArrowRight /></a>        
@@ -254,16 +256,16 @@ const Home = () => {
       <div className="topProducts my-3">
         <div className="container-fluid">
            <div className="row">
-             <div className="col-md-3">
+             <div className="col-sm-6 col-md-3 custom-collum ">
                  <TopProduct title="Top Selling" />
              </div>
-             <div className="col-md-3">
+             <div className="col-sm-6  col-md-3 custom-collum ">
                 <TopProduct title="Trending Products"  />
              </div>
-             <div className="col-md-3">
+             <div className="col-sm-6  col-md-3 custom-collum ">
                  <TopProduct title="Recently added" />
              </div>
-             <div className="col-md-3">
+             <div className=" col-sm-6  col-md-3 custom-collum ">
                  <TopProduct title="Top Rated" />
              </div>
            </div>

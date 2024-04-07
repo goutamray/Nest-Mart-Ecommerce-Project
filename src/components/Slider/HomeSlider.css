@@ -137,10 +137,10 @@
 /*************** Responsive css **************/
 @media (min-width : 320px) and (max-width: 575px){ 
   .home-slider-main .item .info h2{
-    font-size: 25px;
+    font-size: 22px;
   }
   .home-slider-main .item .info p{
-    font-size: 16px;
+    font-size: 15px;
   }
 
 

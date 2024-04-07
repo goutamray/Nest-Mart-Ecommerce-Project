@@ -14,7 +14,7 @@
   top: 17%;
   width: 70%;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
 
 }
 
@@ -115,15 +115,16 @@
 
 
 
-/*********** Banner section Responsive  css  *********/
+/******************* Banner section Responsive  css  ****************/
 @media (min-width : 320px) and (max-width: 576px){ 
   .banner-section .banner-part{
     margin: 10px 0px;
   }
 
-  .banner-section .banner-part .banner-img .banner-text .banner-title{
-    font-size: 20px !important;
-  }
+  .banner-section .banner-part .banner-img .banner-text .banner-title {
+    font-size: 18px !important;
+}
+
 }
 
 /******** Min 320px & Max 768px  **********/
@@ -179,10 +180,150 @@
 
 
 
+/************** Popular Product Wrapper   *************/
+
+@media (min-width : 320px) and (max-width: 992px){ 
+  .res-full{
+    width: 100% !important;
+  }
+
+  .pppppp-div {
+    overflow: auto;
+    width: 100%;
+}
+
+.popular-productsTileWrap .custom-ul {
+  white-space: nowrap !important;
+  overflow-x: scroll !important; 
+  width: 100% !important;
+  display: block !important;
+}
+
+
+.popular-productsTileWrap {
+  flex-direction: column;
+}
+.popular-productsTileWrap .custom-ul{
+   white-space: wrap !important;
+   overflow-x: scroll !important;
+   width: 100% !important;
+   display: block !important;
+}
+
+
+.productThumb .product-image {
+  height: 123px !important;
+}
+
+.productThumb .info .title h3 {
+  font-size: 14px;
+}
+.productThumb .info .product-card-bottom .product-price {
+  font-size: 16px;
+}
+.productThumb .info .author {
+  font-size: 12px;
+}
+
+.popular-products .product-row .item {
+  width: 181px;
+  display: inline-block;
+}
+
+
+}
+
+
+/*********** Daily Best Products  ***************/
+@media (min-width : 320px) and (max-width: 576px){ 
+
+  .popular-products.daily-sells.my-5 {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+ }
+
+  .product-slider-main .item {
+    padding: 13px 6px;
+}
+
+.productThumb {
+  padding: 13px;
+}
+
+.productThumb .product-image {
+  height: 100px !important;
+  margin-top: 16px;
+}
+
+}
+
+
+@media (min-width : 320px) and (max-width: 768px){ 
+  .popular-products .banner-image h2 {
+    font-size: 28px;
+}
+
+.banner-image.my-banner img {
+  height: 250px !important;
+}
+
+.productThumb .info .product-card-bottom .product-price {
+  font-size: 14px;
+}
+
+}
 
 
 
+@media (min-width : 768px) and (max-width: 992px){
+  .popular-products .banner-image h2 {
+    font-size: 24px;
+    left: 9%;
+    top: 5%;
+    width: 92%;
+}
 
+.banner-image.my-banner img {
+  height: 300px !important;
+}
+
+}
+
+
+/************  footer top sectopn   ***************/
+
+@media (min-width : 320px) and (max-width: 576px){ 
+  .topSellingbox h2 {
+    font-size: 18px !important;
+}
+
+.topSellingbox h2::after {
+  top: 30px;
+}
+.topSellingbox h2::before {
+  top: 30px;
+}
+
+}
+
+@media (min-width : 576px) and (max-width: 768px){ 
+  .topSellingbox h2 {
+    font-size: 20px;
+
+}
+}
+
+
+
+@media (min-width : 768px) and (max-width: 992px){ 
+  .topSellingbox h2 {
+    font-size: 20px !important;
+}
+
+.custom-collum {
+  width: 50% !important;
+}
+}
 
 
 
