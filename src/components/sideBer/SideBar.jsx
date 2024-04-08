@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { MdFilterListAlt } from "react-icons/md";
 
@@ -12,12 +12,18 @@ import banner11 from "../../assets/img/banner/banner-11.png"
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
+
+import { MyContext } from "../../App";
+
+
+
 import "./SideBar.css";
 const SideBar = (props) => {
    
    const [value, setValue ] = useState([20, 60000]);
-
    const [totalLength, setTotalLength] = useState([]);
+
+   const context = useContext(MyContext); 
 
    var catLength = 0;
    var lengthArr = [];
@@ -40,13 +46,13 @@ const SideBar = (props) => {
   
    }, []);
 
-
+  
 
 
   return (
     <>
-    <div className="sidebar-left">
-        <div className="card-box">
+    <div className= {`sidebar-left  ${context.openFilters === true && "click"}`}>
+        <div className="card-box res-hide ">
            <h2> Category </h2>
 
            <div className="catList">
@@ -67,7 +73,7 @@ const SideBar = (props) => {
         </div>
 
       {/* Fill by price */}
-        <div className="card-box">
+        <div className="card-box abcd">
            <h2 > Fill by price </h2>
 
            <RangeSlider value={value} onInput={setValue} min={20} max={60000} step={5}/>
@@ -118,7 +124,7 @@ const SideBar = (props) => {
                </li> 
              </ul>
           </div>
-           <a href="" className="btn-default-filter"> <MdFilterListAlt className="filter" /> Filter </a>
+           <a href="" className="btn-default-filter" onClick={()=> context.openFilterShop()}> <MdFilterListAlt className="filter" /> Filter </a>
         
         </div>
  

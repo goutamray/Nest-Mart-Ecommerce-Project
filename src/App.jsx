@@ -29,6 +29,8 @@ function App() {
   const [isLogin , setIsLogin] = useState();
   const [windowWidth, setWindowWidth ] = useState(window.innerWidth); 
 
+  const [openFilters, setOpenFilters ] = useState(false);  
+
   useEffect(() => {
     getCartData(`http://localhost:5050/cartItems`); 
 
@@ -87,6 +89,10 @@ function App() {
   setIsLogin(false); 
  }
 
+ const openFilterShop = () => {
+  setOpenFilters(!openFilters)
+ }; 
+
   const value = {
      cartItems,
      addToCart,
@@ -96,8 +102,13 @@ function App() {
      signOut,
      signIn, 
      windowWidth, 
+     openFilters, 
+     openFilterShop 
   }
    
+
+
+
   return (
     <>
      <MyContext.Provider value={value}> 

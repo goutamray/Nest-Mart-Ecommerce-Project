@@ -6,7 +6,9 @@ import { Link, useParams } from "react-router-dom";
 import Product from "../../components/product/Product";
 import SideBar from "../../components/sideBer/SideBar";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MyContext } from "../../App";
+  
 
 import axios from "axios";
 import "./Shop.css";
@@ -18,6 +20,10 @@ const Shop = ( props  ) => {
 
   const [allProduct, SetAllProduct] = useState([])
   const [data, setData] = useState([]);
+
+  const context = useContext(MyContext); 
+
+
 
   // get all data
   useEffect(() => {
@@ -145,6 +151,12 @@ const Shop = ( props  ) => {
 
   return (
     <>
+
+           {
+               context.windowWidth < 992 && 
+              <button className="btn btn-primary w-100 filters-btn mb-2" onClick={()=> context.openFilterShop()}> Filters </button> 
+           }
+
     {/* breadcrumb section */}
       <div className="listingProduct my-4">
          <div className="container-fluid">
@@ -177,14 +189,18 @@ const Shop = ( props  ) => {
         <div className="productListingData">
           <div className="container-fluid">
             <div className="row">
-               <div className="col-lg-9 col-md-3  left-sidebar">
+         
+      
+               <div className={`col-md-3  left-sidebar ${context.openFilters === true && "open"}`}>
+               
+          
                 {
                   data.length !== 0 &&  <SideBar data={allProduct} currentCatData={data} filterByPrice={filterByPrice} /> 
                 }
                
                </div>
 
-               <div className="col-lg-9 col-md-9 right-sidebar popular-products ">
+               <div className=" col-md-9 right-sidebar popular-products ">
                <div className="top-strip d-flex align-items-center justify-content-between">
                   <p> We found <span style={{color: "#3BB77E"}}> {data.length} </span> items for you! </p>
                   <div className="ml-auto  d-flex align-items-center ">
@@ -232,6 +248,7 @@ const Shop = ( props  ) => {
 
                     
                    </div>
+                   
                </div>
             </div>
           </div>
