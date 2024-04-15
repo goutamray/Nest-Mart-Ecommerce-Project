@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 // import icons 
 import { CiHeart, CiShuffle } from "react-icons/ci";
@@ -20,7 +20,7 @@ import "slick-carousel/slick/slick.css";
 import Product from "../../components/product/Product";
 import StarRating from "../../components/star-rate/StarRating";
 import Counter from '../../components/counter/Counter';
-
+import { MyContext } from "../../App";
 
 import Rating from 'react-rating';
 
@@ -39,6 +39,7 @@ const SingleProduct = () => {
 
  const [relatedProduct, setRelatedProduct ] = useState([]); 
  const [reviewArr, setReviewArr ] = useState([]); 
+ const context = useContext(MyContext); 
 
 
   let singleId = useParams(); 
@@ -58,7 +59,7 @@ const SingleProduct = () => {
                     }
                  })
             })
-       })
+       })  
 
 
     // related product 
@@ -100,7 +101,7 @@ const SingleProduct = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade : false,
-    arrows : false, 
+    arrows : context.windowWidth > 768 ?  true : false , 
    
   }
 
@@ -111,7 +112,7 @@ const SingleProduct = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     fade : false,
-    arrows : true, 
+    arrows : context.windowWidth > 768 ?  true : false , 
   }
   let related = {
     dots: false,
@@ -229,6 +230,9 @@ const handleFormSubmit = async(e) => {
       <div className="single-product">
 
        {/* breadcrumb */}
+
+       {
+        context.windowWidth > 992 && 
         <div className="breadCrumbWrapper2 ">
            <div className="container-fluid">
               <div className="bradcrumb2 ">
@@ -245,6 +249,8 @@ const handleFormSubmit = async(e) => {
              </div>
           </div>
         </div>
+       }
+        
 
 
         <div className="container my-5">
@@ -519,7 +525,7 @@ const handleFormSubmit = async(e) => {
                    {
                     activeTab === 2 && <div className="tab-content mt-3">
                          <div className="row">
-                          <div className="col-md-8">
+                          <div className="col-md-8 left-review-box ">
                                <div className="review-customer">
                                   <h4> Customer questions & answers  </h4>
 
@@ -570,7 +576,7 @@ const handleFormSubmit = async(e) => {
                                           </div>
                                        </div>
                                     <div className="col-md-6">
-                                      <div className="form-group">
+                                      <div className="form-group star-view ">
                                        <span className="me-3"> 
                                        Review  <Rating className='icon-all' emptySymbol="fa fa-star-o fa-2x" fullSymbol="fa fa-star fa-2x"  fractions={2} name="rating"  value={rating} onChange={(rating) => setRating(rating)} /> </span>
                                      
