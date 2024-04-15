@@ -13,8 +13,11 @@ import banner4 from "../../assets/img/banner/banner-4.png";
 
 import Slider from "react-slick";
 
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
+import data from "../../data/data" 
+
+
 
 import "./Home.css";
 const Home = () => {
@@ -27,20 +30,33 @@ const Home = () => {
 
   const [bestSells, setBestSells] = useState([]); 
 
+
+
+     
+
+
+
   // get all data
   useEffect(() => {
-    getData(`http://localhost:5050/productData`);
+    // getData(`http://localhost:5050/productData`);
+
+  setTimeout(() => {
+    setprodData(data.productData);
+  }, 3000)
+ 
+
+  
  }, []);
 
- const getData = async(url) => {
-   try {
-      await axios.get(url).then((response) => {
-        setprodData(response.data);
-      })
-   } catch (error) {
-     console.log(error.message);
-   }
- };
+//  const getData = async(url) => {
+//    try {
+//       await axios.get(url).then((response) => {
+//         setprodData(response.data);
+//       })
+//    } catch (error) {
+//      console.log(error.message);
+//    }
+//  };
 
  const catArr = []; 
 
@@ -71,8 +87,8 @@ const Home = () => {
           item.items?.map((item_, index_) => {
              if (item_.cat_name === activeTab ) {
               {
-                item_.products.length !== 0 &&
-                    item_.products.map((product) => {
+                item_.products?.length !== 0 &&
+                    item_.products?.map((product) => {
                         arr.push({ ...product, parentCatName: item.cat_name, subCatName: item_.cat_name })
                     })
 
@@ -96,10 +112,10 @@ const Home = () => {
 
 
     prodData?.length !== 0 && 
-     prodData.map((item) => {
+     prodData?.map((item) => {
        if (item.cat_name == "Electronics") {
          item.items.length !== 0 && 
-            item.items.map((item_) => {
+            item.items?.map((item_) => {
                item_.products.length !== 0 && 
                  item_.products.map((item)=> {
                   bestArr.push(item)

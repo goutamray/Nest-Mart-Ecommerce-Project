@@ -8,9 +8,9 @@ import SideBar from "../../components/sideBer/SideBar";
 
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../App";
-  
+import dataAll from "../../data/data"
 
-import axios from "axios";
+// import axios from "axios";
 import "./Shop.css";
 
 const Shop = ( props  ) => {
@@ -18,7 +18,7 @@ const Shop = ( props  ) => {
   const [dropDownOpen, setDropDownOpen ] = useState(false); 
   const [dropDownOpen2, setDropDownOpen2 ] = useState(false); 
 
-  const [allProduct, SetAllProduct] = useState([])
+  const [allProduct, SetAllProduct] = useState([]); 
   const [data, setData] = useState([]);
 
   const context = useContext(MyContext); 
@@ -28,18 +28,24 @@ const Shop = ( props  ) => {
   // get all data
   useEffect(() => {
     window.scrollTo(0,0);
-    getData(`http://localhost:5050/productData`);
+
+    // getData(`http://localhost:5050/productData`);
+
+    setTimeout(() => {
+      SetAllProduct(dataAll.productData);
+    }, 3000)
+
  }, []);
 
- const getData = async(url) => {
-   try {
-      await axios.get(url).then((response) => {
-        SetAllProduct(response.data);
-      })
-   } catch (error) {
-     console.log(error.message);
-   }
- };
+//  const getData = async(url) => {
+//    try {
+//       await axios.get(url).then((response) => {
+//         SetAllProduct(response.data);
+//       })
+//    } catch (error) {
+//      console.log(error.message);
+//    }
+//  };
 
  let id = useParams();   
  let singleId = id.id; 
